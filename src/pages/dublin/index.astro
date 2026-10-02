@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import places from '../../data/places.json';
+
+const dublinPlaces = places.filter((place) => place.city === 'Dublin');
+---
+
+<BaseLayout
+  title="Breakfast in Dublin — breakfast.ie"
+  description="Find breakfast in Dublin, including Full Irish breakfasts, vegetarian options, black pudding, white pudding and more."
+>
+  <div class="city-page">
+    <header class="city-header">
+      <p class="eyebrow">Ireland</p>
+      <h1>Breakfast in Dublin</h1>
+      <p class="intro">
+        Good places for breakfast in Dublin, with the details that actually
+        matter.
+      </p>
+    </header>
+
+    <section class="controls" aria-label="Breakfast filters">
+      <div class="count">
+        {dublinPlaces.length} places
+      </div>
+
+      <div class="filters">
+        <button type="button">Full Irish</button>
+        <button type="button">Early</button>
+        <button type="button">All day</button>
+        <button type="button">Vegetarian</button>
+        <button type="button">White pudding</button>
+      </div>
+    </section>
+
+    <section class="places" aria-label="Breakfast places in Dublin">
+      {
+        dublinPlaces.map((place) => (
+          <article class="place">
+            <div>
+              <h2>
+                <a href={`/places/${place.slug}/`}>{place.name}</a>
+              </h2>
+              <p class="area">{place.area}</p>
+            </div>
+
+            <p class="detail">{place.breakfast.summary}</p>
+
+            <ul>
+              {place.breakfast.fullIrish && <li>Full Irish</li>}
+              {place.breakfast.blackPudding && <li>Black pudding</li>}
+              {place.breakfast.whitePudding && <li>White pudding</li>}
+              {place.breakfast.vegetarian && <li>Vegetarian</li>}
+              {place.breakfast.vegan && <li>Vegan</li>}
+              <li>{place.priceLevel}</li>
+            </ul>
+          </article>
+        ))
+      }
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .city-page {
+    padding-top: 72px;
+  }
+
+  .city-header {
+    max-width: 900px;
+    padding-bottom: 72px;
+  }
+
+  .eyebrow {
+    margin: 0 0 16px;
+    color: #555;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+  }
+
+  .intro {
+    max-width: 620px;
+    margin: 32px 0 0;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    line-height: 1.4;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    align-items: center;
+    padding: 24px 0;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+  }
+
+  .count {
+    white-space: nowrap;
+    font-weight: 700;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .filters button {
+    padding: 8px 12px;
+    border: 1px solid #111;
+    border-radius: 0;
+    background: #fff;
+    color: #111;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .places {
+    padding-bottom: 72px;
+  }
+
+  .place {
+    display: grid;
+    grid-template-columns: 2fr 2fr 3fr;
+    gap: 32px;
+    align-items: baseline;
+    padding: 28px 0;
+    border-bottom: 1px solid #111;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    letter-spacing: -0.03em;
+  }
+
+  h2 a {
+    text-decoration: none;
+  }
+
+  h2 a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .area,
+  .detail {
+    margin: 6px 0 0;
+  }
+
+  .area {
+    color: #555;
+  }
+
+  .place ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (max-width: 700px) {
+    .city-page {
+      padding-top: 48px;
+    }
+
+    .city-header {
+      padding-bottom: 48px;
+    }
+
+    .controls {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .filters {
+      justify-content: flex-start;
+    }
+
+    .place {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+</style>
