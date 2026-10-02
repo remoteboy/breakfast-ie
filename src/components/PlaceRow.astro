@@ -1,0 +1,196 @@
+---
+import type { Place } from '../types/place';
+import {
+  getAreaLabel,
+  getBreakfastSummary,
+  getBreakfastTags,
+  getFilterValues,
+  getPrimaryImage,
+} from '../lib/place';
+
+interface Props {
+  place: Place;
+  filterable?: boolean;
+}
+
+const { place, filterable = false } = Astro.props;
+const image = getPrimaryImage(place);
+const filterValues = getFilterValues(place);
+const tags = getBreakfastTags(place);
+const searchText = [
+  place.name,
+  getAreaLabel(place),
+  place.location.address,
+  place.editorial.summary,
+  getBreakfastSummary(place),
+  ...tags,
+].join(' ');
+---
+
+<article
+  class:list={['place-row', image && 'has-image']}
+  data-place={filterable ? '' : undefined}
+  data-filters={filterable ? filterValues.join(' ') : undefined}
+  data-search={filterable ? searchText : undefined}
+  data-lat={filterable ? place.location.latitude : undefined}
+  data-lng={filterable ? place.location.longitude : undefined}
+>
+  {
+    image && (
+      <figure class="place-image">
+        <a href={`/places/${place.slug}/`} tabindex="-1" aria-hidden="true">
+          <img src={image.src} alt="" loading="lazy" />
+        </a>
+
+        <figcaption>
+          {image.kind === 'neighbourhood' && <span>Neighbourhood photo · </span>}
+          {image.credit && image.creditUrl ? (
+            <a href={image.creditUrl} rel="external">{image.credit}</a>
+          ) : (
+            image.credit
+          )}
+          {image.license && (
+            <>
+              {' · '}
+              {image.licenseUrl ? (
+                <a href={image.licenseUrl} rel="external">{image.license}</a>
+              ) : (
+                image.license
+              )}
+            </>
+          )}
+        </figcaption>
+      </figure>
+    )
+  }
+
+  <div class="place-copy">
+    <h2>
+      <a href={`/places/${place.slug}/`}>{place.name}</a>
+    </h2>
+
+    <p class="area">{getAreaLabel(place)}</p>
+    <p class="summary">{place.editorial.summary}</p>
+
+    <div class="service-line">
+      <span>{getBreakfastSummary(place)}</span>
+      <span class="distance" data-distance hidden></span>
+    </div>
+  </div>
+
+  <ul class="tags" aria-label={`${place.name} features`}>
+    {tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+</article>
+
+<style>
+  .place-row {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+    gap: 40px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid #111;
+  }
+
+  .place-row.has-image {
+    grid-template-columns: 180px minmax(0, 2fr) minmax(220px, 1fr);
+  }
+
+  .place-image {
+    margin: 0;
+  }
+
+  .place-image a {
+    display: block;
+  }
+
+  .place-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #eee;
+  }
+
+  .place-image figcaption {
+    margin-top: 7px;
+    color: #777;
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .place-image figcaption a {
+    display: inline;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  h2 a {
+    text-decoration: none;
+  }
+
+  h2 a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .area,
+  .summary,
+  .service-line {
+    margin: 0;
+  }
+
+  .area {
+    margin-top: 6px;
+    color: #555;
+  }
+
+  .summary {
+    max-width: 62ch;
+    margin-top: 18px;
+    line-height: 1.5;
+  }
+
+  .service-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-top: 10px;
+    color: #555;
+    font-size: 0.9rem;
+  }
+
+  .distance:not([hidden])::before {
+    content: '· ';
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (max-width: 800px) {
+    .place-row,
+    .place-row.has-image {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .place-image {
+      max-width: 440px;
+    }
+
+    .tags {
+      margin-top: 0;
+    }
+  }
+</style>

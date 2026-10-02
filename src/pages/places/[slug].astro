@@ -1,12 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import places from '../../data/places.ts';
+import places from '../../data/places';
+import {
+  formatCheckedDate,
+  formatFact,
+  getAreaLabel,
+  getBreakfastSummary,
+  getPrimaryImage,
+} from '../../lib/place';
 
 export function getStaticPaths() {
   return places.map((place) => ({
     params: {
       slug: place.slug,
     },
+
     props: {
       place,
     },
@@ -14,28 +22,100 @@ export function getStaticPaths() {
 }
 
 const { place } = Astro.props;
+const image = getPrimaryImage(place);
+const directionsUrl =
+  place.location.latitude !== null && place.location.longitude !== null
+    ? `https://www.google.com/maps/dir/?api=1&destination=${place.location.latitude},${place.location.longitude}`
+    : null;
 
 const facts = [
   ['Full Irish', place.breakfast.fullIrish],
-  ['Black pudding', place.breakfast.blackPudding],
-  ['White pudding', place.breakfast.whitePudding],
-  ['Vegetarian', place.breakfast.vegetarian],
-  ['Vegan', place.breakfast.vegan],
-];
+  ['Vegetarian options', place.breakfast.vegetarian],
+  ['Vegan options', place.breakfast.vegan],
+] as const;
 ---
 
 <BaseLayout
   title={`${place.name} — breakfast.ie`}
-  description={`Breakfast information for ${place.name}, ${place.area}.`}
+  description={`${place.editorial.summary} Breakfast information for ${place.name}, ${getAreaLabel(place)}.`}
 >
   <div class="place-page">
-    <a class="back" href="/dublin/">← Breakfast in Dublin</a>
+    <a class="back" href="/dublin/">
+      ← Breakfast in Dublin
+    </a>
 
     <header class="place-header">
-      <p class="area">{place.area}</p>
+      <p class="area">{getAreaLabel(place)}</p>
+
       <h1>{place.name}</h1>
-      <p class="summary">{place.breakfast.summary}</p>
+
+      <p class="summary">{place.editorial.summary}</p>
+
+      <p class="service">{getBreakfastSummary(place)}</p>
+
+      <div class="header-actions">
+        {
+          place.links.website && (
+            <a href={place.links.website} rel="external">
+              Website
+            </a>
+          )
+        }
+
+        {place.links.website && place.links.menu && <span aria-hidden="true">·</span>}
+
+        {
+          place.links.menu && (
+            <a href={place.links.menu} rel="external">
+              Menu
+            </a>
+          )
+        }
+
+        {(place.links.website || place.links.menu) && directionsUrl && <span aria-hidden="true">·</span>}
+
+        {
+          directionsUrl && (
+            <a href={directionsUrl} rel="external">
+              Directions
+            </a>
+          )
+        }
+      </div>
     </header>
+
+    {
+      image && (
+        <figure class="hero-image">
+          <img src={image.src} alt={image.alt} />
+
+          <figcaption>
+            {image.kind === 'neighbourhood' && <span>Neighbourhood photo · </span>}
+
+            {image.credit && image.creditUrl ? (
+              <a href={image.creditUrl} rel="external">
+                {image.credit}
+              </a>
+            ) : (
+              image.credit
+            )}
+
+            {image.license && (
+              <>
+                {' · '}
+                {image.licenseUrl ? (
+                  <a href={image.licenseUrl} rel="external">
+                    {image.license}
+                  </a>
+                ) : (
+                  image.license
+                )}
+              </>
+            )}
+          </figcaption>
+        </figure>
+      )
+    }
 
     <section class="facts">
       <h2>Breakfast</h2>
@@ -45,14 +125,14 @@ const facts = [
           facts.map(([label, value]) => (
             <div>
               <dt>{label}</dt>
-              <dd>{value ? 'Yes' : 'No'}</dd>
+              <dd>{formatFact(value)}</dd>
             </div>
           ))
         }
 
         <div>
-          <dt>Price</dt>
-          <dd>{place.priceLevel}</dd>
+          <dt>All day</dt>
+          <dd>{formatFact(place.breakfast.allDay)}</dd>
         </div>
 
         {
@@ -78,38 +158,36 @@ const facts = [
     <section class="details">
       <h2>Details</h2>
 
-      <div>
-        <dl>
-          <div>
-            <dt>Address</dt>
-            <dd>{place.address}</dd>
-          </div>
-
-          <div>
-            <dt>Information checked</dt>
-            <dd>{place.lastChecked}</dd>
-          </div>
-        </dl>
-
-        <div class="actions">
-          {
-            place.website && (
-              <a href={place.website} rel="external">
-                Website
-              </a>
-            )
-          }
-
-          {
-            place.menuUrl && (
-              <a href={place.menuUrl} rel="external">
-                Menu
-              </a>
-            )
-          }
+      <dl>
+        <div>
+          <dt>Address</dt>
+          <dd>{place.location.address}</dd>
         </div>
-      </div>
+
+        <div>
+          <dt>Information checked</dt>
+          <dd>{formatCheckedDate(place.verification.checkedAt)}</dd>
+        </div>
+      </dl>
     </section>
+
+    {
+      place.verification.sources.length > 0 && (
+        <section class="sources">
+          <h2>Sources</h2>
+
+          <ul>
+            {place.verification.sources.map((source) => (
+              <li>
+                <a href={source.url} rel="external">
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
   </div>
 </BaseLayout>
 
@@ -134,7 +212,7 @@ const facts = [
   }
 
   h1 {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0;
     font-size: clamp(3.5rem, 9vw, 8rem);
     line-height: 0.9;
@@ -142,8 +220,43 @@ const facts = [
   }
 
   .summary {
+    max-width: 760px;
     margin: 32px 0 0;
-    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+    line-height: 1.35;
+  }
+
+  .service {
+    margin: 18px 0 0;
+    color: #555;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 14px;
+  }
+
+  .hero-image {
+    margin: 0;
+    padding: 48px 0;
+    border-bottom: 1px solid #111;
+  }
+
+  .hero-image img {
+    display: block;
+    width: 100%;
+    max-height: 680px;
+    object-fit: cover;
+    background: #eee;
+  }
+
+  .hero-image figcaption {
+    margin-top: 9px;
+    color: #666;
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
 
   section {
@@ -180,10 +293,16 @@ const facts = [
     margin: 0;
   }
 
-  .actions {
-    display: flex;
-    gap: 24px;
-    margin-top: 32px;
+  .sources ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #111;
+  }
+
+  .sources li {
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
   }
 
   @media (max-width: 700px) {
@@ -197,6 +316,10 @@ const facts = [
 
     .place-header {
       padding-bottom: 48px;
+    }
+
+    .hero-image {
+      padding: 32px 0;
     }
 
     section {

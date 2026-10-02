@@ -1,0 +1,408 @@
+---
+import type { Place } from '../types/place';
+import { getAreaLabel } from '../lib/place';
+
+interface Props {
+  places: Place[];
+  label?: string;
+  compact?: boolean;
+}
+
+const { places, label = 'Where?', compact = false } = Astro.props;
+
+const suggestions = [
+  {
+    label: 'Dublin',
+    meta: 'City',
+    url: '/dublin/',
+    keywords: 'dublin city ireland',
+  },
+  ...places.map((place) => ({
+    label: place.name,
+    meta: getAreaLabel(place),
+    url: `/places/${place.slug}/`,
+    keywords: [
+      place.name,
+      place.location.area,
+      place.location.locality,
+      place.location.city,
+      place.editorial.summary,
+    ].join(' '),
+  })),
+];
+---
+
+<form class:list={['place-search', compact && 'compact']} action="/dublin/" method="get" data-place-search>
+  <div class="label-row">
+    <label for="breakfast-search">{label}</label>
+    <button class="near-me" type="button" data-near-me>Near me</button>
+  </div>
+
+  <div class="search-control">
+    <div class="autocomplete">
+      <input
+        id="breakfast-search"
+        name="q"
+        type="search"
+        placeholder="Try Dublin, Capel Street, Lemon Jelly…"
+        autocomplete="off"
+        aria-autocomplete="list"
+        aria-controls="breakfast-search-results"
+        aria-expanded="false"
+        data-search-input
+      />
+
+      <input type="hidden" value="" data-search-destination />
+
+      <div
+        id="breakfast-search-results"
+        class="suggestions"
+        role="listbox"
+        hidden
+        data-search-results
+      ></div>
+    </div>
+
+    <button class="submit" type="submit">Search</button>
+  </div>
+
+  <p class="location-status" data-location-status hidden></p>
+</form>
+
+<script type="application/json" id="breakfast-search-data" set:html={JSON.stringify(suggestions)}></script>
+
+<script>
+  const form = document.querySelector('[data-place-search]');
+  const input = form?.querySelector('[data-search-input]');
+  const destination = form?.querySelector('[data-search-destination]');
+  const results = form?.querySelector('[data-search-results]');
+  const nearMe = form?.querySelector('[data-near-me]');
+  const locationStatus = form?.querySelector('[data-location-status]');
+  const dataNode = document.querySelector('#breakfast-search-data');
+
+  if (
+    form instanceof HTMLFormElement &&
+    input instanceof HTMLInputElement &&
+    destination instanceof HTMLInputElement &&
+    results instanceof HTMLElement &&
+    dataNode
+  ) {
+    const suggestions = JSON.parse(dataNode.textContent || '[]');
+    let visible = [];
+    let activeIndex = -1;
+
+    const existingQuery = new URLSearchParams(window.location.search).get('q');
+    if (existingQuery) input.value = existingQuery;
+
+    const normalise = (value) =>
+      value
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+
+    const close = () => {
+      results.hidden = true;
+      results.innerHTML = '';
+      visible = [];
+      activeIndex = -1;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+    };
+
+    const choose = (item) => {
+      input.value = item.label;
+      destination.value = item.url;
+      close();
+    };
+
+    const escapeHtml = (value) =>
+      value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+    const render = () => {
+      const query = normalise(input.value);
+      destination.value = '';
+
+      if (!query) {
+        close();
+        return;
+      }
+
+      visible = suggestions
+        .filter((item) => normalise(`${item.label} ${item.meta} ${item.keywords}`).includes(query))
+        .slice(0, 7);
+
+      if (!visible.length) {
+        close();
+        return;
+      }
+
+      results.innerHTML = visible
+        .map(
+          (item, index) => `
+            <button
+              class="suggestion"
+              id="breakfast-suggestion-${index}"
+              type="button"
+              role="option"
+              data-suggestion-index="${index}"
+              aria-selected="false"
+            >
+              <span>${escapeHtml(item.label)}</span>
+              <small>${escapeHtml(item.meta)}</small>
+            </button>
+          `,
+        )
+        .join('');
+
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+    };
+
+    const setActive = (index) => {
+      const options = [...results.querySelectorAll('[data-suggestion-index]')];
+      if (!options.length) return;
+
+      activeIndex = Math.max(0, Math.min(index, options.length - 1));
+
+      options.forEach((option, optionIndex) => {
+        option.setAttribute('aria-selected', String(optionIndex === activeIndex));
+      });
+
+      const active = options[activeIndex];
+      active?.scrollIntoView({ block: 'nearest' });
+      if (active instanceof HTMLElement) {
+        input.setAttribute('aria-activedescendant', active.id);
+      }
+    };
+
+    input.addEventListener('input', render);
+
+    input.addEventListener('keydown', (event) => {
+      if (results.hidden || !visible.length) return;
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        setActive(activeIndex + 1);
+      }
+
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        setActive(activeIndex <= 0 ? visible.length - 1 : activeIndex - 1);
+      }
+
+      if (event.key === 'Enter' && activeIndex >= 0) {
+        event.preventDefault();
+        choose(visible[activeIndex]);
+        window.location.assign(visible[activeIndex].url);
+      }
+
+      if (event.key === 'Escape') close();
+    });
+
+    results.addEventListener('mousedown', (event) => event.preventDefault());
+
+    results.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+      const button = event.target.closest('[data-suggestion-index]');
+      if (!(button instanceof HTMLElement)) return;
+
+      const item = visible[Number(button.dataset.suggestionIndex)];
+      if (!item) return;
+
+      choose(item);
+      window.location.assign(item.url);
+    });
+
+    input.addEventListener('blur', () => window.setTimeout(close, 100));
+
+    form.addEventListener('submit', (event) => {
+      if (destination.value) {
+        event.preventDefault();
+        window.location.assign(destination.value);
+        return;
+      }
+
+      const query = normalise(input.value);
+      const exact = suggestions.find(
+        (item) => normalise(item.label) === query || normalise(item.meta) === query,
+      );
+
+      if (exact) {
+        event.preventDefault();
+        window.location.assign(exact.url);
+      }
+    });
+
+    nearMe?.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        if (locationStatus instanceof HTMLElement) {
+          locationStatus.textContent = 'Location is not available in this browser.';
+          locationStatus.hidden = false;
+        }
+        return;
+      }
+
+      if (nearMe instanceof HTMLButtonElement) {
+        nearMe.disabled = true;
+        nearMe.textContent = 'Locating…';
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const next = new URL('/dublin/', window.location.origin);
+          next.searchParams.set('near', '1');
+          next.searchParams.set('lat', position.coords.latitude.toFixed(6));
+          next.searchParams.set('lng', position.coords.longitude.toFixed(6));
+          window.location.assign(next);
+        },
+        () => {
+          if (nearMe instanceof HTMLButtonElement) {
+            nearMe.disabled = false;
+            nearMe.textContent = 'Near me';
+          }
+          if (locationStatus instanceof HTMLElement) {
+            locationStatus.textContent = 'We couldn’t access your location. You can still search by area.';
+            locationStatus.hidden = false;
+          }
+        },
+        { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 },
+      );
+    });
+  }
+</script>
+
+<style>
+  .place-search {
+    max-width: 760px;
+  }
+
+  .label-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-weight: 700;
+  }
+
+  .near-me {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #111;
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .near-me:disabled {
+    color: #777;
+    cursor: wait;
+  }
+
+  .search-control {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .autocomplete {
+    position: relative;
+    flex: 1;
+  }
+
+  input,
+  .submit {
+    min-height: 56px;
+    border: 1px solid #111;
+    border-radius: 0;
+    font: inherit;
+  }
+
+  input {
+    width: 100%;
+    padding: 0 16px;
+    background: #fff;
+  }
+
+  .submit {
+    margin-left: -1px;
+    padding: 0 24px;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .suggestions {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% - 1px);
+    right: 0;
+    left: 0;
+    border: 1px solid #111;
+    background: #fff;
+  }
+
+  .suggestion {
+    display: flex;
+    width: 100%;
+    min-height: 0;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 13px 16px;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    color: #111;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .suggestion:last-child {
+    border-bottom: 0;
+  }
+
+  .suggestion:hover,
+  .suggestion[aria-selected='true'] {
+    background: #f1f1f1;
+  }
+
+  .suggestion small {
+    color: #666;
+    white-space: nowrap;
+  }
+
+  .location-status {
+    margin: 10px 0 0;
+    color: #666;
+    font-size: 0.85rem;
+  }
+
+  .compact .label-row {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .search-control {
+      display: block;
+    }
+
+    .submit {
+      width: 100%;
+      margin-top: -1px;
+      margin-left: 0;
+    }
+  }
+</style>

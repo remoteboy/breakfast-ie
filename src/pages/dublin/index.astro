@@ -1,64 +1,221 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import places from '../../data/places.ts';
+import PlaceRow from '../../components/PlaceRow.astro';
+import SearchBox from '../../components/SearchBox.astro';
+import places from '../../data/places';
 
-const dublinPlaces = places.filter((place) => place.location.city === 'Dublin');
+const dublinPlaces = places.filter(
+  (place) => place.location.city === 'Dublin',
+);
+
+const filters = [
+  ['full-irish', 'Full Irish'],
+  ['early', 'Early'],
+  ['all-day', 'All day'],
+  ['vegetarian', 'Vegetarian'],
+  ['vegan', 'Vegan'],
+] as const;
 ---
 
 <BaseLayout
   title="Breakfast in Dublin — breakfast.ie"
-  description="Find breakfast in Dublin, including Full Irish breakfasts, vegetarian options, black pudding, white pudding and more."
+  description="Find breakfast in Dublin, including Full Irish breakfasts, early openings, all-day breakfast, vegetarian and vegan options."
 >
   <div class="city-page">
     <header class="city-header">
       <p class="eyebrow">Ireland</p>
       <h1>Breakfast in Dublin</h1>
       <p class="intro">
-        Good places for breakfast in Dublin, with the details that actually
-        matter.
+        Good places for breakfast in Dublin, with the details that actually matter.
       </p>
+
+      <div class="city-search">
+        <SearchBox places={dublinPlaces} label="Search Dublin" compact />
+      </div>
     </header>
 
     <section class="controls" aria-label="Breakfast filters">
-      <div class="count">
-        {dublinPlaces.length} places
+      <div class="result-bar">
+        <div class="result-copy" aria-live="polite">
+          <strong data-result-count>{dublinPlaces.length} places</strong>
+          <span class="query-label" data-query-label hidden></span>
+          <span class="near-label" data-near-label hidden>· nearest first</span>
+        </div>
+
+        <button class="reset" type="button" data-reset disabled>
+          Reset
+        </button>
       </div>
 
-      <div class="filters">
-        <button type="button">Full Irish</button>
-        <button type="button">Early</button>
-        <button type="button">All day</button>
-        <button type="button">Vegetarian</button>
-        <button type="button">White pudding</button>
+      <div class="filter-strip">
+        <span class="filter-label">Filter</span>
+        <div class="filters">
+          {
+            filters.map(([value, label]) => (
+              <button type="button" data-filter={value} aria-pressed="false">
+                {label}
+              </button>
+            ))
+          }
+        </div>
       </div>
     </section>
 
-    <section class="places" aria-label="Breakfast places in Dublin">
-      {
-        dublinPlaces.map((place) => (
-          <article class="place">
-            <div>
-              <h2>
-                <a href={`/places/${place.slug}/`}>{place.name}</a>
-              </h2>
-              <p class="area">{place.area}</p>
-            </div>
+    <section class="places" aria-label="Breakfast places in Dublin" data-places-container>
+      {dublinPlaces.map((place) => <PlaceRow place={place} filterable />)}
 
-            <p class="detail">{place.breakfast.summary}</p>
-
-            <ul>
-              {place.breakfast.fullIrish && <li>Full Irish</li>}
-              {place.breakfast.blackPudding && <li>Black pudding</li>}
-              {place.breakfast.whitePudding && <li>White pudding</li>}
-              {place.breakfast.vegetarian && <li>Vegetarian</li>}
-              {place.breakfast.vegan && <li>Vegan</li>}
-              <li>{place.priceLevel}</li>
-            </ul>
-          </article>
-        ))
-      }
+      <div class="empty-state" data-empty-state hidden>
+        <h2>No matches.</h2>
+        <p>Try removing a filter or searching for something broader.</p>
+      </div>
     </section>
   </div>
+
+  <script>
+    const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const resetButton = document.querySelector<HTMLButtonElement>('[data-reset]');
+    const placeRows = [...document.querySelectorAll<HTMLElement>('[data-place]')];
+    const placesContainer = document.querySelector<HTMLElement>('[data-places-container]');
+    const count = document.querySelector<HTMLElement>('[data-result-count]');
+    const queryLabel = document.querySelector<HTMLElement>('[data-query-label]');
+    const nearLabel = document.querySelector<HTMLElement>('[data-near-label]');
+    const emptyState = document.querySelector<HTMLElement>('[data-empty-state]');
+
+    const normalise = (value: string) =>
+      value
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+
+    const params = new URLSearchParams(window.location.search);
+    const activeFilters = new Set(params.getAll('filter'));
+    const rawQuery = params.get('q') || '';
+    const query = normalise(rawQuery);
+    const nearMode = params.get('near') === '1';
+    const userLat = Number(params.get('lat'));
+    const userLng = Number(params.get('lng'));
+    const hasUserLocation = nearMode && Number.isFinite(userLat) && Number.isFinite(userLng);
+
+    const toRadians = (value: number) => (value * Math.PI) / 180;
+
+    const distanceKm = (lat1: number, lng1: number, lat2: number, lng2: number) => {
+      const earthRadiusKm = 6371;
+      const dLat = toRadians(lat2 - lat1);
+      const dLng = toRadians(lng2 - lng1);
+      const a =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos(toRadians(lat1)) *
+          Math.cos(toRadians(lat2)) *
+          Math.sin(dLng / 2) ** 2;
+
+      return 2 * earthRadiusKm * Math.asin(Math.sqrt(a));
+    };
+
+    const formatDistance = (km: number) => {
+      if (km < 1) return `${Math.max(50, Math.round((km * 1000) / 50) * 50)} m away`;
+      if (km < 10) return `${km.toFixed(1)} km away`;
+      return `${Math.round(km)} km away`;
+    };
+
+    const rowDistance = (row: HTMLElement) => {
+      if (!hasUserLocation) return Number.POSITIVE_INFINITY;
+
+      const lat = Number(row.dataset.lat);
+      const lng = Number(row.dataset.lng);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return Number.POSITIVE_INFINITY;
+
+      return distanceKm(userLat, userLng, lat, lng);
+    };
+
+    if (queryLabel && rawQuery) {
+      queryLabel.textContent = `for “${rawQuery}”`;
+      queryLabel.hidden = false;
+    }
+
+    if (nearLabel) nearLabel.hidden = !hasUserLocation;
+
+    const syncUrl = () => {
+      const next = new URL(window.location.href);
+      next.searchParams.delete('filter');
+
+      activeFilters.forEach((filter) => next.searchParams.append('filter', filter));
+      window.history.replaceState({}, '', next);
+    };
+
+    const sortByDistance = () => {
+      if (!hasUserLocation || !placesContainer || !emptyState) return;
+
+      placeRows
+        .slice()
+        .sort((a, b) => rowDistance(a) - rowDistance(b))
+        .forEach((row) => placesContainer.insertBefore(row, emptyState));
+    };
+
+    const updateDistances = () => {
+      placeRows.forEach((row) => {
+        const distance = row.querySelector<HTMLElement>('[data-distance]');
+        if (!distance) return;
+
+        const km = rowDistance(row);
+        if (!hasUserLocation || !Number.isFinite(km)) {
+          distance.hidden = true;
+          distance.textContent = '';
+          return;
+        }
+
+        distance.textContent = formatDistance(km);
+        distance.hidden = false;
+      });
+    };
+
+    const applyFilters = () => {
+      let visibleCount = 0;
+
+      placeRows.forEach((row) => {
+        const values = new Set((row.dataset.filters || '').split(' ').filter(Boolean));
+        const searchText = normalise(row.dataset.search || '');
+        const matchesFilters = [...activeFilters].every((filter) => values.has(filter));
+        const matchesQuery = !query || searchText.includes(query);
+        const visible = matchesFilters && matchesQuery;
+
+        // Use an explicit inline display value. This avoids the row's grid CSS
+        // overriding the browser's default [hidden] styling.
+        row.style.display = visible ? '' : 'none';
+        if (visible) visibleCount += 1;
+      });
+
+      filterButtons.forEach((button) => {
+        const filter = button.dataset.filter;
+        button.setAttribute('aria-pressed', String(Boolean(filter && activeFilters.has(filter))));
+      });
+
+      if (count) count.textContent = `${visibleCount} ${visibleCount === 1 ? 'place' : 'places'}`;
+      if (emptyState) emptyState.hidden = visibleCount !== 0;
+      if (resetButton) resetButton.disabled = activeFilters.size === 0 && !query && !hasUserLocation;
+    };
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        if (!filter) return;
+
+        if (activeFilters.has(filter)) activeFilters.delete(filter);
+        else activeFilters.add(filter);
+
+        syncUrl();
+        applyFilters();
+      });
+    });
+
+    resetButton?.addEventListener('click', () => {
+      window.location.assign('/dublin/');
+    });
+
+    sortByDistance();
+    updateDistances();
+    applyFilters();
+  </script>
 </BaseLayout>
 
 <style>
@@ -90,85 +247,115 @@ const dublinPlaces = places.filter((place) => place.location.city === 'Dublin');
     line-height: 1.4;
   }
 
+  .city-search {
+    max-width: 760px;
+    margin-top: 48px;
+  }
+
   .controls {
-    display: flex;
-    justify-content: space-between;
-    gap: 32px;
-    align-items: center;
-    padding: 24px 0;
     border-top: 1px solid #111;
     border-bottom: 1px solid #111;
   }
 
-  .count {
-    white-space: nowrap;
-    font-weight: 700;
+  .result-bar {
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .result-copy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 6px;
+  }
+
+  .query-label,
+  .near-label {
+    color: #666;
+  }
+
+  .reset {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #111;
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .reset:disabled {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .filter-strip {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+  }
+
+  .filter-label {
+    flex: 0 0 auto;
+    color: #666;
+    font-size: 0.85rem;
   }
 
   .filters {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    min-width: 0;
     gap: 8px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
   }
 
   .filters button {
+    flex: 0 0 auto;
     padding: 8px 12px;
     border: 1px solid #111;
     border-radius: 0;
     background: #fff;
     color: #111;
     font: inherit;
+    white-space: nowrap;
     cursor: pointer;
+  }
+
+  .filters button[aria-pressed='true'] {
+    background: #111;
+    color: #fff;
   }
 
   .places {
     padding-bottom: 72px;
   }
 
-  .place {
-    display: grid;
-    grid-template-columns: 2fr 2fr 3fr;
-    gap: 32px;
-    align-items: baseline;
-    padding: 28px 0;
+  .empty-state {
+    padding: 64px 0;
     border-bottom: 1px solid #111;
   }
 
-  h2 {
+  .empty-state h2 {
     margin: 0;
-    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
-    letter-spacing: -0.03em;
+    font-size: 2rem;
   }
 
-  h2 a {
-    text-decoration: none;
+  .empty-state p {
+    margin-bottom: 0;
   }
 
-  h2 a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  .area,
-  .detail {
-    margin: 6px 0 0;
-  }
-
-  .area {
-    color: #555;
-  }
-
-  .place ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 16px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .city-page {
       padding-top: 48px;
     }
@@ -177,18 +364,8 @@ const dublinPlaces = places.filter((place) => place.location.city === 'Dublin');
       padding-bottom: 48px;
     }
 
-    .controls {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
-    .filters {
-      justify-content: flex-start;
-    }
-
-    .place {
-      grid-template-columns: 1fr;
-      gap: 10px;
+    .city-search {
+      margin-top: 36px;
     }
   }
 </style>
