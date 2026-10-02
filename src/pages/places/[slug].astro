@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import places from '../../data/places.json';
+
+export function getStaticPaths() {
+  return places.map((place) => ({
+    params: {
+      slug: place.slug,
+    },
+    props: {
+      place,
+    },
+  }));
+}
+
+const { place } = Astro.props;
+
+const facts = [
+  ['Full Irish', place.breakfast.fullIrish],
+  ['Black pudding', place.breakfast.blackPudding],
+  ['White pudding', place.breakfast.whitePudding],
+  ['Vegetarian', place.breakfast.vegetarian],
+  ['Vegan', place.breakfast.vegan],
+];
+---
+
+<BaseLayout
+  title={`${place.name} — breakfast.ie`}
+  description={`Breakfast information for ${place.name}, ${place.area}.`}
+>
+  <div class="place-page">
+    <a class="back" href="/dublin/">← Breakfast in Dublin</a>
+
+    <header class="place-header">
+      <p class="area">{place.area}</p>
+      <h1>{place.name}</h1>
+      <p class="summary">{place.breakfast.summary}</p>
+    </header>
+
+    <section class="facts">
+      <h2>Breakfast</h2>
+
+      <dl>
+        {
+          facts.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value ? 'Yes' : 'No'}</dd>
+            </div>
+          ))
+        }
+
+        <div>
+          <dt>Price</dt>
+          <dd>{place.priceLevel}</dd>
+        </div>
+
+        {
+          place.breakfast.servedFrom && (
+            <div>
+              <dt>From</dt>
+              <dd>{place.breakfast.servedFrom}</dd>
+            </div>
+          )
+        }
+
+        {
+          place.breakfast.servedUntil && (
+            <div>
+              <dt>Until</dt>
+              <dd>{place.breakfast.servedUntil}</dd>
+            </div>
+          )
+        }
+      </dl>
+    </section>
+
+    <section class="details">
+      <h2>Details</h2>
+
+      <div>
+        <dl>
+          <div>
+            <dt>Address</dt>
+            <dd>{place.address}</dd>
+          </div>
+
+          <div>
+            <dt>Information checked</dt>
+            <dd>{place.lastChecked}</dd>
+          </div>
+        </dl>
+
+        <div class="actions">
+          {
+            place.website && (
+              <a href={place.website} rel="external">
+                Website
+              </a>
+            )
+          }
+
+          {
+            place.menuUrl && (
+              <a href={place.menuUrl} rel="external">
+                Menu
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .place-page {
+    padding-top: 48px;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: 72px;
+  }
+
+  .place-header {
+    padding-bottom: 72px;
+    border-bottom: 1px solid #111;
+  }
+
+  .area {
+    margin: 0 0 16px;
+    color: #555;
+  }
+
+  h1 {
+    max-width: 900px;
+    margin: 0;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+  }
+
+  .summary {
+    margin: 32px 0 0;
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    padding: 64px 0;
+    border-bottom: 1px solid #111;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  dl {
+    margin: 0;
+    border-top: 1px solid #111;
+  }
+
+  dl > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  dt {
+    color: #555;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .actions {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 700px) {
+    .place-page {
+      padding-top: 32px;
+    }
+
+    .back {
+      margin-bottom: 48px;
+    }
+
+    .place-header {
+      padding-bottom: 48px;
+    }
+
+    section {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 48px 0;
+    }
+  }
+</style>

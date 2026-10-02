@@ -1,17 +1,288 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
+const places = [
+  {
+    name: 'Brother Hubbard',
+    slug: 'brother-hubbard',
+    area: 'Capel Street, Dublin 1',
+    detail: 'Breakfast until 15:00',
+    tags: ['Vegetarian', 'Vegan', '€€'],
+  },
+  {
+    name: "Del Rio's",
+    slug: 'del-rios',
+    area: 'Marlborough Street, Dublin 1',
+    detail: 'Full Irish · €14.50',
+    tags: ['Black pudding', 'White pudding'],
+  },
+  {
+    name: 'Two Pups',
+    slug: 'two-pups',
+    area: 'Francis Street, Dublin 8',
+    detail: 'Breakfast until 14:30',
+    tags: ['Vegetarian', 'Outdoor seating'],
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="breakfast.ie"
+  description="Find a good breakfast in Ireland."
+>
+  <section class="hero">
+    <h1>Find a good breakfast.</h1>
+
+    <form class="search">
+      <label for="location">Where?</label>
+
+      <div class="search-row">
+        <input
+          id="location"
+          name="location"
+          type="search"
+          placeholder="Dublin, Galway, Cork…"
+        />
+        <button type="submit">Search</button>
+      </div>
+    </form>
+
+    <div class="quick-links">
+      <a href="#">Full Irish</a>
+      <a href="#">Early</a>
+      <a href="#">All day</a>
+      <a href="#">Vegetarian</a>
+      <a href="#">White pudding</a>
+    </div>
+  </section>
+
+  <section class="places-section">
+    <div class="section-heading">
+      <h2>Breakfast in Dublin</h2>
+      <a href="/dublin/">See all</a>
+    </div>
+
+    <div class="places">
+      {
+        places.map((place) => (
+          <article class="place">
+            <h3>
+              <a href={`/places/${place.slug}/`}>{place.name}</a>
+            </h3>
+
+            <p class="area">{place.area}</p>
+            <p>{place.detail}</p>
+
+            <ul>
+              {place.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="editorial">
+    <h2>From the breakfast desk</h2>
+
+    <article>
+      <p class="kicker">The important questions</p>
+
+      <h3>
+        <a href="/guides/black-pudding-vs-white-pudding/">
+          Black pudding vs white pudding
+        </a>
+      </h3>
+
+      <p>
+        Two puddings. One breakfast. An unnecessarily thorough examination.
+      </p>
+    </article>
+
+    <article>
+      <p class="kicker">A beginner's guide</p>
+
+      <h3>
+        <a href="/guides/full-irish-breakfast/">
+          What exactly is a Full Irish?
+        </a>
+      </h3>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid #111;
+  }
+
+  h1 {
+    max-width: 800px;
+    margin: 0 0 56px;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+  }
+
+  .search {
+    max-width: 720px;
+  }
+
+  .search label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .search-row {
+    display: flex;
+  }
+
+  input,
+  button {
+    min-height: 56px;
+    border: 1px solid #111;
+    border-radius: 0;
+    background: #fff;
+    font: inherit;
+  }
+
+  input {
+    flex: 1;
+    padding: 0 16px;
+  }
+
+  button {
+    padding: 0 24px;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 28px;
+  }
+
+  .places-section,
+  .editorial {
+    padding: 64px 0;
+    border-bottom: 1px solid #111;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -0.04em;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  .places {
+    border-top: 1px solid #111;
+  }
+
+  .place {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 3fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid #111;
+  }
+
+  .place h3 a {
+    text-decoration: none;
+  }
+
+  .place h3 a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .place p {
+    margin: 0;
+  }
+
+  .area {
+    color: #555;
+  }
+
+  .place ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .editorial {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .editorial > h2 {
+    grid-column: 1 / -1;
+  }
+
+  .editorial article {
+    padding-top: 24px;
+    border-top: 1px solid #111;
+  }
+
+  .editorial h3 {
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    letter-spacing: -0.035em;
+  }
+
+  .editorial h3 a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .kicker {
+    margin-top: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 700px) {
+    .hero {
+      padding: 64px 0 48px;
+    }
+
+    .place {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .editorial {
+      grid-template-columns: 1fr;
+    }
+
+    .editorial > h2 {
+      grid-column: auto;
+    }
+  }
+</style>

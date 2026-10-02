@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Brother Hubbard",
+    "slug": "brother-hubbard",
+    "area": "Capel Street, Dublin 1",
+    "address": "153 Capel Street, Dublin 1",
+    "city": "Dublin",
+    "breakfast": {
+      "summary": "Breakfast until 15:00",
+      "servedFrom": "08:00",
+      "servedUntil": "15:00",
+      "allDay": false,
+      "fullIrish": false,
+      "blackPudding": false,
+      "whitePudding": false,
+      "vegetarian": true,
+      "vegan": true
+    },
+    "priceLevel": "€€",
+    "website": "https://brotherhubbard.ie/",
+    "menuUrl": null,
+    "lastChecked": "2026-10-02"
+  },
+  {
+    "name": "Del Rio's",
+    "slug": "del-rios",
+    "area": "Marlborough Street, Dublin 1",
+    "address": "Marlborough Street, Dublin 1",
+    "city": "Dublin",
+    "breakfast": {
+      "summary": "Full Irish · €14.50",
+      "servedFrom": null,
+      "servedUntil": null,
+      "allDay": false,
+      "fullIrish": true,
+      "blackPudding": true,
+      "whitePudding": true,
+      "vegetarian": false,
+      "vegan": false
+    },
+    "priceLevel": "€",
+    "website": null,
+    "menuUrl": null,
+    "lastChecked": "2026-10-02"
+  },
+  {
+    "name": "Two Pups",
+    "slug": "two-pups",
+    "area": "Francis Street, Dublin 8",
+    "address": "Francis Street, Dublin 8",
+    "city": "Dublin",
+    "breakfast": {
+      "summary": "Breakfast until 14:30",
+      "servedFrom": null,
+      "servedUntil": "14:30",
+      "allDay": false,
+      "fullIrish": false,
+      "blackPudding": false,
+      "whitePudding": false,
+      "vegetarian": true,
+      "vegan": false
+    },
+    "priceLevel": "€€",
+    "website": null,
+    "menuUrl": null,
+    "lastChecked": "2026-10-02"
+  }
+]
