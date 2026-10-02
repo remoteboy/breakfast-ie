@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import places from '../../data/places.json';
+import places from '../../data/places.ts';
 
-const dublinPlaces = places.filter((place) => place.city === 'Dublin');
+const dublinPlaces = places.filter((place) => place.location.city === 'Dublin');
 ---
 
 <BaseLayout

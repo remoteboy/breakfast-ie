@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import places from '../../data/places.json';
+import places from '../../data/places.ts';
 
 export function getStaticPaths() {
   return places.map((place) => ({
