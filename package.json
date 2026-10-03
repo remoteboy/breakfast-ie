@@ -11,9 +11,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.5"
+    "astro": "^7.3.5",
+    "cheerio": "^1.2.0",
+    "openai": "^7.27.0",
+    "pdfjs-dist": "^6.3.289",
+    "zod": "^4.6.5"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
   }
 }

@@ -1,0 +1,48 @@
+{
+  "slug": "keoghs-cafe",
+  "venueName": "Keogh's Cafe",
+  "summary": "City-centre cafe serving a Full Irish alongside vegetarian, vegan and lighter breakfast options.",
+  "menuItems": [
+    {
+      "name": "Full Irish Breakfast",
+      "category": "full-irish",
+      "description": null,
+      "price": {
+        "amount": 13.5,
+        "currency": "EUR"
+      },
+      "components": [],
+      "includedDrinks": [],
+      "dietary": {
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": null
+      },
+      "availabilityNotes": null,
+      "sourceUrl": "https://www.keoghscafe.ie/menus?menu=cafe-menu",
+      "confidence": 0.99
+    },
+    {
+      "name": "Vegetarian Breakfast",
+      "category": "irish-breakfast",
+      "description": null,
+      "price": {
+        "amount": 13.5,
+        "currency": "EUR"
+      },
+      "components": [],
+      "includedDrinks": [],
+      "dietary": {
+        "vegetarian": true,
+        "vegan": false,
+        "glutenFree": null
+      },
+      "availabilityNotes": null,
+      "sourceUrl": "https://www.keoghscafe.ie/menus?menu=cafe-menu",
+      "confidence": 0.99
+    }
+  ],
+  "warnings": [
+    "The published menu names the breakfast dishes and prices but does not list their components, so ingredients and included drinks must remain unknown."
+  ]
+}

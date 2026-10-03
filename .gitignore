@@ -22,3 +22,11 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Add these lines to the repo's existing .gitignore
+scripts/ingest/cache/raw/*
+scripts/ingest/cache/text/*
+scripts/ingest/output/*
+!scripts/ingest/cache/raw/.gitkeep
+!scripts/ingest/cache/text/.gitkeep
+!scripts/ingest/output/.gitkeep

@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "ingest": "tsx scripts/ingest/cli.ts run dublin",
+    "ingest:fetch": "tsx scripts/ingest/cli.ts fetch dublin",
+    "ingest:report": "tsx scripts/ingest/cli.ts report dublin"
+  }
+}

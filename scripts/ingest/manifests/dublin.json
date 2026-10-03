@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "brother-hubbard-north",
+    "name": "Brother Hubbard North",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://brotherhubbard.ie/wp-content/uploads/2025/08/BHN-Breakfast-250825.pdf",
+        "label": "Brother Hubbard North sample breakfast menu"
+      },
+      {
+        "kind": "hours",
+        "url": "https://brotherhubbard.ie/locations/",
+        "label": "Brother Hubbard locations and hours"
+      }
+    ]
+  },
+  {
+    "slug": "keoghs-cafe",
+    "name": "Keogh's Cafe",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.keoghscafe.ie/menus?menu=cafe-menu",
+        "label": "Keogh's cafe menu"
+      },
+      {
+        "kind": "website",
+        "url": "https://www.keoghscafe.ie/",
+        "label": "Keogh's website"
+      }
+    ]
+  },
+  {
+    "slug": "lemon-jelly-cafe",
+    "name": "Lemon Jelly Cafe",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.lemonjelly.ie/",
+        "label": "Lemon Jelly website and menus"
+      }
+    ]
+  },
+  {
+    "slug": "mad-yolks-smithfield",
+    "name": "Mad Yolks",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.madyolks.ie/menu/",
+        "label": "Mad Yolks menu"
+      },
+      {
+        "kind": "about",
+        "url": "https://www.madyolks.ie/",
+        "label": "Mad Yolks website"
+      }
+    ]
+  },
+  {
+    "slug": "the-fumbally",
+    "name": "The Fumbally",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://thefumbally.ie/cafe/",
+        "label": "The Fumbally cafe page and current menu"
+      },
+      {
+        "kind": "hours",
+        "url": "https://thefumbally.ie/",
+        "label": "The Fumbally opening hours"
+      }
+    ]
+  }
+]
