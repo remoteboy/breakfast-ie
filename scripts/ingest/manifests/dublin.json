@@ -7,7 +7,7 @@
       {
         "kind": "menu",
         "url": "https://brotherhubbard.ie/wp-content/uploads/2025/08/BHN-Breakfast-250825.pdf",
-        "label": "Brother Hubbard North sample breakfast menu"
+        "label": "Brother Hubbard North sample breakfast menu (August 2025; verify current availability)"
       },
       {
         "kind": "hours",
@@ -24,7 +24,7 @@
       {
         "kind": "menu",
         "url": "https://www.keoghscafe.ie/menus?menu=cafe-menu",
-        "label": "Keogh's cafe menu"
+        "label": "Keogh's current cafe menu"
       },
       {
         "kind": "website",
@@ -41,13 +41,13 @@
       {
         "kind": "menu",
         "url": "https://www.lemonjelly.ie/",
-        "label": "Lemon Jelly website and menus"
+        "label": "Lemon Jelly website and current menu content"
       }
     ]
   },
   {
     "slug": "mad-yolks-smithfield",
-    "name": "Mad Yolks",
+    "name": "Mad Yolks Smithfield",
     "city": "Dublin",
     "sources": [
       {
@@ -70,12 +70,537 @@
       {
         "kind": "menu",
         "url": "https://thefumbally.ie/cafe/",
-        "label": "The Fumbally cafe page and current menu"
+        "label": "The Fumbally cafe and menu page"
       },
       {
         "kind": "hours",
         "url": "https://thefumbally.ie/",
         "label": "The Fumbally opening hours"
+      }
+    ]
+  },
+  {
+    "slug": "metro-cafe",
+    "name": "Metro Cafe",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.metrocafe.ie/menu/",
+        "label": "Metro Cafe current menu"
+      }
+    ]
+  },
+  {
+    "slug": "social-fabric",
+    "name": "Social Fabric Cafe",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.social-fabric.ie/menu",
+        "label": "Social Fabric menu hub"
+      },
+      {
+        "kind": "menu",
+        "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+        "label": "Social Fabric weekday menu PDF (linked by official site; verify freshness)"
+      }
+    ]
+  },
+  {
+    "slug": "one-society",
+    "name": "One Society",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+        "label": "One Society breakfast/brunch PDF (official site; verify current date)"
+      },
+      {
+        "kind": "website",
+        "url": "https://www.onesociety.ie/one-society",
+        "label": "One Society venue page, hours and sample-menu context"
+      }
+    ]
+  },
+  {
+    "slug": "beanhive-dawson",
+    "name": "Beanhive Dawson Street",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in",
+        "label": "Beanhive Dawson Street dine-in menu"
+      }
+    ]
+  },
+  {
+    "slug": "beanhive-baggot",
+    "name": "Beanhive Baggot Street",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.beanhive.ie/menu?location=Baggot+Street+Lower&menu=menu---baggot---dine-in",
+        "label": "Beanhive Baggot Street dine-in menu"
+      }
+    ]
+  },
+  {
+    "slug": "alma-portobello",
+    "name": "Alma",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.alma.ie/menu",
+        "label": "Alma current breakfast and brunch menu"
+      }
+    ]
+  },
+  {
+    "slug": "urbanity-smithfield",
+    "name": "Urbanity",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://urbanity.ie/menu/",
+        "label": "Urbanity current menu"
+      }
+    ]
+  },
+  {
+    "slug": "eathos-baggot-street",
+    "name": "Eathos",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://eathosdublin.com/menu/",
+        "label": "Eathos current brunch menu"
+      }
+    ]
+  },
+  {
+    "slug": "tang-abbey-street",
+    "name": "Tang Abbey Street",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+        "label": "Tang Abbey/Cumberland mid-week breakfast PDF (official; verify current pricing)"
+      },
+      {
+        "kind": "hours",
+        "url": "https://www.tang.ie/contact",
+        "label": "Tang locations and current service hours"
+      }
+    ]
+  },
+  {
+    "slug": "tang-cumberland-place",
+    "name": "Tang Cumberland Place",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+        "label": "Tang Abbey/Cumberland mid-week breakfast PDF (official; verify current pricing)"
+      },
+      {
+        "kind": "hours",
+        "url": "https://www.tang.ie/contact",
+        "label": "Tang locations and current service hours"
+      }
+    ]
+  },
+  {
+    "slug": "house-dublin",
+    "name": "House Dublin",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.housedublin.ie/menus/",
+        "label": "House Dublin menus and breakfast service times"
+      },
+      {
+        "kind": "website",
+        "url": "https://www.housedublin.ie/",
+        "label": "House Dublin venue page"
+      }
+    ]
+  },
+  {
+    "slug": "balfes",
+    "name": "Balfes",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://balfes.ie/qr-brunch-menu/",
+        "label": "Balfes current brunch web menu"
+      }
+    ]
+  },
+  {
+    "slug": "ivy-dawson-street",
+    "name": "The Ivy Dawson Street",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+        "label": "The Ivy Dawson Street current breakfast menu"
+      }
+    ]
+  },
+  {
+    "slug": "sophies-dublin",
+    "name": "Sophie's Dublin",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://sophies.ie/menus",
+        "label": "Sophie's current menu hub (menus are embedded)"
+      },
+      {
+        "kind": "hours",
+        "url": "https://sophies.ie/locations/dublin",
+        "label": "Sophie's Dublin location and breakfast/brunch hours"
+      }
+    ]
+  },
+  {
+    "slug": "mackenzies",
+    "name": "Mackenzie's",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://mackenziesdublin.ie/wp-content/uploads/2025/10/MACKENZIES_Brunch-Menu_A4_Oct25-2-1.pdf",
+        "label": "Mackenzie's October 2025 brunch PDF (official; verify freshness)"
+      },
+      {
+        "kind": "website",
+        "url": "https://mackenziesdublin.ie/brunch/",
+        "label": "Mackenzie's current brunch page"
+      }
+    ]
+  },
+  {
+    "slug": "angelinas-deli",
+    "name": "Angelina's Deli",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.angelinas.ie/deli",
+        "label": "Angelina's Deli current breakfast page"
+      },
+      {
+        "kind": "website",
+        "url": "https://www.angelinas.ie/menus",
+        "label": "Angelina's current menu hub"
+      }
+    ]
+  },
+  {
+    "slug": "avoca-suffolk-street",
+    "name": "Avoca Suffolk Street Cafe",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://avoca.com/pages/suffolk-street",
+        "label": "Avoca Suffolk Street current cafe page and hours"
+      }
+    ]
+  },
+  {
+    "slug": "cornucopia",
+    "name": "Cornucopia",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://cornucopia.ie/menu/",
+        "label": "Cornucopia current sample morning menu"
+      }
+    ]
+  },
+  {
+    "slug": "bewleys-grafton-street",
+    "name": "Bewley's Grafton Street",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://bewleysgraftonstreet.com/wp-content/uploads/2026/08/BREAKFAST-MENU-AUGUST-2026.pdf",
+        "label": "Bewley's Grafton Street breakfast menu (August 2026)"
+      },
+      {
+        "kind": "website",
+        "url": "https://bewleysgraftonstreet.com/menus/",
+        "label": "Bewley's current menu hub"
+      }
+    ]
+  },
+  {
+    "slug": "woollen-mills",
+    "name": "The Woollen Mills",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.thewoollenmills.com/menus.htm",
+        "label": "The Woollen Mills current menus"
+      }
+    ]
+  },
+  {
+    "slug": "farmer-browns-rathmines",
+    "name": "Farmer Browns Rathmines",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.farmerbrowns.ie/_files/ugd/c11a1c_921e4dae57264f04b9d134c65d2d6812.pdf",
+        "label": "Farmer Browns Rathmines 2026 midweek brunch PDF"
+      },
+      {
+        "kind": "website",
+        "url": "https://www.farmerbrowns.ie/rathmines",
+        "label": "Farmer Browns Rathmines venue page"
+      }
+    ]
+  },
+  {
+    "slug": "farmer-browns-clonskeagh",
+    "name": "Farmer Browns Clonskeagh",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://www.farmerbrowns.ie/clonskeagh-pub",
+        "label": "Farmer Browns Clonskeagh venue page"
+      },
+      {
+        "kind": "menu",
+        "url": "https://www.farmerbrowns.ie/order-online",
+        "label": "Farmer Browns ordering/menu links (indirect; may be sparse)"
+      }
+    ]
+  },
+  {
+    "slug": "jay-kays-cafe",
+    "name": "Jay Kay's Cafe",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.jaykays.ie/jay-kays-cafe-menu-all-day-breakfast-brunch-lunch-and-more-dublin/",
+        "label": "Jay Kay's current all-day breakfast menu"
+      },
+      {
+        "kind": "website",
+        "url": "https://www.jaykays.ie/",
+        "label": "Jay Kay's current venue page and hours"
+      }
+    ]
+  },
+  {
+    "slug": "as-one",
+    "name": "As One",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.asone.ie/menu",
+        "label": "As One current menu hub (linked menus may require discovery)"
+      }
+    ]
+  },
+  {
+    "slug": "herbstreet",
+    "name": "Herbstreet",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://www.herbstreet.ie/",
+        "label": "Herbstreet current venue page and service times"
+      },
+      {
+        "kind": "hours",
+        "url": "https://www.herbstreet.ie/contact",
+        "label": "Herbstreet current hours/menu hub (menu links may require discovery)"
+      }
+    ]
+  },
+  {
+    "slug": "two-pups-francis-street",
+    "name": "Two Pups Francis Street",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://www.twopupscoffee.com/",
+        "label": "Two Pups official site and location hours"
+      }
+    ]
+  },
+  {
+    "slug": "two-pups-fairview",
+    "name": "Two Pups Fairview",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://www.twopupscoffee.com/",
+        "label": "Two Pups official site and location hours"
+      }
+    ]
+  },
+  {
+    "slug": "bakehouse-chq",
+    "name": "Bakehouse CHQ",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://bakehousedublin.ie/portfolio-item/bakehouse-chq/",
+        "label": "Bakehouse CHQ location page and breakfast/brunch service"
+      },
+      {
+        "kind": "menu",
+        "url": "https://a.storyblok.com/f/238405/x/755e7d45f3/bakehouse-menu-march-25.pdf",
+        "label": "Bakehouse menu PDF (official-linked/hosted externally; March 2025, verify freshness)"
+      }
+    ]
+  },
+  {
+    "slug": "third-space-smithfield",
+    "name": "Third Space Smithfield",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://thirdspace.ie/breakfast/",
+        "label": "Third Space current breakfast menu"
+      },
+      {
+        "kind": "website",
+        "url": "https://thirdspace.ie/",
+        "label": "Third Space current venue page and hours"
+      }
+    ]
+  },
+  {
+    "slug": "laylas-ranelagh",
+    "name": "Layla's",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://laylas.ie/wp-content/uploads/2026/07/Laylas-Brunch-July-2026.pdf",
+        "label": "Layla's brunch menu (July 2026)"
+      },
+      {
+        "kind": "website",
+        "url": "https://laylas.ie/menus/",
+        "label": "Layla's current menu hub"
+      }
+    ]
+  },
+  {
+    "slug": "peaches-brasserie",
+    "name": "Peaches Brasserie",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://peachesbrasserie.com/menu/breakfast/",
+        "label": "Peaches Brasserie current weekday breakfast menu"
+      },
+      {
+        "kind": "website",
+        "url": "https://peachesbrasserie.com/",
+        "label": "Peaches Brasserie current venue page and hours"
+      }
+    ]
+  },
+  {
+    "slug": "pog-bachelors-walk",
+    "name": "Pog Bachelors Walk",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://ifancyapog.ie/pages/bachelors-walk",
+        "label": "Pog Bachelors Walk location and hours (menu discovery case)"
+      },
+      {
+        "kind": "about",
+        "url": "https://ifancyapog.ie/pages/get-in-touch",
+        "label": "Pog FAQ with all-day pancake/dietary information"
+      }
+    ]
+  },
+  {
+    "slug": "pog-tara-street",
+    "name": "Pog Tara Street",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://ifancyapog.ie/pages/tara-street",
+        "label": "Pog Tara Street location and hours (menu discovery case)"
+      },
+      {
+        "kind": "about",
+        "url": "https://ifancyapog.ie/pages/get-in-touch",
+        "label": "Pog FAQ with all-day pancake/dietary information"
+      }
+    ]
+  },
+  {
+    "slug": "pog-clontarf",
+    "name": "Pog Clontarf",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://ifancyapog.ie/pages/clontarf",
+        "label": "Pog Clontarf location and hours (menu discovery case)"
+      },
+      {
+        "kind": "about",
+        "url": "https://ifancyapog.ie/pages/get-in-touch",
+        "label": "Pog FAQ with all-day pancake/dietary information"
+      }
+    ]
+  },
+  {
+    "slug": "pog-sutton",
+    "name": "Pog Sutton",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "website",
+        "url": "https://ifancyapog.ie/pages/sutton",
+        "label": "Pog Sutton location and hours (menu discovery case)"
+      },
+      {
+        "kind": "about",
+        "url": "https://ifancyapog.ie/pages/get-in-touch",
+        "label": "Pog FAQ with all-day pancake/dietary information"
       }
     ]
   }

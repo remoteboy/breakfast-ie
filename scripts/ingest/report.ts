@@ -1,16 +1,30 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { OUTPUT_DIR } from './config';
-import { VenueExtractionSchema, type VenueExtraction, type VenueManifestEntry } from './schema';
+import {
+  VenueCandidateSchema,
+  type VenueCandidate,
+  type VenueManifestEntry,
+} from './schema';
 import { ensureDir } from './utils';
 
-export async function loadExtraction(slug: string): Promise<VenueExtraction | null> {
+export async function loadExtraction(slug: string): Promise<VenueCandidate | null> {
   try {
     const url = new URL(`${slug}.json`, OUTPUT_DIR);
-    return VenueExtractionSchema.parse(JSON.parse(await readFile(fileURLToPath(url), 'utf8')));
+    return VenueCandidateSchema.parse(JSON.parse(await readFile(fileURLToPath(url), 'utf8')));
   } catch {
     return null;
   }
+}
+
+function decisionFor(candidate: VenueCandidate, index: number) {
+  return candidate.quality.items.find((item) => item.index === index)?.decision ?? 'review';
+}
+
+function decisionIcon(decision: 'accept' | 'review' | 'reject') {
+  if (decision === 'accept') return '✓';
+  if (decision === 'review') return '△';
+  return '✗';
 }
 
 export async function writeReport(manifestName: string, venues: VenueManifestEntry[]) {
@@ -21,24 +35,45 @@ export async function writeReport(manifestName: string, venues: VenueManifestEnt
     '',
     `Generated: ${new Date().toISOString()}`,
     '',
+    'Legend: ✓ accepted · △ manual review · ✗ rejected by quality gate',
+    '',
   ];
 
   for (const venue of venues) {
-    const extraction = await loadExtraction(venue.slug);
+    const candidate = await loadExtraction(venue.slug);
     lines.push(`## ${venue.name}`);
     lines.push('');
 
-    if (!extraction) {
+    if (!candidate) {
       lines.push('_No extraction yet._', '');
       continue;
     }
 
-    if (extraction.summary) lines.push(extraction.summary, '');
-    lines.push(`Items: **${extraction.menuItems.length}**`, '');
+    lines.push(`Quality: **${candidate.quality.status}**`);
+    lines.push(
+      `Accepted: **${candidate.quality.publishableItems}** · Review: **${candidate.quality.reviewItems}** · Rejected: **${candidate.quality.rejectedItems}**`,
+      '',
+    );
 
-    for (const item of extraction.menuItems) {
+    if (candidate.quality.reasons.length) {
+      lines.push('**Quality notes**');
+      candidate.quality.reasons.forEach((reason) => lines.push(`- ${reason}`));
+      lines.push('');
+    }
+
+    if (candidate.summary) lines.push(candidate.summary, '');
+    lines.push(`Extracted items: **${candidate.menuItems.length}**`, '');
+
+    for (const [index, item] of candidate.menuItems.entries()) {
+      const decision = decisionFor(candidate, index);
+      const assessment = candidate.quality.items.find((entry) => entry.index === index);
       const price = item.price ? ` — €${item.price.amount.toFixed(2)}` : '';
-      lines.push(`- **${item.name}**${price} (${Math.round(item.confidence * 100)}%)`);
+      lines.push(
+        `- ${decisionIcon(decision)} **${item.name}**${price} (${Math.round(item.confidence * 100)}%)`,
+      );
+      lines.push(
+        `  - Context: ${item.mealContext}${item.section ? ` · ${item.section}` : ''}${item.seasonal ? ' · seasonal' : ''}`,
+      );
       if (item.components.length) {
         const components = item.components.map((part) => {
           const qty = part.quantity == null ? '' : `${part.quantity} × `;
@@ -49,12 +84,18 @@ export async function writeReport(manifestName: string, venues: VenueManifestEnt
       if (item.includedDrinks.length) {
         lines.push(`  - Included: ${item.includedDrinks.map((drink) => drink.name).join(', ')}`);
       }
+      if (item.evidence) {
+        lines.push(`  - Evidence: ${item.evidence}`);
+      }
       lines.push(`  - Source: ${item.sourceUrl}`);
+      if (assessment?.reasons.length) {
+        assessment.reasons.forEach((reason) => lines.push(`  - Gate: ${reason}`));
+      }
     }
 
-    if (extraction.warnings.length) {
-      lines.push('', '**Warnings**');
-      extraction.warnings.forEach((warning) => lines.push(`- ${warning}`));
+    if (candidate.warnings.length) {
+      lines.push('', '**Extraction warnings**');
+      candidate.warnings.forEach((warning) => lines.push(`- ${warning}`));
     }
 
     lines.push('');

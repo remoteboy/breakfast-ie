@@ -15,17 +15,53 @@ function extensionFor(contentType: string, url: string) {
   return 'html';
 }
 
+export interface FetchVenueOptions {
+  force?: boolean;
+  bestEffort?: boolean;
+  onSourceError?: (source: Source, error: Error) => void;
+}
+
+function asError(error: unknown) {
+  return error instanceof Error ? error : new Error(String(error));
+}
+
 export async function fetchVenue(
   venue: VenueManifestEntry,
-  options: { force?: boolean } = {},
+  options: FetchVenueOptions = {},
 ): Promise<FetchedDocument[]> {
-  return Promise.all(venue.sources.map((source) => fetchSource(venue.slug, source, options)));
+  if (!options.bestEffort) {
+    return Promise.all(venue.sources.map((source) => fetchSource(venue.slug, source, options)));
+  }
+
+  const results = await Promise.allSettled(
+    venue.sources.map((source) => fetchSource(venue.slug, source, options)),
+  );
+
+  const documents: FetchedDocument[] = [];
+  const errors: Error[] = [];
+
+  results.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+      documents.push(result.value);
+      return;
+    }
+
+    const error = asError(result.reason);
+    errors.push(error);
+    options.onSourceError?.(venue.sources[index], error);
+  });
+
+  if (documents.length === 0) {
+    throw new AggregateError(errors, `All sources failed for ${venue.name}`);
+  }
+
+  return documents;
 }
 
 async function fetchSource(
   slug: string,
   source: Source,
-  options: { force?: boolean },
+  options: FetchVenueOptions,
 ): Promise<FetchedDocument> {
   await ensureDir(CACHE_RAW_DIR);
   await ensureDir(CACHE_TEXT_DIR);
