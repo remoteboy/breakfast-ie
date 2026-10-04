@@ -3,23 +3,50 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PlaceRow from '../../components/PlaceRow.astro';
 import SearchBox from '../../components/SearchBox.astro';
 import places from '../../data/places';
+import {
+  getPlaceDiscovery,
+  type DiscoveryFilter,
+} from '../../lib/discovery';
 
 const dublinPlaces = places.filter(
   (place) => place.location.city === 'Dublin',
 );
 
-const filters = [
+const discoveryBySlug = new Map(
+  dublinPlaces.map((place) => [place.slug, getPlaceDiscovery(place)]),
+);
+
+const filterDefinitions = [
   ['full-irish', 'Full Irish'],
+  ['under-15', 'Under €15'],
   ['early', 'Early'],
   ['all-day', 'All day'],
   ['vegetarian', 'Vegetarian'],
   ['vegan', 'Vegan'],
-] as const;
+  ['gluten-free', 'GF option'],
+  ['drink-included', 'Drink included'],
+  ['menu', 'Verified menu'],
+] as const satisfies readonly (readonly [DiscoveryFilter, string])[];
+
+const filterCounts = new Map(
+  filterDefinitions.map(([filter]) => [
+    filter,
+    dublinPlaces.filter((place) => discoveryBySlug.get(place.slug)?.filters.includes(filter)).length,
+  ]),
+);
+
+const menuPlaceCount = dublinPlaces.filter(
+  (place) => discoveryBySlug.get(place.slug)?.menuAvailable,
+).length;
+const menuItemCount = dublinPlaces.reduce(
+  (total, place) => total + (discoveryBySlug.get(place.slug)?.menuItemCount ?? 0),
+  0,
+);
 ---
 
 <BaseLayout
   title="Breakfast in Dublin — breakfast.ie"
-  description="Find breakfast in Dublin, including Full Irish breakfasts, early openings, all-day breakfast, vegetarian and vegan options."
+  description="Find breakfast in Dublin by Full Irish, price, serving time, dietary options and what is actually on the breakfast menu."
 >
   <div class="city-page">
     <header class="city-header">
@@ -27,6 +54,9 @@ const filters = [
       <h1>Breakfast in Dublin</h1>
       <p class="intro">
         Good places for breakfast in Dublin, with the details that actually matter.
+      </p>
+      <p class="dataset-note">
+        {menuPlaceCount} verified menus · {menuItemCount} accepted breakfast items
       </p>
 
       <div class="city-search">
@@ -42,18 +72,31 @@ const filters = [
           <span class="near-label" data-near-label hidden>· nearest first</span>
         </div>
 
-        <button class="reset" type="button" data-reset disabled>
-          Reset
-        </button>
+        <div class="result-actions">
+          <label class="sort-control">
+            <span>Sort</span>
+            <select data-sort>
+              <option value="default">Featured</option>
+              <option value="price">Lowest menu price</option>
+              <option value="choice">Most menu choice</option>
+              <option value="name">Name</option>
+            </select>
+          </label>
+
+          <button class="reset" type="button" data-reset disabled>
+            Reset
+          </button>
+        </div>
       </div>
 
       <div class="filter-strip">
         <span class="filter-label">Filter</span>
         <div class="filters">
           {
-            filters.map(([value, label]) => (
+            filterDefinitions.map(([value, label]) => (
               <button type="button" data-filter={value} aria-pressed="false">
-                {label}
+                <span>{label}</span>
+                <small data-filter-count>{filterCounts.get(value) ?? 0}</small>
               </button>
             ))
           }
@@ -62,7 +105,7 @@ const filters = [
     </section>
 
     <section class="places" aria-label="Breakfast places in Dublin" data-places-container>
-      {dublinPlaces.map((place) => <PlaceRow place={place} filterable />)}
+      {dublinPlaces.map((place, index) => <PlaceRow place={place} filterable order={index} />)}
 
       <div class="empty-state" data-empty-state hidden>
         <h2>No matches.</h2>
@@ -74,6 +117,7 @@ const filters = [
   <script>
     const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
     const resetButton = document.querySelector<HTMLButtonElement>('[data-reset]');
+    const sortSelect = document.querySelector<HTMLSelectElement>('[data-sort]');
     const placeRows = [...document.querySelectorAll<HTMLElement>('[data-place]')];
     const placesContainer = document.querySelector<HTMLElement>('[data-places-container]');
     const count = document.querySelector<HTMLElement>('[data-result-count]');
@@ -96,6 +140,8 @@ const filters = [
     const userLat = Number(params.get('lat'));
     const userLng = Number(params.get('lng'));
     const hasUserLocation = nearMode && Number.isFinite(userLat) && Number.isFinite(userLng);
+    const requestedSort = params.get('sort') || 'default';
+    let activeSort = hasUserLocation && requestedSort === 'default' ? 'nearest' : requestedSort;
 
     const toRadians = (value: number) => (value * Math.PI) / 180;
 
@@ -118,6 +164,11 @@ const filters = [
       return `${Math.round(km)} km away`;
     };
 
+    const numericData = (row: HTMLElement, key: 'order' | 'priceFrom' | 'menuCount') => {
+      const value = Number(row.dataset[key]);
+      return Number.isFinite(value) ? value : null;
+    };
+
     const rowDistance = (row: HTMLElement) => {
       if (!hasUserLocation) return Number.POSITIVE_INFINITY;
 
@@ -128,28 +179,77 @@ const filters = [
       return distanceKm(userLat, userLng, lat, lng);
     };
 
+    const rowMatches = (row: HTMLElement, filters: Set<string>) => {
+      const values = new Set((row.dataset.filters || '').split(' ').filter(Boolean));
+      const searchText = normalise(row.dataset.search || '');
+      const matchesFilters = [...filters].every((filter) => values.has(filter));
+      const matchesQuery = !query || searchText.includes(query);
+      return matchesFilters && matchesQuery;
+    };
+
     if (queryLabel && rawQuery) {
       queryLabel.textContent = `for “${rawQuery}”`;
       queryLabel.hidden = false;
     }
 
-    if (nearLabel) nearLabel.hidden = !hasUserLocation;
+    if (sortSelect && hasUserLocation) {
+      const nearest = document.createElement('option');
+      nearest.value = 'nearest';
+      nearest.textContent = 'Nearest';
+      sortSelect.prepend(nearest);
+    }
+
+    if (sortSelect) {
+      const validSort = [...sortSelect.options].some((option) => option.value === activeSort);
+      if (!validSort) activeSort = hasUserLocation ? 'nearest' : 'default';
+      sortSelect.value = activeSort;
+    }
 
     const syncUrl = () => {
       const next = new URL(window.location.href);
       next.searchParams.delete('filter');
 
       activeFilters.forEach((filter) => next.searchParams.append('filter', filter));
+
+      if (activeSort === 'default' || (activeSort === 'nearest' && hasUserLocation)) {
+        next.searchParams.delete('sort');
+      } else {
+        next.searchParams.set('sort', activeSort);
+      }
+
       window.history.replaceState({}, '', next);
     };
 
-    const sortByDistance = () => {
-      if (!hasUserLocation || !placesContainer || !emptyState) return;
+    const sortRows = () => {
+      if (!placesContainer || !emptyState) return;
 
-      placeRows
-        .slice()
-        .sort((a, b) => rowDistance(a) - rowDistance(b))
-        .forEach((row) => placesContainer.insertBefore(row, emptyState));
+      const sorted = placeRows.slice().sort((a, b) => {
+        if (activeSort === 'nearest') {
+          return rowDistance(a) - rowDistance(b);
+        }
+
+        if (activeSort === 'price') {
+          return (
+            (numericData(a, 'priceFrom') ?? Number.POSITIVE_INFINITY) -
+            (numericData(b, 'priceFrom') ?? Number.POSITIVE_INFINITY)
+          );
+        }
+
+        if (activeSort === 'choice') {
+          return (
+            (numericData(b, 'menuCount') ?? 0) -
+            (numericData(a, 'menuCount') ?? 0)
+          );
+        }
+
+        if (activeSort === 'name') {
+          return (a.dataset.name || '').localeCompare(b.dataset.name || '', 'en-IE');
+        }
+
+        return (numericData(a, 'order') ?? 0) - (numericData(b, 'order') ?? 0);
+      });
+
+      sorted.forEach((row) => placesContainer.insertBefore(row, emptyState));
     };
 
     const updateDistances = () => {
@@ -169,15 +269,27 @@ const filters = [
       });
     };
 
+    const updateFilterCounts = () => {
+      filterButtons.forEach((button) => {
+        const filter = button.dataset.filter;
+        const countNode = button.querySelector<HTMLElement>('[data-filter-count]');
+        if (!filter || !countNode) return;
+
+        const candidateFilters = new Set(activeFilters);
+        if (candidateFilters.has(filter)) candidateFilters.delete(filter);
+        else candidateFilters.add(filter);
+
+        const candidateCount = placeRows.filter((row) => rowMatches(row, candidateFilters)).length;
+        countNode.textContent = String(candidateCount);
+        button.disabled = !activeFilters.has(filter) && candidateCount === 0;
+      });
+    };
+
     const applyFilters = () => {
       let visibleCount = 0;
 
       placeRows.forEach((row) => {
-        const values = new Set((row.dataset.filters || '').split(' ').filter(Boolean));
-        const searchText = normalise(row.dataset.search || '');
-        const matchesFilters = [...activeFilters].every((filter) => values.has(filter));
-        const matchesQuery = !query || searchText.includes(query);
-        const visible = matchesFilters && matchesQuery;
+        const visible = rowMatches(row, activeFilters);
 
         // Use an explicit inline display value. This avoids the row's grid CSS
         // overriding the browser's default [hidden] styling.
@@ -192,7 +304,13 @@ const filters = [
 
       if (count) count.textContent = `${visibleCount} ${visibleCount === 1 ? 'place' : 'places'}`;
       if (emptyState) emptyState.hidden = visibleCount !== 0;
-      if (resetButton) resetButton.disabled = activeFilters.size === 0 && !query && !hasUserLocation;
+      if (resetButton) {
+        resetButton.disabled =
+          activeFilters.size === 0 && !query && !hasUserLocation && activeSort === 'default';
+      }
+
+      if (nearLabel) nearLabel.hidden = activeSort !== 'nearest';
+      updateFilterCounts();
     };
 
     filterButtons.forEach((button) => {
@@ -208,11 +326,18 @@ const filters = [
       });
     });
 
+    sortSelect?.addEventListener('change', () => {
+      activeSort = sortSelect.value;
+      sortRows();
+      syncUrl();
+      applyFilters();
+    });
+
     resetButton?.addEventListener('click', () => {
       window.location.assign('/dublin/');
     });
 
-    sortByDistance();
+    sortRows();
     updateDistances();
     applyFilters();
   </script>
@@ -247,6 +372,12 @@ const filters = [
     line-height: 1.4;
   }
 
+  .dataset-note {
+    margin: 12px 0 0;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
   .city-search {
     max-width: 760px;
     margin-top: 48px;
@@ -259,7 +390,7 @@ const filters = [
 
   .result-bar {
     display: flex;
-    min-height: 54px;
+    min-height: 58px;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
@@ -275,6 +406,30 @@ const filters = [
   .query-label,
   .near-label {
     color: #666;
+  }
+
+  .result-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .sort-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 0.85rem;
+  }
+
+  .sort-control select {
+    max-width: 180px;
+    padding: 7px 28px 7px 9px;
+    border: 1px solid #bbb;
+    border-radius: 0;
+    background: #fff;
+    color: #111;
+    font: inherit;
   }
 
   .reset {
@@ -321,7 +476,10 @@ const filters = [
   }
 
   .filters button {
+    display: inline-flex;
     flex: 0 0 auto;
+    align-items: baseline;
+    gap: 7px;
     padding: 8px 12px;
     border: 1px solid #111;
     border-radius: 0;
@@ -332,9 +490,24 @@ const filters = [
     cursor: pointer;
   }
 
+  .filters button small {
+    color: #777;
+    font-size: 0.72rem;
+  }
+
   .filters button[aria-pressed='true'] {
     background: #111;
     color: #fff;
+  }
+
+  .filters button[aria-pressed='true'] small {
+    color: #ccc;
+  }
+
+  .filters button:disabled {
+    border-color: #ccc;
+    color: #aaa;
+    cursor: not-allowed;
   }
 
   .places {
@@ -366,6 +539,18 @@ const filters = [
 
     .city-search {
       margin-top: 36px;
+    }
+
+    .result-bar {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px 0;
+    }
+
+    .result-actions {
+      width: 100%;
+      justify-content: space-between;
     }
   }
 </style>

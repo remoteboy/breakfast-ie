@@ -1,6 +1,7 @@
 ---
 import type { Place } from '../types/place';
 import { getAreaLabel } from '../lib/place';
+import { getPlaceDiscovery } from '../lib/discovery';
 
 interface Props {
   places: Place[];
@@ -27,6 +28,7 @@ const suggestions = [
       place.location.locality,
       place.location.city,
       place.editorial.summary,
+      ...getPlaceDiscovery(place).menuItemNames,
     ].join(' '),
   })),
 ];

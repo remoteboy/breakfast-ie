@@ -3,37 +3,45 @@ import type { Place } from '../types/place';
 import {
   getAreaLabel,
   getBreakfastSummary,
-  getBreakfastTags,
-  getFilterValues,
   getPrimaryImage,
 } from '../lib/place';
+import {
+  getDiscoverySummary,
+  getPlaceDiscovery,
+} from '../lib/discovery';
 
 interface Props {
   place: Place;
   filterable?: boolean;
+  order?: number;
 }
 
-const { place, filterable = false } = Astro.props;
+const { place, filterable = false, order = 0 } = Astro.props;
 const image = getPrimaryImage(place);
-const filterValues = getFilterValues(place);
-const tags = getBreakfastTags(place);
+const discovery = getPlaceDiscovery(place);
+const menuSummary = getDiscoverySummary(discovery);
 const searchText = [
   place.name,
   getAreaLabel(place),
   place.location.address,
   place.editorial.summary,
   getBreakfastSummary(place),
-  ...tags,
+  ...discovery.tags,
+  ...discovery.menuItemNames,
 ].join(' ');
 ---
 
 <article
   class:list={['place-row', image && 'has-image']}
   data-place={filterable ? '' : undefined}
-  data-filters={filterable ? filterValues.join(' ') : undefined}
+  data-filters={filterable ? discovery.filters.join(' ') : undefined}
   data-search={filterable ? searchText : undefined}
   data-lat={filterable ? place.location.latitude : undefined}
   data-lng={filterable ? place.location.longitude : undefined}
+  data-order={filterable ? order : undefined}
+  data-name={filterable ? place.name : undefined}
+  data-price-from={filterable ? discovery.minPrice : undefined}
+  data-menu-count={filterable ? discovery.menuItemCount : undefined}
 >
   {
     image && (
@@ -74,12 +82,13 @@ const searchText = [
 
     <div class="service-line">
       <span>{getBreakfastSummary(place)}</span>
+      {menuSummary && <span class="menu-summary">{menuSummary}</span>}
       <span class="distance" data-distance hidden></span>
     </div>
   </div>
 
   <ul class="tags" aria-label={`${place.name} features`}>
-    {tags.map((tag) => <li>{tag}</li>)}
+    {discovery.tags.map((tag) => <li>{tag}</li>)}
   </ul>
 </article>
 
@@ -165,6 +174,7 @@ const searchText = [
     font-size: 0.9rem;
   }
 
+  .menu-summary::before,
   .distance:not([hidden])::before {
     content: '· ';
   }
