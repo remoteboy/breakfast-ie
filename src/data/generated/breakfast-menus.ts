@@ -5,6 +5,7 @@ export const breakfastMenus = {
   "keoghs-cafe": {
     "venueName": "Keogh's Cafe",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Full Irish Breakfast",
@@ -236,6 +237,7 @@ export const breakfastMenus = {
   "metro-cafe": {
     "venueName": "Metro Cafe",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Metro Special",
@@ -603,9 +605,1913 @@ export const breakfastMenus = {
       }
     ]
   },
+  "social-fabric": {
+    "venueName": "Social Fabric Cafe",
+    "sourceStatus": "source-stale",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "The current first-party Menu page still links the same Week Menu PDF used by ingestion. Treat the linked PDF as current for this approval window.",
+      "sourceUrls": [
+        "https://www.social-fabric.ie/menu",
+        "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf"
+      ]
+    },
+    "items": [
+      {
+        "name": "Turkish Eggs",
+        "category": "eggs",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Avo mash, whipped feta cheese, poached eggs, pickled red onions, sourdough bread, spicy nduja sausage from pigs on The Green Farm & fresh herbs.",
+        "price": {
+          "amount": 15,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "avo mash",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "whipped feta cheese",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pickled red onions",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spicy nduja sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": "from pigs on The Green Farm"
+          },
+          {
+            "name": "fresh herbs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Turkish Eggs 15",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Eggs Bene",
+        "category": "eggs",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Potato cakes, avo mash, pulled ham hock, poached eggs, hollandaise sauce & garnish.",
+        "price": {
+          "amount": 16,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "potato cakes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "avo mash",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pulled ham hock",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "garnish",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Vegetarian option: Replace ham with mushrooms, kale & caramelised onions.",
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Eggs Bene 16",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Smoked Salmon Benedict",
+        "category": "eggs",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Irish smoked salmon, potato cake, avo mash, house pickles, poached eggs, hollandaise sauce & garnish.",
+        "price": {
+          "amount": 16,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "Irish smoked salmon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "potato cake",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "avo mash",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "house pickles",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "garnish",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Smoked Salmon Benedict 16",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "House Granola",
+        "category": "granola",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Oats, walnuts, pumpkin seeds, cinnamon, coconut, honey, stewed apple, fruit coulis, fresh fruit & Greek yogurt.",
+        "price": {
+          "amount": 7.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "oats",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "walnuts",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pumpkin seeds",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "cinnamon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "coconut",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "honey",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "stewed apple",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fruit coulis",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh fruit",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Greek yogurt",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "House Granola 7.5",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Acai Bowl",
+        "category": "other",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Acai, house granola, fresh fruit & peanut butter.",
+        "price": {
+          "amount": 9.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "acai",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "house granola",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh fruit",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "peanut butter",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Acai Bowl 9.5",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Pancakes",
+        "category": "pancakes",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Small 9.5/ Large 13. Butterscotch sauce, fresh fruit, stewed apple, almond crumble & lemon mascarpone. OR maple syrup & streaky bacon OR Nutella & Strawberry OR Eton Mess, whipped cream, meringue, fruit coulis & fresh fruit.",
+        "price": {
+          "amount": 9.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "butterscotch sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh fruit",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "stewed apple",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "almond crumble",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "lemon mascarpone",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Small 9.5/ Large 13. Also listed with optional serving variations: maple syrup & streaky bacon, Nutella & Strawberry, or Eton Mess.",
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Pancakes Small 9.5/ Large 13",
+          "confidence": 0.96
+        }
+      },
+      {
+        "name": "Social Fry",
+        "category": "full-irish",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Fried eggs, sausage, rashers, mixed pudding, roasted tomato, mushrooms, potato hash, Ballymaloe relish & toast.",
+        "price": {
+          "amount": 16,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "fried eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "rashers",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "mixed pudding",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "roasted tomato",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "potato hash",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Ballymaloe relish",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Social Fry 16",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Vegetarian Brekky",
+        "category": "irish-breakfast",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Poached eggs, halloumi cheese, avo, roasted tomato, mushrooms, potato hash, Ballymaloe relish, toast & garnish.",
+        "price": {
+          "amount": 14.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "halloumi cheese",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "avo",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "roasted tomato",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "potato hash",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Ballymaloe relish",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "garnish",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": true,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Vegan option: Replace eggs & halloumi with green leaves & peanut rayu.",
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Vegetarian Brekky 14.5",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Breakfast Burrito",
+        "category": "breakfast-roll",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Wrap, scrambled eggs, streaky bacon, potatoes, tomato, cheddar cheese, jalapeno & Frank Sauce mayo.",
+        "price": {
+          "amount": 11.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "wrap",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "scrambled eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "streaky bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "potatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tomato",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "cheddar cheese",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "jalapeno",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Frank Sauce mayo",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Vegetarian Option: Remove Bacon.",
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Breakfast Burrito 11.5",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Eggs over Avo",
+        "category": "eggs",
+        "section": null,
+        "mealContext": "all-day-breakfast",
+        "description": "Sourdough toast, poached eggs, avo mash & garnish (seeds & mustard cress).",
+        "price": {
+          "amount": 11.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "avo mash",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seeds",
+            "quantity": null,
+            "unit": null,
+            "notes": "garnish"
+          },
+          {
+            "name": "mustard cress",
+            "quantity": null,
+            "unit": null,
+            "notes": "garnish"
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "ADD tomatoes & Feta cheese +4.5; ADD Only tomatoes +2.5 or Only Feta +3.",
+        "source": {
+          "url": "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf",
+          "evidence": "Eggs over Avo 11.5",
+          "confidence": 0.99
+        }
+      }
+    ]
+  },
+  "one-society": {
+    "venueName": "One Society",
+    "sourceStatus": "source-stale",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "The current first-party venue page still links the exact Breakfast, Brunch & Lunch PDF used by ingestion and shows March 2026 menu imagery. Promote accepted brunch items only.",
+      "sourceUrls": [
+        "https://www.onesociety.ie/one-society",
+        "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf"
+      ]
+    },
+    "items": [
+      {
+        "name": "House Special Pancakes - Blueberry pancakes, seasonal berries & maple syrup",
+        "category": "pancakes",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "House Special Pancakes option.",
+        "price": {
+          "amount": 15.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "blueberry pancakes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seasonal berries",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "maple syrup",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Blueberry pancakes, seasonal berries & maple syrup",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "House Special Pancakes - Salted caramel sauce, banana & whipped cream",
+        "category": "pancakes",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "House Special Pancakes option.",
+        "price": {
+          "amount": 15.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "salted caramel sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "banana",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "whipped cream",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Salted caramel sauce, banana & whipped cream",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "House Special Pancakes - Bacon & maple syrup",
+        "category": "pancakes",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "House Special Pancakes option.",
+        "price": {
+          "amount": 15.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "maple syrup",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Bacon & maple syrup",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "House Special Pancakes - Berries or Banana & Nutella",
+        "category": "pancakes",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "House Special Pancakes option.",
+        "price": {
+          "amount": 15.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "berries or banana",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Nutella",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Berries or Banana & Nutella",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "R U Nuts Pancakes - crushed Kinder Bueno, mixed nuts, whipped cream, salted caramel sauce & chocolate sauce",
+        "category": "pancakes",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "R U Nuts Pancakes option.",
+        "price": {
+          "amount": 16.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "crushed Kinder Bueno",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "mixed nuts",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "whipped cream",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "salted caramel sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chocolate sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "crushed Kinder Bueno, mixed nuts, whipped cream, salted caramel sauce & chocolate sauce",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "R U Nuts Pancakes - crushed Oreos, marshmallows, whipped cream, salted caramel sauce & chocolate sauce",
+        "category": "pancakes",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "R U Nuts Pancakes option.",
+        "price": {
+          "amount": 16.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "crushed Oreos",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "marshmallows",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "whipped cream",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "salted caramel sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chocolate sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "crushed Oreos, marshmallows, whipped cream, salted caramel sauce & chocolate sauce",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Simple Pancakes",
+        "category": "pancakes",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Simple Pancakes with choice of maple syrup or lemon juice and sugar.",
+        "price": {
+          "amount": 13,
+          "currency": "EUR"
+        },
+        "components": [],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Simple Pancakes: € 13.00 Choose either Maple Syrup OR lemon juice and sugar",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Granola",
+        "category": "granola",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Homemade granola with natural yoghurt and seasonal fruit compote.",
+        "price": {
+          "amount": 8.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "homemade granola",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "natural yoghurt",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seasonal fruit compote",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Granola ... € 8.50 Homemade granola & natural yoghurt & seasonal fruit compote",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Mini Irish Breakfast",
+        "category": "full-irish",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Mini Irish Breakfast available until 12pm; go large with roasties for an extra charge.",
+        "price": {
+          "amount": 13.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "Irish pork sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "smoked black pudding",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "smoked bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fried egg",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "cherry tomatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Mexican spiced beans",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Until 12pm; go large with roasties add €6.00",
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Mini Irish Breakfast (Until 12pm) ... €13.50",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Breakfast Bun & Roasties",
+        "category": "breakfast-roll",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Soft brioche bun with sausage, smoked bacon, smoked black pudding, sliced tomato and a gooey fried egg, with ketchup, garlic mayo and HP sauce.",
+        "price": {
+          "amount": 13.9,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "smoked bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "smoked black pudding",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sliced tomato",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fried egg",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "soft brioche bun",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tomato ketchup",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "garlic mayo",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "HP sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "roasties",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Don’t want roasties €2.00 off",
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Breakfast Bun & Roasties € 13.90",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Beans & Eggs on Toast",
+        "category": "eggs",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Lightly spiced Mexican kidney beans stew on toasted sourdough with fluffy scrambled eggs, chilli flakes and sesame seed; vegan and gluten free option noted.",
+        "price": {
+          "amount": 13.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "Mexican kidney beans stew",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted sourdough bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "scrambled eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli flakes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sesame seed",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": "Vegan - with roasties; Gluten Free Option",
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Beans & Eggs on Toast ... € 13.50 (Vegan- with roasties & Gluten Free Option)",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "The Hangover Stack",
+        "category": "pancakes",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Spicy vanilla pancakes topped with ricotta cheese, crispy smoked bacon, tabasco sauce and a fried egg, finished with maple syrup.",
+        "price": {
+          "amount": 16.9,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "vanilla pancakes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "ricotta cheese",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "crispy smoked bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tabasco sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fried egg",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "maple syrup",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Dish can be mild if needed",
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "The Hangover Stack *spicy €16.90",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "One Society Eggs + a side",
+        "category": "eggs",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Sourdough bread with melted cheddar and chilli, sweet peppers with basil and spring onion, balsamic cherry tomatoes, 2 poached eggs, spicy red pepper hummus and smashed pea purée, with a choice of side.",
+        "price": {
+          "amount": 17.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "sourdough bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "melted cheddar",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sweet peppers",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "basil",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "balsamic cherry tomatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spicy red pepper hummus",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "smashed pea purée",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": "Vegan & Gluten Free Option; choice of side includes chorizo, smoked black pudding, kale or roasties",
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "One Society Eggs + a side (Vegan & Gluten Free Option) €17.50",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Pan Fried Kale on Toast",
+        "category": "eggs",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Toasted sourdough bread with pan fried organic kale, almond basil pesto, nuts and seeds, two soft poached eggs, chilli flakes and sesame salt; vegan and gluten free option noted.",
+        "price": {
+          "amount": 15.9,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "toasted sourdough bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pan fried organic kale",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "almond basil pesto",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nuts and seeds",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "soft poached eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli flakes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sesame salt",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": "Vegan option with roasties; Gluten Free Option",
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Pan Fried Kale on Toast (Gluten Free Option) €15.90",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Eggs Your Way",
+        "category": "eggs",
+        "section": "Brunch",
+        "mealContext": "brunch",
+        "description": "Two free range eggs cooked poached, fried or scrambled with two slices of sourdough toast.",
+        "price": {
+          "amount": 7.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "free range eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": "poached, fried or scrambled"
+          },
+          {
+            "name": "sourdough toast",
+            "quantity": 2,
+            "unit": "slices",
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Until 12pm",
+        "source": {
+          "url": "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf",
+          "evidence": "Eggs Your Way (Until 12pm) € 7.50",
+          "confidence": 0.99
+        }
+      }
+    ]
+  },
+  "beanhive-dawson": {
+    "venueName": "Beanhive Dawson Street",
+    "sourceStatus": "review-required",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "Current first-party Dawson Street menu explicitly separates All-Day Breakfast from generic ciabatta/wrap items. Promote accepted breakfast items only; rejected generic items remain excluded.",
+      "sourceUrls": [
+        "https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in"
+      ]
+    },
+    "items": [
+      {
+        "name": "Irish Breakfast",
+        "category": "full-irish",
+        "section": "All-Day Breakfast",
+        "mealContext": "all-day-breakfast",
+        "description": "2 bacon, 2 sausages, 1 fried egg, baked beans, bread. Includes free bread and any hot or refrigerated drink.",
+        "price": {
+          "amount": 15,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "bacon",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sausages",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fried egg",
+            "quantity": 1,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "baked beans",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "bread",
+            "quantity": null,
+            "unit": null,
+            "notes": "free bread included"
+          }
+        ],
+        "includedDrinks": [
+          {
+            "name": "any hot or refrigerated drink",
+            "choice": true,
+            "notes": "included"
+          }
+        ],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in",
+          "evidence": "Irish Breakfast ... €15",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Super Breakfast",
+        "category": "other",
+        "section": "All-Day Breakfast",
+        "mealContext": "all-day-breakfast",
+        "description": "2 bacon, 2 sausages, 1 fried egg, white pudding, hash browns, baked beans, grilled mushroom, bread. Includes free bread and any hot or refrigerated drink.",
+        "price": {
+          "amount": 17.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "bacon",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sausages",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fried egg",
+            "quantity": 1,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "white pudding",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hash browns",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "baked beans",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "grilled mushroom",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "bread",
+            "quantity": null,
+            "unit": null,
+            "notes": "free bread included"
+          }
+        ],
+        "includedDrinks": [
+          {
+            "name": "any hot or refrigerated drink",
+            "choice": true,
+            "notes": "included"
+          }
+        ],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in",
+          "evidence": "Super Breakfast ... €17.5",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Vegetarian Breakfast",
+        "category": "irish-breakfast",
+        "section": "All-Day Breakfast",
+        "mealContext": "all-day-breakfast",
+        "description": "3 scrambled eggs, roasted veg and mushrooms, baked beans, hash browns, grilled tomatoes, bread. Includes free bread and any hot or refrigerated drink.",
+        "price": {
+          "amount": 17.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "scrambled eggs",
+            "quantity": 3,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "roasted veg and mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "baked beans",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hash browns",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "grilled tomatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "bread",
+            "quantity": null,
+            "unit": null,
+            "notes": "free bread included"
+          }
+        ],
+        "includedDrinks": [
+          {
+            "name": "any hot or refrigerated drink",
+            "choice": true,
+            "notes": "included"
+          }
+        ],
+        "dietary": {
+          "vegetarian": true,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in",
+          "evidence": "Vegetarian Breakfast ... €17.5",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Vegan Breakfast",
+        "category": "irish-breakfast",
+        "section": "All-Day Breakfast",
+        "mealContext": "all-day-breakfast",
+        "description": "Roasted sweet potatoes, roasted mushrooms and sweet peppers, hash browns, baked beans, baby spinach, vegan cheese, bread. Includes free bread and any hot or refrigerated drink.",
+        "price": {
+          "amount": 17.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "roasted sweet potatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "roasted mushrooms and sweet peppers",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hash browns",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "baked beans",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "baby spinach",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "vegan cheese",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "bread",
+            "quantity": null,
+            "unit": null,
+            "notes": "free bread included"
+          }
+        ],
+        "includedDrinks": [
+          {
+            "name": "any hot or refrigerated drink",
+            "choice": true,
+            "notes": "included"
+          }
+        ],
+        "dietary": {
+          "vegetarian": true,
+          "vegan": true,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in",
+          "evidence": "Vegan Breakfast ... €17.5",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Scrambled Eggs",
+        "category": "eggs",
+        "section": "All-Day Breakfast",
+        "mealContext": "all-day-breakfast",
+        "description": "4 scrambled eggs, broccoli, chopped bacon, onions, rocket leaves, chopped tomatoes, cheese topping and bread. Includes free bread and any hot or refrigerated drink.",
+        "price": {
+          "amount": 15,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "scrambled eggs",
+            "quantity": 4,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "broccoli",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chopped bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "onions",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "rocket leaves",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chopped tomatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "cheese topping",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "bread",
+            "quantity": null,
+            "unit": null,
+            "notes": "free bread included"
+          }
+        ],
+        "includedDrinks": [
+          {
+            "name": "any hot or refrigerated drink",
+            "choice": true,
+            "notes": "included"
+          }
+        ],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in",
+          "evidence": "Scrambled Eggs ... €15",
+          "confidence": 0.99
+        }
+      }
+    ]
+  },
   "beanhive-baggot": {
     "venueName": "Beanhive Baggot Street",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Irish Breakfast",
@@ -1331,9 +3237,491 @@ export const breakfastMenus = {
       }
     ]
   },
+  "alma-portobello": {
+    "venueName": "Alma",
+    "sourceStatus": "review-required",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "Current first-party menu has explicit BREAKFAST and BRUNCH sections with service times. Promote accepted items only.",
+      "sourceUrls": [
+        "https://www.alma.ie/menu"
+      ]
+    },
+    "items": [
+      {
+        "name": "Granola Bowl",
+        "category": "granola",
+        "section": "BREAKFAST",
+        "mealContext": "breakfast",
+        "description": "Homemade chocolate granola, greek yogurt with coconut shavings, fennel-roasted strawberries with sumac and blueberries.",
+        "price": null,
+        "components": [
+          {
+            "name": "homemade chocolate granola",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "greek yogurt",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "coconut shavings",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fennel-roasted strawberries",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sumac",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "blueberries",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served from 8 am every day",
+        "source": {
+          "url": "https://www.alma.ie/menu",
+          "evidence": "GRANOLA BOWL",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Dulce de Leche Pancakes",
+        "category": "pancakes",
+        "section": "BREAKFAST",
+        "mealContext": "breakfast",
+        "description": "Fresh pancakes with seasonal poached pears, almonds, whipped mascarpone, dulce de leche, and seasonal berries.",
+        "price": null,
+        "components": [
+          {
+            "name": "fresh pancakes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seasonal poached pears",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "almonds",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "whipped mascarpone",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "dulce de leche",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seasonal berries",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served from 8 am every day",
+        "source": {
+          "url": "https://www.alma.ie/menu",
+          "evidence": "DULCE DE LECHE PANCAKES",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Sweet Potato & Harissa Eggs",
+        "category": "eggs",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Roasted sweet potato on a lemon & garlic whipped feta bed, lemon & garlic kale, two poached eggs, harissa & agave dressing, pumpkin seeds on tartine sourdough bread.",
+        "price": null,
+        "components": [
+          {
+            "name": "roasted sweet potato",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "lemon & garlic whipped feta bed",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "lemon & garlic kale",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "harissa & agave dressing",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pumpkin seeds",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tartine sourdough bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served from 8.00am – 3.30 pm weekdays and 8.00am – 4.00 pm weekends",
+        "source": {
+          "url": "https://www.alma.ie/menu",
+          "evidence": "SWEET POTATO & HARISSA EGGS",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Ragu on Toast",
+        "category": "eggs",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Marinated Ragu beef on a red wine jus reduction, pickled Shimiji mushrooms & turmeric cauliflower, with rosemary and thyme polenta chips, parmesan shavings, caramelized onions, black garlic mayo and two fried eggs on sourdough bread.",
+        "price": null,
+        "components": [
+          {
+            "name": "marinated ragu beef",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "red wine jus reduction",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pickled Shimiji mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "turmeric cauliflower",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "rosemary and thyme polenta chips",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "parmesan shavings",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "caramelized onions",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "black garlic mayo",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fried eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served from 8.00am – 3.30 pm weekdays and 8.00am – 4.00 pm weekends",
+        "source": {
+          "url": "https://www.alma.ie/menu",
+          "evidence": "RAGU ON TOAST (NEW)",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Vegan Hummus Toast",
+        "category": "sandwich",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Pea & mint hummus, roasted garlic portobello mushrooms, mixed greens, house pickles, spring onion and peanut rayu on organic Tartine sourdough.",
+        "price": null,
+        "components": [
+          {
+            "name": "pea & mint hummus",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "roasted garlic portobello mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "mixed greens",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "house pickles",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "peanut rayu",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "organic Tartine sourdough",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": true,
+          "vegan": true,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served from 8.00am – 3.30 pm weekdays and 8.00am – 4.00 pm weekends",
+        "source": {
+          "url": "https://www.alma.ie/menu",
+          "evidence": "VEGAN HUMMUS TOAST",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Choripan Argento",
+        "category": "eggs",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Argentinian style sausage on organic sourdough with aioli, chimichurri, salsa criolla, caramelized onions, two free range fried eggs, mixed leaves and sriracha.",
+        "price": null,
+        "components": [
+          {
+            "name": "Argentinian style sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "organic sourdough",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "aioli",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chimichurri",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "salsa criolla",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "caramelized onions",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "free range fried eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "mixed leaves",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sriracha",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served from 8.00am – 3.30 pm weekdays and 8.00am – 4.00 pm weekends",
+        "source": {
+          "url": "https://www.alma.ie/menu",
+          "evidence": "CHORIPAN ARGENTO",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Alma's Poached Eggs",
+        "category": "eggs",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Two free range poached eggs, smashed avocado, garlic portobello mushrooms, feta cheese and salsa criolla on organic Tartine sourdough.",
+        "price": null,
+        "components": [
+          {
+            "name": "free range poached eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "smashed avocado",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "garlic portobello mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "feta cheese",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "salsa criolla",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "organic Tartine sourdough",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served from 8.00am – 3.30 pm weekdays and 8.00am – 4.00 pm weekends",
+        "source": {
+          "url": "https://www.alma.ie/menu",
+          "evidence": "ALMA'S POACHED EGGS",
+          "confidence": 0.98
+        }
+      }
+    ]
+  },
   "urbanity-smithfield": {
     "venueName": "Urbanity",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Organic porridge oats, rhubarb compote, cinnamon crumble, vanilla yoghurt",
@@ -1735,9 +4123,1510 @@ export const breakfastMenus = {
       }
     ]
   },
+  "eathos-baggot-street": {
+    "venueName": "Eathos",
+    "sourceStatus": "review-required",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "Current first-party menu exposes an itemised Brunch section with prices and 14:30 last orders. Promote accepted items only.",
+      "sourceUrls": [
+        "https://eathosdublin.com/menu/"
+      ]
+    },
+    "items": [
+      {
+        "name": "Acai Smoothie Bowl",
+        "category": "other",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "with toasted nut crunch granola, coconut, peanut butter, kiwi, banana",
+        "price": {
+          "amount": 13.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "toasted nut crunch granola",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "coconut",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "peanut butter",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "kiwi",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "banana",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Acai Smoothie Bowl€13.50",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Avocado smash",
+        "category": "eggs",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "on toasted sourdough, poached eggs, feta crumb, peanut ray",
+        "price": {
+          "amount": 14,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "toasted sourdough",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "feta crumb",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "peanut ray",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Avocado smash€14.00",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Breakfast Salad",
+        "category": "other",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "with poached eggs, spiced roast squash, kale, whipped feta, shimichi dressing, salt roast pumpkin seed, served with warm focaccia",
+        "price": {
+          "amount": 15.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spiced roast squash",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "kale",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "whipped feta",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "shimichi dressing",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "salt roast pumpkin seed",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "warm focaccia",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Breakfast Salad€15.50",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Shakshuka",
+        "category": "eggs",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "with spinach, kale, poached eggs, feta crumble, served with toasted sourdough",
+        "price": {
+          "amount": 15.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "spinach",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "kale",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "feta crumble",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted sourdough",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Shakshuka€15.50",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Chorizo sausage",
+        "category": "eggs",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "scrambled eggs, avocado smash, on toasted sourdough with salsa verde & pickled red onion",
+        "price": {
+          "amount": 16.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "scrambled eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "avocado smash",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted sourdough",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "salsa verde",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pickled red onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Chorizo sausage€16.50",
+          "confidence": 0.96
+        }
+      },
+      {
+        "name": "Chicken & Chorizo croquette",
+        "category": "other",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "with spinach, poached eggs, crumbled chorizo and zingy hollandaise",
+        "price": {
+          "amount": 16.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "spinach",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "crumbled chorizo",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "zingy hollandaise",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Chicken & Chorizo croquette€16.50",
+          "confidence": 0.95
+        }
+      },
+      {
+        "name": "Pulled ham",
+        "category": "other",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "and spinach on toasted brioche with poached eggs, hollandaise topped with fresh chives",
+        "price": {
+          "amount": 16.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "spinach",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted brioche",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh chives",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Pulled ham €16.50",
+          "confidence": 0.95
+        }
+      },
+      {
+        "name": "Smoked Salmon",
+        "category": "other",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "on toasted brioche with spinach, poached eggs, hollandaise and crispy capers",
+        "price": {
+          "amount": 18,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "toasted brioche",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spinach",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "crispy capers",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Smoked Salmon€18.00",
+          "confidence": 0.95
+        }
+      },
+      {
+        "name": "Eathos full Irish",
+        "category": "full-irish",
+        "section": "Saturday Brunch",
+        "mealContext": "brunch",
+        "description": "with poached eggs, black pudding, streaky bacon, sausage, hash brown, roasted tomato, mushrooms, Guinness brown bread",
+        "price": {
+          "amount": 18.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "black pudding",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "streaky bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hash brown",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "roasted tomato",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Guinness brown bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Saturday Brunch",
+        "source": {
+          "url": "https://eathosdublin.com/menu/",
+          "evidence": "Eathos full Irish€18.50",
+          "confidence": 0.99
+        }
+      }
+    ]
+  },
+  "tang-abbey-street": {
+    "venueName": "Tang Abbey Street",
+    "sourceStatus": "source-stale",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "The official breakfast PDF remains live on tang.ie and the current contact page confirms Abbey Street breakfast and Saturday brunch service. Promote accepted items only.",
+      "sourceUrls": [
+        "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+        "https://www.tang.ie/contact"
+      ]
+    },
+    "items": [
+      {
+        "name": "Yogurt/Porridge",
+        "category": "other",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Homemade nutty granola, seasonal fruit, honey and nut butter, served with strained yogurt or porridge oats.",
+        "price": {
+          "amount": 8.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "homemade nutty granola",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seasonal fruit",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "honey",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut butter",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "strained yogurt or porridge oats",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Yogurt/Porridge ... €8.50",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Pancakes",
+        "category": "pancakes",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Gluten free pancakes served with Greek yogurt, seasonal fruit, toasted pecan nuts, honey and house nut butter. Vegan version available.",
+        "price": {
+          "amount": 11.25,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "gluten free pancakes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Greek yogurt",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seasonal fruit",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted pecan nuts",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "honey",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "house nut butter",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": true,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Vegan version available.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Pancakes (vegan version available) Gluten free pancakes ... €11.25",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Hummus Eggs",
+        "category": "eggs",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Traditional hummus, two fried North Wicklow Eggs, zhoug, Greek feta, nut dukkah, spring onion, chilli and Le Levain sourdough toast.",
+        "price": {
+          "amount": 12.75,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "traditional hummus",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "North Wicklow Eggs",
+            "quantity": 2,
+            "unit": "eggs",
+            "notes": "fried"
+          },
+          {
+            "name": "zhoug",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Greek feta",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut dukkah",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Le Levain sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Add chorizo €3.00.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Hummus Eggs ... €12.75",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Eggs on Toast",
+        "category": "eggs",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Two North Wicklow eggs (scrambled or fried) on sourdough toast with tahini, Lebanese pesto, chilli oil, nut dukkah, spring onion and fresh chillis.",
+        "price": {
+          "amount": 8.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "North Wicklow eggs",
+            "quantity": 2,
+            "unit": "eggs",
+            "notes": "scrambled or fried"
+          },
+          {
+            "name": "sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tahini",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Lebanese pesto",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli oil",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut dukkah",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh chillis",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Add chorizo €3.00.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Eggs on Toast ... €8.95",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Shakshuka",
+        "category": "eggs",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Two North Wicklow eggs baked in harissa, tomatoes and red peppers, nut dukkah, tzatziki, spring onion, chilli and sourdough toast.",
+        "price": {
+          "amount": 11.25,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "North Wicklow eggs",
+            "quantity": 2,
+            "unit": "eggs",
+            "notes": "baked"
+          },
+          {
+            "name": "harissa",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tomatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "red peppers",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut dukkah",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tzatziki",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Add Greek Feta €2.00 | Add chorizo €3.00.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Shakshuka ... €11.25",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Mushrooms on Toast",
+        "category": "other",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Harissa oyster and chestnut mushrooms on Le Levain sourdough toast with a crispy fried North Wicklow Egg, tahini sauce, Lebanese pesto, nut dukkah, spring onion and fresh chillis.",
+        "price": {
+          "amount": 11.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "harissa oyster and chestnut mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Le Levain sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "North Wicklow Egg",
+            "quantity": null,
+            "unit": null,
+            "notes": "crispy fried"
+          },
+          {
+            "name": "tahini sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Lebanese pesto",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut dukkah",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh chillis",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Vegan version available. Add chorizo €3.00.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Mushrooms on Toast (vegan version available) ... €11.50",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Toast",
+        "category": "other",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Le Levain sourdough toast served with butter and house plum & berry jam.",
+        "price": {
+          "amount": 4.75,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "Le Levain sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "butter",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "house plum & berry jam",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Toast ... €4.75",
+          "confidence": 0.95
+        }
+      }
+    ]
+  },
+  "tang-cumberland-place": {
+    "venueName": "Tang Cumberland Place",
+    "sourceStatus": "source-stale",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "The official breakfast PDF remains live on tang.ie and the current contact page confirms Cumberland Place breakfast and Saturday brunch service. Promote accepted items only.",
+      "sourceUrls": [
+        "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+        "https://www.tang.ie/contact"
+      ]
+    },
+    "items": [
+      {
+        "name": "Homemade nutty granola, seasonal fruit, honey and nut butter, served with strained yogurt or porridge oats",
+        "category": "granola",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": null,
+        "price": {
+          "amount": 8.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "homemade nutty granola",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seasonal fruit",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "honey",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut butter",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "strained yogurt or porridge oats",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Homemade nutty granola, seasonal fruit, honey and nut butter, served with strained yogurt or porridge oats €8.50",
+          "confidence": 0.93
+        }
+      },
+      {
+        "name": "Pancakes",
+        "category": "pancakes",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Vegan version available. Gluten free pancakes served with Greek yogurt, seasonal fruit, toasted pecan nuts, honey and house nut butter. Add milk chocolate swirls.",
+        "price": {
+          "amount": 11.25,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "gluten free pancakes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Greek yogurt",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "seasonal fruit",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted pecan nuts",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "honey",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "house nut butter",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": true,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Vegan version available. Add milk chocolate swirls €1.75.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Pancakes (vegan version available) Gluten free pancakes served with Greek yogurt, seasonal fruit, toasted pecan nuts, honey and house nut butter €11.25",
+          "confidence": 0.95
+        }
+      },
+      {
+        "name": "Hummus Eggs",
+        "category": "eggs",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Traditional hummus, two fried North Wicklow Eggs, zhoug, Greek feta, nut dukkah, spring onion, chilli and Le Levain sourdough toast. Add chorizo.",
+        "price": {
+          "amount": 12.75,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "traditional hummus",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "North Wicklow Eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": "fried"
+          },
+          {
+            "name": "zhoug",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Greek feta",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut dukkah",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Le Levain sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": "Add chorizo €3.00.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Hummus Eggs Traditional hummus, two fried North Wicklow Eggs, zhoug, Greek feta, nut dukkah, spring onion, chilli and Le Levain sourdough toast €12.75",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Eggs on Toast",
+        "category": "eggs",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Two North Wicklow eggs (scrambled or fried) on sourdough toast with tahini, Lebanese pesto, chilli oil, nut dukkah, spring onion and fresh chillis. Add chorizo.",
+        "price": {
+          "amount": 8.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "North Wicklow eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": "scrambled or fried"
+          },
+          {
+            "name": "sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tahini",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Lebanese pesto",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli oil",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut dukkah",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh chillis",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": "Add chorizo €3.00.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Eggs on Toast Two North Wicklow eggs (scrambled or fried) on sourdough toast with tahini, Lebanese pesto, chillli oil, nut dukkah, spring onion and fresh chillis €8.95",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Shakshuka",
+        "category": "eggs",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Two North Wicklow Eggs baked in harissa, tomatoes and red peppers, nut dukkah, tzatziki, spring onion, chilli and sourdough toast. Add Greek feta or chorizo.",
+        "price": {
+          "amount": 11.25,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "North Wicklow Eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": "baked"
+          },
+          {
+            "name": "harissa",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tomatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "red peppers",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut dukkah",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "tzatziki",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chilli",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": "Add Greek Feta €2.00 or chorizo €3.00.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Shakshuka Two North Wicklow Eggs baked in harissa, tomatoes & red peppers, nut dukkah, tzatziki, spring onion, chilli &sourdough toast €11.25",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Mushrooms on Toast",
+        "category": "other",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Vegan version available. Harissa oyster and chestnut mushrooms on Le Levain sourdough toast with a crispy fried North Wicklow Egg, tahini sauce, Lebanese pesto, nut dukkah, spring onion and fresh chillis. Add chorizo.",
+        "price": {
+          "amount": 11.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "harissa oyster mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chestnut mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Le Levain sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "North Wicklow Egg",
+            "quantity": 1,
+            "unit": null,
+            "notes": "crispy fried"
+          },
+          {
+            "name": "tahini sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Lebanese pesto",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "nut dukkah",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spring onion",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh chillis",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": "Vegan version available. Add chorizo €3.00.",
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Mushrooms on Toast (vegan version available) Harissa oyster and chestnut mushrooms on Le Levain sourdough toast with a crispy fried North Wicklow Egg ... €11.50",
+          "confidence": 0.95
+        }
+      },
+      {
+        "name": "Toast",
+        "category": "other",
+        "section": "Breakfast Menu",
+        "mealContext": "breakfast",
+        "description": "Le Levain sourdough toast served with butter and house plum and berry jam.",
+        "price": {
+          "amount": 4.75,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "Le Levain sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "butter",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "house plum & berry jam",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": true
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+          "evidence": "Toast Le Levain sourdough toast served with butter and house plum & berry jam €4.75",
+          "confidence": 0.98
+        }
+      }
+    ]
+  },
   "house-dublin": {
     "venueName": "House Dublin",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Chia & Quinoa Pudding",
@@ -2298,6 +6187,7 @@ export const breakfastMenus = {
   "balfes": {
     "venueName": "Balfes",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Irish smoked salmon & scrambled eggs on granary",
@@ -2518,9 +6408,1260 @@ export const breakfastMenus = {
       }
     ]
   },
+  "ivy-dawson-street": {
+    "venueName": "The Ivy Dawson Street",
+    "sourceStatus": "review-required",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "Current first-party brunch page is itemised and priced. Seasonal and children's sections remain review/rejected; promote accepted core brunch items only.",
+      "sourceUrls": [
+        "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/"
+      ]
+    },
+    "items": [
+      {
+        "name": "Steak and Eggs",
+        "category": "other",
+        "section": "Classics",
+        "mealContext": "brunch",
+        "description": "Chargrilled, thinly-beaten steak, with fried free-range hen's eggs and triple-cooked chips",
+        "price": {
+          "amount": 27.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "steak",
+            "quantity": null,
+            "unit": null,
+            "notes": "chargrilled, thinly-beaten"
+          },
+          {
+            "name": "fried free-range hen's eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "triple-cooked chips",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": false,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Steak and Eggs...€27.95",
+          "confidence": 0.95
+        }
+      },
+      {
+        "name": "The Ivy Full Irish Breakfast",
+        "category": "full-irish",
+        "section": "Classics",
+        "mealContext": "brunch",
+        "description": "Smoked streaky bacon from Crowe’s Farm, sausage, two fried hen’s eggs, black pudding, roast plum tomatoes, potato bread and hash browns. Served with a choice of white or granary toast and salted butter",
+        "price": {
+          "amount": 19.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "smoked streaky bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": "from Crowe’s Farm"
+          },
+          {
+            "name": "sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fried hen’s eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "black pudding",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "roast plum tomatoes",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "potato bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hash browns",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "white or granary toast",
+            "quantity": null,
+            "unit": null,
+            "notes": "choice"
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": false,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "The Ivy Full Irish Breakfast...€19.95",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Scrambled Manor Farm Eggs and Truffled Mushrooms",
+        "category": "eggs",
+        "section": "Classics",
+        "mealContext": "brunch",
+        "description": "Scrambled hen’s eggs, toasted brioche, truffle oil and wild mushrooms",
+        "price": {
+          "amount": 19.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "scrambled hen’s eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted brioche",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "truffle oil",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "wild mushrooms",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Scrambled Manor Farm Eggs and Truffled Mushrooms...€19.50",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Lobster and Spinach Benedict",
+        "category": "eggs",
+        "section": "Benedicts",
+        "mealContext": "brunch",
+        "description": "Lobster bisque, toasted farls, two poached hen’s eggs with hollandaise sauce",
+        "price": {
+          "amount": 24.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "lobster bisque",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted farls",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached hen’s eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": false,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Lobster and Spinach Benedict...€24.50",
+          "confidence": 0.96
+        }
+      },
+      {
+        "name": "Eggs Benedict",
+        "category": "eggs",
+        "section": "Benedicts",
+        "mealContext": "brunch",
+        "description": "Traditional roast ham, toasted farls, two poached hen’s eggs with hollandaise sauce and watercress",
+        "price": {
+          "amount": 17.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "traditional roast ham",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted farls",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached hen’s eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "watercress",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": false,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Eggs Benedict...€17.95",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Eggs Royale",
+        "category": "eggs",
+        "section": "Benedicts",
+        "mealContext": "brunch",
+        "description": "Organic smoked salmon, two poached hen’s eggs, toasted farls with hollandaise sauce and watercress",
+        "price": {
+          "amount": 19.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "organic smoked salmon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached hen’s eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted farls",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "watercress",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": false,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Eggs Royale...€19.95",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Avocado Benedict",
+        "category": "eggs",
+        "section": "Benedicts",
+        "mealContext": "brunch",
+        "description": "Avocado, two poached hen’s eggs on toasted farls, hollandaise sauce",
+        "price": {
+          "amount": 17.5,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "avocado",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached hen’s eggs",
+            "quantity": 2,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted farls",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Avocado Benedict...€17.50",
+          "confidence": 0.96
+        }
+      },
+      {
+        "name": "Scrambled Manor Farm Eggs and Galway Smoked Salmon",
+        "category": "eggs",
+        "section": "Benedicts",
+        "mealContext": "brunch",
+        "description": "Scrambled hen’s eggs, organic smoked salmon",
+        "price": {
+          "amount": 19.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "scrambled hen’s eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "organic smoked salmon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": false,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Scrambled Manor Farm Eggs and Galway Smoked Salmon...€19.95",
+          "confidence": 0.96
+        }
+      },
+      {
+        "name": "Buttermilk Pancakes with Hazelnut Chocolate Sauce",
+        "category": "pancakes",
+        "section": "Pancakes",
+        "mealContext": "brunch",
+        "description": "Filled with vanilla mascarpone, hazelnuts, golden sugar-crusted banana, chocolate and gianduja bueno sauce",
+        "price": {
+          "amount": 16.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "vanilla mascarpone",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hazelnuts",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "golden sugar-crusted banana",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "chocolate",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "gianduja bueno sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Buttermilk Pancakes with Hazelnut Chocolate Sauce...€16.95",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Buttermilk Pancakes with Bacon",
+        "category": "pancakes",
+        "section": "Pancakes",
+        "mealContext": "brunch",
+        "description": "Smoked streaky bacon from Crowe’s Farm lemon balm, maple syrup and blueberry compote",
+        "price": {
+          "amount": 16.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "smoked streaky bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": "from Crowe’s Farm"
+          },
+          {
+            "name": "lemon balm",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "maple syrup",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "blueberry compote",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": false,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Buttermilk Pancakes with Bacon...€16.95",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Buttermilk Pancakes with Fresh Berries",
+        "category": "pancakes",
+        "section": "Pancakes",
+        "mealContext": "brunch",
+        "description": "Strawberries, raspberries and blackberries with vanilla mascarpone, lemon balm and warm strawberry sauce",
+        "price": {
+          "amount": 16.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "strawberries",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "raspberries",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "blackberries",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "vanilla mascarpone",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "lemon balm",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "warm strawberry sauce",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Buttermilk Pancakes with Fresh Berries...€16.95",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Poached Eggs and Crushed Avocado",
+        "category": "eggs",
+        "section": "Light & Healthy",
+        "mealContext": "brunch",
+        "description": "On homemade treacle and cocoa seeded soda bread, with Irish wild garlic and chilli dressing, pomegranate and toasted seeds",
+        "price": {
+          "amount": 15.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "crushed avocado",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "homemade treacle and cocoa seeded soda bread",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Irish wild garlic and chilli dressing",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pomegranate",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "toasted seeds",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Poached Eggs and Crushed Avocado...€15.95",
+          "confidence": 0.97
+        }
+      },
+      {
+        "name": "Turkish Eggs",
+        "category": "eggs",
+        "section": "Light & Healthy",
+        "mealContext": "brunch",
+        "description": "Velvet Cloud labneh, pomegranate spiced aubergine purée, Padron peppers, fresh herbs, smoked chilli crisp and sourdough",
+        "price": {
+          "amount": 16.95,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "Velvet Cloud labneh",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "pomegranate spiced aubergine purée",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Padron peppers",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fresh herbs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "smoked chilli crisp",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": false,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/",
+          "evidence": "Turkish Eggs...€16.95",
+          "confidence": 0.95
+        }
+      }
+    ]
+  },
+  "woollen-mills": {
+    "venueName": "The Woollen Mills",
+    "sourceStatus": "review-required",
+    "promotionApproval": {
+      "approvedAt": "2026-10-04",
+      "expiresAt": "2027-01-04",
+      "note": "Current first-party menus page explicitly lists breakfast and weekend brunch with prices. Promote accepted items only.",
+      "sourceUrls": [
+        "https://www.thewoollenmills.com/menus.htm"
+      ]
+    },
+    "items": [
+      {
+        "name": "The Woollen Mills fry",
+        "category": "full-irish",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Fried eggs, black and white pudding, portobello mushroom, sausage, Pigs on the Green bacon, homemade beans, hash brown and sourdough toast",
+        "price": {
+          "amount": 18,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "fried eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "black and white pudding",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "portobello mushroom",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Pigs on the Green bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "homemade beans",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hash brown",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "The Woollen Mills fry: Fried eggs, black and white pudding, portobello mushroom, sausage, Pigs on the Green bacon, homemade beans, hash brown and sourdough toast, €18",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Veggie Breakfast",
+        "category": "irish-breakfast",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Fried eggs, Halloumi, portobello mushroom, spinach, homemade beans, hash brown, piquillo peppers",
+        "price": {
+          "amount": 17,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "fried eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "halloumi",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "portobello mushroom",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "spinach",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "homemade beans",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hash brown",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "piquillo peppers",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "Veggie Breakfast: Fried eggs, Halloumi, portobello mushroom, spinach, homemade beans, hash brown, piquillo peppers, €17",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Crispy Pork Belly hash",
+        "category": "other",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Nduja beans, fried egg and sourdough",
+        "price": {
+          "amount": 18,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "nduja beans",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "fried egg",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "Crispy Pork Belly hash, nduja beans, fried egg and sourdough, €18",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Granola bowl",
+        "category": "granola",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "Velvet cloud yoghurt, house granola, berries and open hive honey",
+        "price": {
+          "amount": 15,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "Velvet cloud yoghurt",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "house granola",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "berries",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "open hive honey",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "Granola bowl - Velvet cloud yoghurt, house granola, berries and open hive honey €15",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Eggs Benny",
+        "category": "eggs",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "With pulled ham, poached egg and hollandaise",
+        "price": {
+          "amount": 17,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "pulled ham",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached egg",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "Eggs Benny with pulled ham, poached egg and hollandaise, €17",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Eggs Royale",
+        "category": "eggs",
+        "section": "BRUNCH",
+        "mealContext": "brunch",
+        "description": "With smoked salmon and hollandaise",
+        "price": {
+          "amount": 19,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "smoked salmon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hollandaise",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": null,
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "Eggs Royale with smoked salmon, hollandaise, €19",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "The Woollen Mills Breakfast",
+        "category": "full-irish",
+        "section": "BREAKFAST",
+        "mealContext": "breakfast",
+        "description": "Poached eggs, black pudding, sausage, Pigs on the Green bacon, hash brown and sourdough toast",
+        "price": {
+          "amount": 17,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "poached eggs",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "black pudding",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sausage",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Pigs on the Green bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "hash brown",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "sourdough toast",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served From 11: - 12:00 Only",
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "The Woollen Mills Breakfast: poached eggs, black pudding, sausage, Pigs on the Green bacon, hash brown & sourdough toast, €17",
+          "confidence": 0.99
+        }
+      },
+      {
+        "name": "Waffles 'Eggs Benny'",
+        "category": "eggs",
+        "section": "BREAKFAST",
+        "mealContext": "breakfast",
+        "description": "With bacon, poached egg and Bearnaise",
+        "price": {
+          "amount": 17,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "bacon",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached egg",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Bearnaise",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served From 11: - 12:00 Only",
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "Waffles 'Eggs Benny' with Bacon, poached egg & Bearnaise, €17",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Waffles 'Eggs Florentine'",
+        "category": "eggs",
+        "section": "BREAKFAST",
+        "mealContext": "breakfast",
+        "description": "With spinach, poached egg and Bearnaise",
+        "price": {
+          "amount": 17,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "spinach",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "poached egg",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "Bearnaise",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served From 11: - 12:00 Only",
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "Waffles 'Eggs Florentine' with spinach, poached egg & Bearnaise, €17",
+          "confidence": 0.98
+        }
+      },
+      {
+        "name": "Brioche French Toast",
+        "category": "other",
+        "section": "BREAKFAST",
+        "mealContext": "breakfast",
+        "description": "With Velvet Cloud yoghurt, berry compote and bacon dust",
+        "price": {
+          "amount": 15,
+          "currency": "EUR"
+        },
+        "components": [
+          {
+            "name": "Velvet Cloud yoghurt",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "berry compote",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          },
+          {
+            "name": "bacon dust",
+            "quantity": null,
+            "unit": null,
+            "notes": null
+          }
+        ],
+        "includedDrinks": [],
+        "dietary": {
+          "vegetarian": null,
+          "vegan": null,
+          "glutenFree": null,
+          "glutenFreeAvailable": null
+        },
+        "availabilityNotes": "Served From 11: - 12:00 Only",
+        "source": {
+          "url": "https://www.thewoollenmills.com/menus.htm",
+          "evidence": "Brioche French Toast with Velvet Cloud yoghurt, berry compote & bacon dust €15",
+          "confidence": 0.98
+        }
+      }
+    ]
+  },
   "farmer-browns-rathmines": {
     "venueName": "Farmer Browns Rathmines",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Avocado Toast",
@@ -2947,6 +8088,7 @@ export const breakfastMenus = {
   "jay-kays-cafe": {
     "venueName": "Jay Kay's Cafe",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Jay’s Full Irish Breakfast",
@@ -4583,6 +9725,7 @@ export const breakfastMenus = {
   "third-space-smithfield": {
     "venueName": "Third Space Smithfield",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Full Irish",
@@ -5143,6 +10286,7 @@ export const breakfastMenus = {
   "laylas-ranelagh": {
     "venueName": "Layla's",
     "sourceStatus": "publishable",
+    "promotionApproval": null,
     "items": [
       {
         "name": "Croissant Avocado Smash",

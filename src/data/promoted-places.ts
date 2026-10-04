@@ -424,6 +424,401 @@ const promotedPlaces = [
       ],
     },
   },
+
+  {
+    name: 'Beanhive Dawson Street',
+    slug: 'beanhive-dawson',
+    location: {
+      area: 'Dawson Street',
+      locality: 'Dublin 2',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '26 Dawson Street, Dublin 2, D02 FY28',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: null,
+      servedUntil: null,
+      allDay: true,
+      fullIrish: true,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Dawson Street café with an explicit all-day breakfast menu covering Irish, vegetarian and vegan breakfasts, eggs and hot drinks.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.beanhive.ie/',
+      menu: 'https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in',
+          label: 'Beanhive Dawson Street dine-in menu',
+          checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Alma',
+    slug: 'alma-portobello',
+    location: {
+      area: 'Portobello',
+      locality: 'Dublin 8',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '19A Curzon Street, Portobello, Dublin 8, D08 ND82',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '08:00',
+      servedUntil: null,
+      allDay: null,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Portobello café with an Argentinian influence, serving breakfast from 8am and a brunch menu of pancakes, eggs and sourdough dishes.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.alma.ie/',
+      menu: 'https://www.alma.ie/menu',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://www.alma.ie/menu',
+          label: 'Alma current breakfast and brunch menu',
+          checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Eathos',
+    slug: 'eathos-baggot-street',
+    location: {
+      area: 'Baggot Street',
+      locality: 'Dublin 4',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '15 Baggot Street Upper, Dublin 4, D04 E5V6',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '07:30',
+      servedUntil: '14:30',
+      allDay: null,
+      fullIrish: true,
+      vegetarian: true,
+      vegan: null,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Upper Baggot Street café with a polished brunch menu spanning porridge, eggs, shakshuka and a full Irish, with last brunch orders at 2:30pm.',
+    },
+    images: [],
+    links: {
+      website: 'https://eathosdublin.com/',
+      menu: 'https://eathosdublin.com/menu/',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://eathosdublin.com/menu/',
+          label: 'Eathos current brunch menu',
+          checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'The Ivy Dawson Street',
+    slug: 'ivy-dawson-street',
+    location: {
+      area: 'Dawson Street',
+      locality: 'Dublin 2',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '13–17 Dawson Street, Dublin 2, D02 TF98',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: null,
+      servedUntil: '11:30',
+      allDay: false,
+      fullIrish: true,
+      vegetarian: true,
+      vegan: null,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Dawson Street brasserie serving a morning brunch menu with a Full Irish, Benedicts, pancakes and lighter egg and avocado dishes.',
+    },
+    images: [],
+    links: {
+      website: 'https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/',
+      menu: 'https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/',
+          label: 'The Ivy Dawson Street current breakfast and brunch menu',
+          checkedAt,
+        },
+        {
+          url: 'https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/',
+          label: 'The Ivy Dawson Street address and opening hours',
+          checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'The Woollen Mills',
+    slug: 'woollen-mills',
+    location: {
+      area: 'Ormond Quay',
+      locality: 'Dublin 1',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '42 Ormond Quay Lower, Dublin 1, D01 H304',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '11:00',
+      servedUntil: '15:30',
+      allDay: false,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Liffey-side Dublin restaurant serving a short late-morning breakfast and a broader weekend brunch menu.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.thewoollenmills.com/',
+      menu: 'https://www.thewoollenmills.com/menus.htm',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://www.thewoollenmills.com/menus.htm',
+          label: 'The Woollen Mills current breakfast and brunch menus',
+          checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Social Fabric Cafe',
+    slug: 'social-fabric',
+    location: {
+      area: 'Stoneybatter',
+      locality: 'Dublin 7',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '34 Stoneybatter, Dublin 7, D07 HP99',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: null,
+      servedUntil: '16:00',
+      allDay: true,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Stoneybatter café with an all-day menu of eggs, pancakes, granola, breakfast burritos and a substantial fry.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.social-fabric.ie/',
+      menu: 'https://www.social-fabric.ie/menu',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://www.social-fabric.ie/menu',
+          label: 'Social Fabric current menu hub',
+          checkedAt,
+        },
+        {
+          url: 'https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf',
+          label: 'Social Fabric weekday menu linked from current menu hub',
+          checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'One Society',
+    slug: 'one-society',
+    location: {
+      area: 'Lower Gardiner Street',
+      locality: 'Dublin 1',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '1 Lower Gardiner Street, Dublin 1, D01 P9Y1',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: null,
+      servedUntil: '15:00',
+      allDay: true,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Lower Gardiner Street café serving breakfast and brunch through the afternoon, from pancakes and granola to an Irish breakfast and egg dishes.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.onesociety.ie/one-society',
+      menu: 'https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://www.onesociety.ie/one-society',
+          label: 'One Society current venue page and menu link',
+          checkedAt,
+        },
+        {
+          url: 'https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf',
+          label: 'One Society breakfast, brunch and lunch menu linked by current venue page',
+          checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Tang Abbey Street',
+    slug: 'tang-abbey-street',
+    location: {
+      area: 'Abbey Street',
+      locality: 'Dublin 1',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '9a Abbey Street Lower, Dublin 1, D01 A0W2',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '08:00',
+      servedUntil: null,
+      allDay: false,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Abbey Street café serving weekday breakfast and Saturday all-day brunch with Middle Eastern-inspired eggs, hummus and pancakes.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.tang.ie/',
+      menu: 'https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf',
+          label: 'Tang official breakfast menu',
+          checkedAt,
+        },
+        {
+          url: 'https://www.tang.ie/contact',
+          label: 'Tang current Abbey Street service hours',
+          checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Tang Cumberland Place',
+    slug: 'tang-cumberland-place',
+    location: {
+      area: 'Cumberland Place',
+      locality: 'Dublin 2',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '2 Cumberland Place, Dublin 2, D02 H0V5',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '08:00',
+      servedUntil: null,
+      allDay: false,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Cumberland Place café serving weekday breakfast and Saturday all-day brunch with hummus, eggs, pancakes and vegetarian-friendly options.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.tang.ie/',
+      menu: 'https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf',
+    },
+    verification: {
+      checkedAt,
+      sources: [
+        {
+          url: 'https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf',
+          label: 'Tang official breakfast menu',
+          checkedAt,
+        },
+        {
+          url: 'https://www.tang.ie/contact',
+          label: 'Tang current Cumberland Place service hours',
+          checkedAt,
+        },
+      ],
+    },
+  },
 ] satisfies Place[];
 
 export default promotedPlaces;

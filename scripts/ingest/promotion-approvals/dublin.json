@@ -1,0 +1,87 @@
+{
+  "beanhive-dawson": {
+    "qualityStatuses": ["review-required"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "Current first-party Dawson Street menu explicitly separates All-Day Breakfast from generic ciabatta/wrap items. Promote accepted breakfast items only; rejected generic items remain excluded.",
+    "sourceUrls": [
+      "https://www.beanhive.ie/menu?location=Dawson+Street&menu=menu---dawson---dine-in"
+    ]
+  },
+  "alma-portobello": {
+    "qualityStatuses": ["review-required"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "Current first-party menu has explicit BREAKFAST and BRUNCH sections with service times. Promote accepted items only.",
+    "sourceUrls": [
+      "https://www.alma.ie/menu"
+    ]
+  },
+  "eathos-baggot-street": {
+    "qualityStatuses": ["review-required"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "Current first-party menu exposes an itemised Brunch section with prices and 14:30 last orders. Promote accepted items only.",
+    "sourceUrls": [
+      "https://eathosdublin.com/menu/"
+    ]
+  },
+  "ivy-dawson-street": {
+    "qualityStatuses": ["review-required"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "Current first-party brunch page is itemised and priced. Seasonal and children's sections remain review/rejected; promote accepted core brunch items only.",
+    "sourceUrls": [
+      "https://ivycollection.com/restaurants-near-me/the-ivy-ireland/the-ivy-dawson-street-dublin/breakfast-menu/"
+    ]
+  },
+  "woollen-mills": {
+    "qualityStatuses": ["review-required"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "Current first-party menus page explicitly lists breakfast and weekend brunch with prices. Promote accepted items only.",
+    "sourceUrls": [
+      "https://www.thewoollenmills.com/menus.htm"
+    ]
+  },
+  "social-fabric": {
+    "qualityStatuses": ["source-stale"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "The current first-party Menu page still links the same Week Menu PDF used by ingestion. Treat the linked PDF as current for this approval window.",
+    "sourceUrls": [
+      "https://www.social-fabric.ie/menu",
+      "https://www.social-fabric.ie/uploads/WLAFtkbH/A4weekmenu.pdf"
+    ]
+  },
+  "one-society": {
+    "qualityStatuses": ["source-stale"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "The current first-party venue page still links the exact Breakfast, Brunch & Lunch PDF used by ingestion and shows March 2026 menu imagery. Promote accepted brunch items only.",
+    "sourceUrls": [
+      "https://www.onesociety.ie/one-society",
+      "https://www.onesociety.ie/_files/ugd/ea11bf_7e22e09d2713447381ad4cafedd08183.pdf"
+    ]
+  },
+  "tang-abbey-street": {
+    "qualityStatuses": ["source-stale"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "The official breakfast PDF remains live on tang.ie and the current contact page confirms Abbey Street breakfast and Saturday brunch service. Promote accepted items only.",
+    "sourceUrls": [
+      "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+      "https://www.tang.ie/contact"
+    ]
+  },
+  "tang-cumberland-place": {
+    "qualityStatuses": ["source-stale"],
+    "approvedAt": "2026-10-04",
+    "expiresAt": "2027-01-04",
+    "note": "The official breakfast PDF remains live on tang.ie and the current contact page confirms Cumberland Place breakfast and Saturday brunch service. Promote accepted items only.",
+    "sourceUrls": [
+      "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
+      "https://www.tang.ie/contact"
+    ]
+  }
+}

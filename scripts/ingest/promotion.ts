@@ -19,6 +19,18 @@ interface PromotionOptions {
   dryRun?: boolean;
 }
 
+type ApprovableQualityStatus = 'review-required' | 'source-stale';
+
+interface PromotionApproval {
+  qualityStatuses: ApprovableQualityStatus[];
+  approvedAt: string;
+  expiresAt: string;
+  note: string;
+  sourceUrls: string[];
+}
+
+type PromotionApprovalRegistry = Record<string, PromotionApproval>;
+
 interface PromotionVenueResult {
   slug: string;
   name: string;
@@ -50,8 +62,66 @@ interface PublishedMenuItem {
 
 interface PublishedVenueMenu {
   venueName: string;
-  sourceStatus: 'publishable' | 'source-stale';
+  sourceStatus: 'publishable' | 'review-required' | 'source-stale';
+  promotionApproval: {
+    approvedAt: string;
+    expiresAt: string;
+    note: string;
+    sourceUrls: string[];
+  } | null;
   items: PublishedMenuItem[];
+}
+
+async function loadPromotionApprovals(
+  manifestName: string,
+): Promise<PromotionApprovalRegistry> {
+  const url = new URL(`./promotion-approvals/${manifestName}.json`, import.meta.url);
+
+  try {
+    const raw = JSON.parse(await readFile(fileURLToPath(url), 'utf8')) as unknown;
+
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
+      throw new Error(`Invalid promotion approvals file: ${fileURLToPath(url)}`);
+    }
+
+    return raw as PromotionApprovalRegistry;
+  } catch (error) {
+    if (
+      error instanceof Error
+      && 'code' in error
+      && (error as { code?: string }).code === 'ENOENT'
+    ) {
+      return {};
+    }
+    throw error;
+  }
+}
+
+function activeApproval(
+  slug: string,
+  candidate: VenueCandidate,
+  approvals: PromotionApprovalRegistry,
+) {
+  const approval = approvals[slug];
+  if (!approval) return null;
+
+  if (
+    candidate.quality.status !== 'review-required'
+    && candidate.quality.status !== 'source-stale'
+  ) {
+    return null;
+  }
+
+  if (!approval.qualityStatuses.includes(candidate.quality.status)) {
+    return null;
+  }
+
+  const expiry = Date.parse(`${approval.expiresAt}T23:59:59Z`);
+  if (!Number.isFinite(expiry) || expiry < Date.now()) {
+    return null;
+  }
+
+  return approval;
 }
 
 async function readCandidate(slug: string) {
@@ -105,9 +175,17 @@ function acceptedItems(candidate: VenueCandidate): PublishedMenuItem[] {
 function promotionEligibility(
   candidate: VenueCandidate,
   options: PromotionOptions,
+  approval: PromotionApproval | null,
 ) {
   if (candidate.quality.status === 'publishable') {
     return { promote: true, reason: null };
+  }
+
+  if (approval) {
+    return {
+      promote: true,
+      reason: `Manually approved through ${approval.expiresAt}: ${approval.note}`,
+    };
   }
 
   if (candidate.quality.status === 'source-stale' && options.includeStale) {
@@ -120,14 +198,14 @@ function promotionEligibility(
   if (candidate.quality.status === 'source-stale') {
     return {
       promote: false,
-      reason: 'Source is stale/sample data; rerun with --include-stale only after manual verification.',
+      reason: 'Source is stale/sample data and has no active promotion approval.',
     };
   }
 
   if (candidate.quality.status === 'review-required') {
     return {
       promote: false,
-      reason: 'Venue still has review-required extraction results.',
+      reason: 'Venue has accepted items but no active promotion approval for review-required output.',
     };
   }
 
@@ -171,7 +249,7 @@ function renderPromotionMarkdown(
   } else {
     for (const result of promoted) {
       lines.push(
-        `- **${result.name}** — ${result.promotedItems} item(s) · ${result.qualityStatus}`,
+        `- **${result.name}** — ${result.promotedItems} item(s) · ${result.qualityStatus}${result.reason ? ` · ${result.reason}` : ''}`,
       );
     }
     lines.push('');
@@ -197,6 +275,7 @@ export async function promoteManifest(
   options: PromotionOptions = {},
 ) {
   const manifest = await loadManifest(manifestName);
+  const approvals = await loadPromotionApprovals(manifestName);
   const published: Record<string, PublishedVenueMenu> = {};
   const results: PromotionVenueResult[] = [];
 
@@ -217,8 +296,19 @@ export async function promoteManifest(
       continue;
     }
 
-    const eligibility = promotionEligibility(candidate, options);
     const accepted = acceptedItems(candidate);
+    const approval = activeApproval(venue.slug, candidate, approvals);
+    const approvedSources = approval ? new Set(approval.sourceUrls) : null;
+    const sourceLockedApproval = approval && accepted.every(
+      (item) => approvedSources?.has(item.source.url),
+    )
+      ? approval
+      : null;
+    const eligibility = promotionEligibility(
+      candidate,
+      options,
+      sourceLockedApproval,
+    );
     const reviewItems = candidate.quality.items.filter(
       (item) => item.decision === 'review',
     ).length;
@@ -244,9 +334,15 @@ export async function promoteManifest(
 
     published[venue.slug] = {
       venueName: venue.name,
-      sourceStatus: candidate.quality.status === 'source-stale'
-        ? 'source-stale'
-        : 'publishable',
+      sourceStatus: candidate.quality.status as PublishedVenueMenu['sourceStatus'],
+      promotionApproval: sourceLockedApproval
+        ? {
+            approvedAt: sourceLockedApproval.approvedAt,
+            expiresAt: sourceLockedApproval.expiresAt,
+            note: sourceLockedApproval.note,
+            sourceUrls: sourceLockedApproval.sourceUrls,
+          }
+        : null,
       items: accepted,
     };
 
@@ -267,6 +363,7 @@ export async function promoteManifest(
     generatedAt,
     manifest: manifestName,
     includeStale: options.includeStale ?? false,
+    activeApprovals: Object.keys(approvals).length,
     promotedVenues: results.filter((result) => result.promoted).length,
     promotedItems: results
       .filter((result) => result.promoted)
