@@ -15,7 +15,7 @@ type IncludedDrink = {
   notes: string | null;
 };
 
-type MenuItem = {
+export type MenuItem = {
   name: string;
   category: string | null;
   mealContext: string | null;
@@ -35,7 +35,7 @@ type MenuItem = {
   availabilityNotes: string | null;
 };
 
-type BreakfastMenu = {
+export type BreakfastMenu = {
   venueName: string;
   sourceStatus: string;
   items: readonly MenuItem[];

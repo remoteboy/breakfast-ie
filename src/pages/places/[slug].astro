@@ -10,6 +10,13 @@ import {
   getBreakfastSummary,
   getPrimaryImage,
 } from '../../lib/place';
+import {
+  formatServiceWindow,
+  getEffectiveCoordinates,
+  getVenueEnrichment,
+  getVenueEnrichmentSources,
+} from '../../lib/enrichment';
+import { buildPlaceStructuredData, serializeStructuredData } from '../../lib/structured-data';
 
 export function getStaticPaths() {
   return places.map((place) => ({
@@ -25,17 +32,30 @@ export function getStaticPaths() {
 
 const { place } = Astro.props;
 const image = getPrimaryImage(place);
+const enrichment = getVenueEnrichment(place);
+const coordinates = getEffectiveCoordinates(place);
+const structuredData = buildPlaceStructuredData(place);
+const structuredDataJson = serializeStructuredData(structuredData);
 const breakfastMenu =
   place.slug in breakfastMenus
     ? breakfastMenus[place.slug as BreakfastMenuSlug]
     : null;
-const directionsDestination =
-  place.location.latitude !== null && place.location.longitude !== null
-    ? `${place.location.latitude},${place.location.longitude}`
-    : place.location.address;
+const directionsDestination = coordinates
+  ? `${coordinates.latitude},${coordinates.longitude}`
+  : place.location.address;
 const directionsUrl = directionsDestination
   ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(directionsDestination)}`
   : null;
+
+const sourceMap = new Map(
+  [...place.verification.sources, ...getVenueEnrichmentSources(enrichment)].map((source) => [source.url, source]),
+);
+const sources = [...sourceMap.values()];
+const placeCheckedAt = place.verification.checkedAt;
+const informationCheckedAt =
+  enrichment?.checkedAt && (!placeCheckedAt || enrichment.checkedAt > placeCheckedAt)
+    ? enrichment.checkedAt
+    : placeCheckedAt;
 
 const facts = [
   ['Full Irish', place.breakfast.fullIrish],
@@ -48,6 +68,8 @@ const facts = [
   title={`${place.name} — breakfast.ie`}
   description={`${place.editorial.summary} Breakfast information for ${place.name}, ${getAreaLabel(place)}.`}
 >
+  <script is:inline type="application/ld+json" set:html={structuredDataJson}></script>
+
   <div class="place-page">
     <a class="back" href="/dublin/">
       ← Breakfast in Dublin
@@ -128,6 +150,26 @@ const facts = [
 
     {breakfastMenu && <BreakfastMenu menu={breakfastMenu} />}
 
+    {
+      enrichment?.breakfastHours && enrichment.breakfastHours.length > 0 && (
+        <section class="hours">
+          <h2>Breakfast hours</h2>
+
+          <div class="hours-list">
+            {enrichment.breakfastHours.map((window) => (
+              <div class="hours-row">
+                <div>
+                  <strong>{window.label}</strong>
+                  <span>{formatServiceWindow(window)}</span>
+                </div>
+                {window.note && <p>{window.note}</p>}
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
     <section class="facts">
       <h2>Breakfast</h2>
 
@@ -175,20 +217,33 @@ const facts = [
           <dd>{place.location.address}</dd>
         </div>
 
+        {
+          enrichment?.openingHours && enrichment.openingHours.length > 0 && (
+            <div>
+              <dt>Venue hours</dt>
+              <dd class="detail-hours">
+                {enrichment.openingHours.map((window) => (
+                  <span>{formatServiceWindow(window)}</span>
+                ))}
+              </dd>
+            </div>
+          )
+        }
+
         <div>
           <dt>Information checked</dt>
-          <dd>{formatCheckedDate(place.verification.checkedAt)}</dd>
+          <dd>{formatCheckedDate(informationCheckedAt)}</dd>
         </div>
       </dl>
     </section>
 
     {
-      place.verification.sources.length > 0 && (
+      sources.length > 0 && (
         <section class="sources">
           <h2>Sources</h2>
 
           <ul>
-            {place.verification.sources.map((source) => (
+            {sources.map((source) => (
               <li>
                 <a href={source.url} rel="external">
                   {source.label}
@@ -304,6 +359,37 @@ const facts = [
     margin: 0;
   }
 
+  .hours-list {
+    border-top: 1px solid #111;
+  }
+
+  .hours-row {
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .hours-row > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .hours-row span {
+    color: #555;
+    text-align: right;
+  }
+
+  .hours-row p {
+    margin: 8px 0 0;
+    color: #666;
+    font-size: 0.85rem;
+  }
+
+  .detail-hours {
+    display: grid;
+    gap: 4px;
+  }
+
   .sources ul {
     margin: 0;
     padding: 0;
@@ -337,6 +423,15 @@ const facts = [
       grid-template-columns: 1fr;
       gap: 24px;
       padding: 48px 0;
+    }
+
+    .hours-row > div {
+      display: grid;
+      gap: 4px;
+    }
+
+    .hours-row span {
+      text-align: left;
     }
   }
 </style>

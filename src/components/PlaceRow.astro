@@ -9,6 +9,7 @@ import {
   getDiscoverySummary,
   getPlaceDiscovery,
 } from '../lib/discovery';
+import { getEffectiveCoordinates } from '../lib/enrichment';
 
 interface Props {
   place: Place;
@@ -20,6 +21,7 @@ const { place, filterable = false, order = 0 } = Astro.props;
 const image = getPrimaryImage(place);
 const discovery = getPlaceDiscovery(place);
 const menuSummary = getDiscoverySummary(discovery);
+const coordinates = getEffectiveCoordinates(place);
 const searchText = [
   place.name,
   getAreaLabel(place),
@@ -36,8 +38,8 @@ const searchText = [
   data-place={filterable ? '' : undefined}
   data-filters={filterable ? discovery.filters.join(' ') : undefined}
   data-search={filterable ? searchText : undefined}
-  data-lat={filterable ? place.location.latitude : undefined}
-  data-lng={filterable ? place.location.longitude : undefined}
+  data-lat={filterable ? coordinates?.latitude : undefined}
+  data-lng={filterable ? coordinates?.longitude : undefined}
   data-order={filterable ? order : undefined}
   data-name={filterable ? place.name : undefined}
   data-price-from={filterable ? discovery.minPrice : undefined}

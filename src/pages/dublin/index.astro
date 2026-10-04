@@ -7,6 +7,7 @@ import {
   getPlaceDiscovery,
   type DiscoveryFilter,
 } from '../../lib/discovery';
+import { buildDublinStructuredData, serializeStructuredData } from '../../lib/structured-data';
 
 const dublinPlaces = places.filter(
   (place) => place.location.city === 'Dublin',
@@ -42,12 +43,16 @@ const menuItemCount = dublinPlaces.reduce(
   (total, place) => total + (discoveryBySlug.get(place.slug)?.menuItemCount ?? 0),
   0,
 );
+const dublinStructuredData = buildDublinStructuredData(dublinPlaces);
+const dublinStructuredDataJson = serializeStructuredData(dublinStructuredData);
 ---
 
 <BaseLayout
   title="Breakfast in Dublin — breakfast.ie"
   description="Find breakfast in Dublin by Full Irish, price, serving time, dietary options and what is actually on the breakfast menu."
 >
+  <script is:inline type="application/ld+json" set:html={dublinStructuredDataJson}></script>
+
   <div class="city-page">
     <header class="city-header">
       <p class="eyebrow">Ireland</p>
