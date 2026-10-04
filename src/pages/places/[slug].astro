@@ -29,10 +29,13 @@ const breakfastMenu =
   place.slug in breakfastMenus
     ? breakfastMenus[place.slug as BreakfastMenuSlug]
     : null;
-const directionsUrl =
+const directionsDestination =
   place.location.latitude !== null && place.location.longitude !== null
-    ? `https://www.google.com/maps/dir/?api=1&destination=${place.location.latitude},${place.location.longitude}`
-    : null;
+    ? `${place.location.latitude},${place.location.longitude}`
+    : place.location.address;
+const directionsUrl = directionsDestination
+  ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(directionsDestination)}`
+  : null;
 
 const facts = [
   ['Full Irish', place.breakfast.fullIrish],

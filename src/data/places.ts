@@ -1,8 +1,9 @@
 import type { Place } from '../types/place';
+import promotedPlaces from './promoted-places';
 
 const checkedAt = '2026-10-02';
 
-const places = [
+const curatedPlaces = [
   {
     name: 'Brother Hubbard North',
     slug: 'brother-hubbard-north',
@@ -328,5 +329,12 @@ const places = [
     },
   },
 ] satisfies Place[];
+
+const curatedSlugs = new Set(curatedPlaces.map((place) => place.slug));
+
+const places: Place[] = [
+  ...curatedPlaces,
+  ...promotedPlaces.filter((place) => !curatedSlugs.has(place.slug)),
+];
 
 export default places;
