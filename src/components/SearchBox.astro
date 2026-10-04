@@ -72,6 +72,13 @@ const suggestions = [
 <script type="application/json" id="breakfast-search-data" set:html={JSON.stringify(suggestions)}></script>
 
 <script>
+  type Suggestion = {
+    label: string;
+    meta: string;
+    url: string;
+    keywords: string;
+  };
+
   const form = document.querySelector('[data-place-search]');
   const input = form?.querySelector('[data-search-input]');
   const destination = form?.querySelector('[data-search-destination]');
@@ -87,14 +94,14 @@ const suggestions = [
     results instanceof HTMLElement &&
     dataNode
   ) {
-    const suggestions = JSON.parse(dataNode.textContent || '[]');
-    let visible = [];
+    const suggestions = JSON.parse(dataNode.textContent || '[]') as Suggestion[];
+    let visible: Suggestion[] = [];
     let activeIndex = -1;
 
     const existingQuery = new URLSearchParams(window.location.search).get('q');
     if (existingQuery) input.value = existingQuery;
 
-    const normalise = (value) =>
+    const normalise = (value: string) =>
       value
         .toLowerCase()
         .normalize('NFD')
@@ -110,13 +117,13 @@ const suggestions = [
       input.removeAttribute('aria-activedescendant');
     };
 
-    const choose = (item) => {
+    const choose = (item: Suggestion) => {
       input.value = item.label;
       destination.value = item.url;
       close();
     };
 
-    const escapeHtml = (value) =>
+    const escapeHtml = (value: string) =>
       value
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
@@ -164,7 +171,7 @@ const suggestions = [
       input.setAttribute('aria-expanded', 'true');
     };
 
-    const setActive = (index) => {
+    const setActive = (index: number) => {
       const options = [...results.querySelectorAll('[data-suggestion-index]')];
       if (!options.length) return;
 

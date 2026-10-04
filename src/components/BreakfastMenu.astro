@@ -1,0 +1,246 @@
+---
+type MenuComponent = {
+  name: string;
+  quantity: number | null;
+  unit: string | null;
+  notes: string | null;
+};
+
+type IncludedDrink = {
+  name: string;
+  choice: boolean | null;
+  notes: string | null;
+};
+
+type BreakfastMenuItem = {
+  name: string;
+  description: string | null;
+  price: {
+    amount: number;
+    currency: string;
+  } | null;
+  components: readonly MenuComponent[];
+  includedDrinks: readonly IncludedDrink[];
+  dietary: {
+    vegetarian: boolean | null;
+    vegan: boolean | null;
+    glutenFree: boolean | null;
+    glutenFreeAvailable: boolean | null;
+  };
+  source: {
+    url: string;
+  };
+};
+
+type BreakfastMenu = {
+  venueName: string;
+  sourceStatus: string;
+  items: readonly BreakfastMenuItem[];
+};
+
+type Props = {
+  menu: BreakfastMenu;
+};
+
+const { menu } = Astro.props;
+
+const euro = new Intl.NumberFormat('en-IE', {
+  style: 'currency',
+  currency: 'EUR',
+  minimumFractionDigits: 2,
+});
+
+const formatPrice = (item: BreakfastMenuItem) =>
+  item.price ? euro.format(item.price.amount) : null;
+
+const formatComponent = (component: MenuComponent) => {
+  const quantity =
+    component.quantity === null
+      ? ''
+      : component.unit
+        ? `${component.quantity} ${component.unit} `
+        : `${component.quantity} × `;
+
+  const notes = component.notes ? ` (${component.notes})` : '';
+
+  return `${quantity}${component.name}${notes}`;
+};
+
+const getDietaryLabels = (item: BreakfastMenuItem) => {
+  const labels: string[] = [];
+
+  if (item.dietary.vegan === true) {
+    labels.push('Vegan');
+  } else if (item.dietary.vegetarian === true) {
+    labels.push('Vegetarian');
+  }
+
+  if (item.dietary.glutenFree === true) {
+    labels.push('Gluten-free');
+  } else if (item.dietary.glutenFreeAvailable === true) {
+    labels.push('Gluten-free available');
+  }
+
+  return labels;
+};
+
+const sourceUrls = [...new Set(menu.items.map((item) => item.source.url))];
+---
+
+<section class="breakfast-menu" aria-labelledby="breakfast-menu-heading">
+  <div class="section-heading">
+    <h2 id="breakfast-menu-heading">Breakfast menu</h2>
+    <p>{menu.items.length} {menu.items.length === 1 ? 'item' : 'items'}</p>
+  </div>
+
+  <div class="menu-list">
+    {
+      menu.items.map((item) => {
+        const price = formatPrice(item);
+        const components = item.components.map(formatComponent);
+        const dietary = getDietaryLabels(item);
+        const drinks = item.includedDrinks.map((drink) => drink.name);
+        const detail = components.length > 0 ? components.join(' · ') : item.description;
+
+        return (
+          <article class="menu-item">
+            <div class="menu-item-heading">
+              <h3>{item.name}</h3>
+              {price && <p class="price">{price}</p>}
+            </div>
+
+            {detail && <p class="components">{detail}</p>}
+
+            {(drinks.length > 0 || dietary.length > 0) && (
+              <div class="item-meta">
+                {drinks.length > 0 && (
+                  <span>Includes {drinks.join(' or ')}</span>
+                )}
+
+                {dietary.map((label) => (
+                  <span>{label}</span>
+                ))}
+              </div>
+            )}
+          </article>
+        );
+      })
+    }
+
+    <footer class="menu-source">
+      <p>Menu information from the venue’s published menu.</p>
+
+      <p class="source-links">
+        {sourceUrls.map((url, index) => (
+          <>
+            {index > 0 && <span aria-hidden="true"> · </span>}
+            <a href={url} rel="external">
+              {sourceUrls.length === 1 ? 'View source menu' : `Source ${index + 1}`}
+            </a>
+          </>
+        ))}
+      </p>
+    </footer>
+  </div>
+</section>
+
+<style>
+  .breakfast-menu {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    padding: 64px 0;
+    border-bottom: 1px solid #111;
+  }
+
+  .section-heading h2,
+  .section-heading p,
+  .menu-item h3,
+  .menu-item p,
+  .menu-source p {
+    margin: 0;
+  }
+
+  .section-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-heading p {
+    margin-top: 8px;
+    color: #777;
+    font-size: 0.8rem;
+  }
+
+  .menu-list {
+    border-top: 1px solid #111;
+  }
+
+  .menu-item {
+    padding: 20px 0 22px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .menu-item-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: baseline;
+  }
+
+  .menu-item h3 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .price {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .components {
+    max-width: 720px;
+    margin-top: 8px !important;
+    color: #555;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 10px;
+    color: #666;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .item-meta span + span::before {
+    content: ' · ';
+    margin: 0 6px;
+  }
+
+  .menu-source {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-top: 16px;
+    color: #777;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 700px) {
+    .breakfast-menu {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 48px 0;
+    }
+
+    .menu-item-heading {
+      gap: 16px;
+    }
+  }
+</style>

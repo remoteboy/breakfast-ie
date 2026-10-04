@@ -1,5 +1,7 @@
 ---
+import BreakfastMenu from '../../components/BreakfastMenu.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breakfastMenus, type BreakfastMenuSlug } from '../../data/generated/breakfast-menus';
 import places from '../../data/places';
 import {
   formatCheckedDate,
@@ -23,6 +25,10 @@ export function getStaticPaths() {
 
 const { place } = Astro.props;
 const image = getPrimaryImage(place);
+const breakfastMenu =
+  place.slug in breakfastMenus
+    ? breakfastMenus[place.slug as BreakfastMenuSlug]
+    : null;
 const directionsUrl =
   place.location.latitude !== null && place.location.longitude !== null
     ? `https://www.google.com/maps/dir/?api=1&destination=${place.location.latitude},${place.location.longitude}`
@@ -116,6 +122,8 @@ const facts = [
         </figure>
       )
     }
+
+    {breakfastMenu && <BreakfastMenu menu={breakfastMenu} />}
 
     <section class="facts">
       <h2>Breakfast</h2>

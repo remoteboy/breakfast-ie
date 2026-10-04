@@ -9,7 +9,7 @@ export const SourceKindSchema = z.enum([
 
 export const SourceSchema = z.object({
   kind: SourceKindSchema,
-  url: z.string().url(),
+  url: z.url(),
   label: z.string().min(1),
 });
 
