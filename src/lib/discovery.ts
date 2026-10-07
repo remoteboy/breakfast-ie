@@ -73,6 +73,9 @@ const explicitVegan = (item: MenuItem) =>
   item.dietary.vegan !== false &&
   (item.dietary.vegan === true || /\bvegan\b/i.test(item.name));
 
+const explicitGlutenFreeDish = (item: MenuItem) =>
+  item.dietary.glutenFree === true || /\bgluten[-\s]?free\b/i.test(item.name);
+
 const explicitFullIrish = (item: MenuItem) =>
   item.category === 'full-irish' || /\bfull\s+irish\b/i.test(item.name);
 
@@ -108,6 +111,14 @@ export function getBreakfastMenuSlugs(): string[] {
   return Object.keys(menus);
 }
 
+export function hasExplicitVeganDish(place: Place): boolean {
+  return (getBreakfastMenu(place)?.items ?? []).some(explicitVegan);
+}
+
+export function hasExplicitGlutenFreeDish(place: Place): boolean {
+  return (getBreakfastMenu(place)?.items ?? []).some(explicitGlutenFreeDish);
+}
+
 export function getPlaceDiscovery(place: Place): PlaceDiscovery {
   const menu = getBreakfastMenu(place);
   const items = menu?.items ?? [];
@@ -138,7 +149,9 @@ export function getPlaceDiscovery(place: Place): PlaceDiscovery {
   }
   if (prices.some((price) => price <= 15)) filterSet.add('under-15');
 
-  const tags = [...getBreakfastTags(place)];
+  const tags = getBreakfastTags(place).map((tag) =>
+    tag === 'Vegan' ? 'Vegan option' : tag,
+  );
   const addTag = (filter: DiscoveryFilter, label: string) => {
     if (filterSet.has(filter) && !tags.includes(label)) tags.push(label);
   };
@@ -147,7 +160,7 @@ export function getPlaceDiscovery(place: Place): PlaceDiscovery {
   addTag('early', 'Early');
   addTag('all-day', 'All day');
   addTag('vegetarian', 'Vegetarian');
-  addTag('vegan', 'Vegan');
+  addTag('vegan', 'Vegan option');
   addTag('gluten-free', 'GF option');
   addTag('drink-included', 'Drink included');
 

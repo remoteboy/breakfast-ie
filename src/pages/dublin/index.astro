@@ -8,6 +8,7 @@ import {
   type DiscoveryFilter,
 } from '../../lib/discovery';
 import { buildDublinStructuredData, serializeStructuredData } from '../../lib/structured-data';
+import { getPublishedTaxonomyPages } from '../../lib/taxonomy';
 
 const dublinPlaces = places.filter(
   (place) => place.location.city === 'Dublin',
@@ -23,7 +24,7 @@ const filterDefinitions = [
   ['early', 'Early'],
   ['all-day', 'All day'],
   ['vegetarian', 'Vegetarian'],
-  ['vegan', 'Vegan'],
+  ['vegan', 'Vegan option'],
   ['gluten-free', 'GF option'],
   ['drink-included', 'Drink included'],
   ['menu', 'Verified menu'],
@@ -42,6 +43,9 @@ const menuPlaceCount = dublinPlaces.filter(
 const menuItemCount = dublinPlaces.reduce(
   (total, place) => total + (discoveryBySlug.get(place.slug)?.menuItemCount ?? 0),
   0,
+);
+const taxonomyPages = getPublishedTaxonomyPages(places).filter(
+  (page) => page.city.slug === 'dublin',
 );
 const dublinStructuredData = buildDublinStructuredData(dublinPlaces);
 const dublinStructuredDataJson = serializeStructuredData(dublinStructuredData);
@@ -68,6 +72,28 @@ const dublinStructuredDataJson = serializeStructuredData(dublinStructuredData);
         <SearchBox places={dublinPlaces} label="Search Dublin" compact />
       </div>
     </header>
+
+    {
+      taxonomyPages.length > 0 && (
+        <nav class="taxonomy-directory" aria-labelledby="browse-heading">
+          <div class="taxonomy-heading">
+            <p class="eyebrow">Browse by breakfast</p>
+            <h2 id="browse-heading">Start with what matters</h2>
+          </div>
+
+          <ul>
+            {taxonomyPages.map((page) => (
+              <li>
+                <a href={page.href}>
+                  <span>{page.taxonomy.navLabel}</span>
+                  <small>{page.places.length} places</small>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
 
     <section class="controls" aria-label="Breakfast filters">
       <div class="result-bar">
@@ -388,6 +414,55 @@ const dublinStructuredDataJson = serializeStructuredData(dublinStructuredData);
     margin-top: 48px;
   }
 
+  .taxonomy-directory {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    padding: 40px 0;
+    border-top: 1px solid #111;
+  }
+
+  .taxonomy-heading .eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .taxonomy-heading h2 {
+    max-width: 280px;
+    margin: 0;
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .taxonomy-directory ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #111;
+  }
+
+  .taxonomy-directory li {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .taxonomy-directory a {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px 0;
+    text-decoration: none;
+  }
+
+  .taxonomy-directory a:hover span {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .taxonomy-directory small {
+    color: #666;
+    white-space: nowrap;
+  }
+
   .controls {
     border-top: 1px solid #111;
     border-bottom: 1px solid #111;
@@ -544,6 +619,16 @@ const dublinStructuredDataJson = serializeStructuredData(dublinStructuredData);
 
     .city-search {
       margin-top: 36px;
+    }
+
+    .taxonomy-directory {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 32px 0;
+    }
+
+    .taxonomy-heading h2 {
+      max-width: none;
     }
 
     .result-bar {

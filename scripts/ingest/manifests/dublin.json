@@ -268,12 +268,12 @@
       {
         "kind": "menu",
         "url": "https://sophies.ie/menus",
-        "label": "Sophie's current menu hub (menus are embedded)"
+        "label": "Sophie's live menu hub (breakfast embedded in Canva; manual source discovery required)"
       },
       {
         "kind": "hours",
         "url": "https://sophies.ie/locations/dublin",
-        "label": "Sophie's Dublin location and breakfast/brunch hours"
+        "label": "Sophie's Dublin current breakfast and brunch service hours"
       }
     ]
   },
@@ -284,13 +284,13 @@
     "sources": [
       {
         "kind": "menu",
-        "url": "https://mackenziesdublin.ie/wp-content/uploads/2025/10/MACKENZIES_Brunch-Menu_A4_Oct25-2-1.pdf",
-        "label": "Mackenzie's October 2025 brunch PDF (official; verify freshness)"
+        "url": "https://mackenziesdublin.ie/wp-content/uploads/2026/05/MACKENZIES_BrunchA4_May26.pdf",
+        "label": "Mackenzie's current weekend brunch menu"
       },
       {
         "kind": "website",
-        "url": "https://mackenziesdublin.ie/brunch/",
-        "label": "Mackenzie's current brunch page"
+        "url": "https://mackenziesdublin.ie/",
+        "label": "Mackenzie's current venue page and weekend brunch hours"
       }
     ]
   },
@@ -301,13 +301,13 @@
     "sources": [
       {
         "kind": "menu",
-        "url": "https://www.angelinas.ie/deli",
-        "label": "Angelina's Deli current breakfast page"
+        "url": "https://cdn.prod.website-files.com/6a046b844f1308012183430f/6a207724ee94dd8993b72c61_8a152b5dfe52623f4ebd3aa50b25bae9_Angelinas_Deli_Menu.pdf",
+        "label": "Angelina's Deli current menu"
       },
       {
         "kind": "website",
-        "url": "https://www.angelinas.ie/menus",
-        "label": "Angelina's current menu hub"
+        "url": "https://www.angelinas.ie/deli",
+        "label": "Angelina's Deli current breakfast page and hours"
       }
     ]
   },
@@ -317,9 +317,14 @@
     "city": "Dublin",
     "sources": [
       {
+        "kind": "menu",
+        "url": "https://cdn.shopify.com/s/files/1/0984/1062/7407/files/Suffolk_St_Aug_2025_1.pdf?v=1771929230",
+        "label": "Avoca Suffolk Street current all-day brunch menu"
+      },
+      {
         "kind": "website",
         "url": "https://avoca.com/pages/suffolk-street",
-        "label": "Avoca Suffolk Street current cafe page and hours"
+        "label": "Avoca Suffolk Street current cafe page and service hours"
       }
     ]
   },
@@ -332,6 +337,23 @@
         "kind": "menu",
         "url": "https://cornucopia.ie/menu/",
         "label": "Cornucopia current sample morning menu"
+      }
+    ]
+  },
+  {
+    "slug": "gourmet-food-parlour-dun-laoghaire",
+    "name": "Gourmet Food Parlour Dún Laoghaire",
+    "city": "Dublin",
+    "sources": [
+      {
+        "kind": "menu",
+        "url": "https://www.gourmetfoodparlour.com/assets/files/2026/jan/u26-dl-brunch-menu.pdf",
+        "label": "Gourmet Food Parlour Dún Laoghaire current 2026 brunch menu"
+      },
+      {
+        "kind": "website",
+        "url": "https://www.gourmetfoodparlour.com/restaurants/dun-laoghaire",
+        "label": "Gourmet Food Parlour Dún Laoghaire current venue page and brunch hours"
       }
     ]
   },
@@ -387,14 +409,14 @@
     "city": "Dublin",
     "sources": [
       {
-        "kind": "website",
-        "url": "https://www.farmerbrowns.ie/clonskeagh-pub",
-        "label": "Farmer Browns Clonskeagh venue page"
+        "kind": "menu",
+        "url": "https://www.farmerbrowns.ie/_files/ugd/c11a1c_4c3e56b7337e4510aeec1a7ccb9c3156.pdf",
+        "label": "Farmer Browns Clonskeagh current weekend brunch menu"
       },
       {
-        "kind": "menu",
-        "url": "https://www.farmerbrowns.ie/order-online",
-        "label": "Farmer Browns ordering/menu links (indirect; may be sparse)"
+        "kind": "website",
+        "url": "https://www.farmerbrowns.ie/clonskeagh-pub",
+        "label": "Farmer Browns Clonskeagh current venue page"
       }
     ]
   },
@@ -421,9 +443,19 @@
     "city": "Dublin",
     "sources": [
       {
-        "kind": "menu",
+        "kind": "website",
         "url": "https://www.asone.ie/menu",
-        "label": "As One current menu hub (linked menus may require discovery)"
+        "label": "As One current menu hub"
+      },
+      {
+        "kind": "menu",
+        "url": "https://drive.google.com/file/d/13xJPjOBKxCoMamcYIpA8QmLpWMQ9Bf5Y/view?usp=sharing",
+        "label": "As One current weekday menu linked from the official menu hub"
+      },
+      {
+        "kind": "menu",
+        "url": "https://drive.google.com/file/d/1IWvQulKplYcv6OKdbBhJhyaExmypkKKF/view?usp=sharing",
+        "label": "As One current weekend menu linked from the official menu hub"
       }
     ]
   },

@@ -12,6 +12,8 @@ const absoluteAssetUrl = (value: string) =>
     ? value
     : new URL(value, SITE_URL).toString();
 
+const absoluteSiteUrl = (path: string) => new URL(path, SITE_URL).toString();
+
 const schemaTime = (value: string) => `${value}:00`;
 
 export function serializeStructuredData(value: unknown): string {
@@ -169,8 +171,25 @@ export function buildPlaceStructuredData(place: Place) {
   };
 }
 
-export function buildDublinStructuredData(places: readonly Place[]) {
-  const url = `${SITE_URL}/dublin/`;
+interface CollectionStructuredDataOptions {
+  path: string;
+  name: string;
+  description: string;
+  places: readonly Place[];
+  breadcrumbs: readonly {
+    name: string;
+    path: string;
+  }[];
+}
+
+function buildCollectionStructuredData({
+  path,
+  name,
+  description,
+  places,
+  breadcrumbs,
+}: CollectionStructuredDataOptions) {
+  const url = absoluteSiteUrl(path);
 
   return {
     '@context': 'https://schema.org',
@@ -179,8 +198,8 @@ export function buildDublinStructuredData(places: readonly Place[]) {
         '@type': 'CollectionPage',
         '@id': `${url}#page`,
         url,
-        name: 'Breakfast in Dublin',
-        description: 'Breakfast places in Dublin with structured menu, service and dietary information.',
+        name,
+        description,
         mainEntity: {
           '@type': 'ItemList',
           itemListOrder: 'https://schema.org/ItemListUnordered',
@@ -196,21 +215,54 @@ export function buildDublinStructuredData(places: readonly Place[]) {
       {
         '@type': 'BreadcrumbList',
         '@id': `${url}#breadcrumbs`,
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'breakfast.ie',
-            item: `${SITE_URL}/`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Breakfast in Dublin',
-            item: url,
-          },
-        ],
+        itemListElement: breadcrumbs.map((breadcrumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: breadcrumb.name,
+          item: absoluteSiteUrl(breadcrumb.path),
+        })),
       },
     ],
   };
+}
+
+export function buildDublinStructuredData(places: readonly Place[]) {
+  return buildCollectionStructuredData({
+    path: '/dublin/',
+    name: 'Breakfast in Dublin',
+    description: 'Breakfast places in Dublin with structured menu, service and dietary information.',
+    places,
+    breadcrumbs: [
+      { name: 'breakfast.ie', path: '/' },
+      { name: 'Breakfast in Dublin', path: '/dublin/' },
+    ],
+  });
+}
+
+export function buildTaxonomyStructuredData({
+  cityName,
+  cityPath,
+  pageName,
+  path,
+  description,
+  places,
+}: {
+  cityName: string;
+  cityPath: string;
+  pageName: string;
+  path: string;
+  description: string;
+  places: readonly Place[];
+}) {
+  return buildCollectionStructuredData({
+    path,
+    name: pageName,
+    description,
+    places,
+    breadcrumbs: [
+      { name: 'breakfast.ie', path: '/' },
+      { name: `Breakfast in ${cityName}`, path: cityPath },
+      { name: pageName, path },
+    ],
+  });
 }

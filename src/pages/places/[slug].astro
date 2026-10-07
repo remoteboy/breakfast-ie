@@ -17,6 +17,7 @@ import {
   getVenueEnrichmentSources,
 } from '../../lib/enrichment';
 import { buildPlaceStructuredData, serializeStructuredData } from '../../lib/structured-data';
+import { getPublishedTaxonomiesForPlace } from '../../lib/taxonomy';
 
 export function getStaticPaths() {
   return places.map((place) => ({
@@ -36,6 +37,7 @@ const enrichment = getVenueEnrichment(place);
 const coordinates = getEffectiveCoordinates(place);
 const structuredData = buildPlaceStructuredData(place);
 const structuredDataJson = serializeStructuredData(structuredData);
+const taxonomyLinks = getPublishedTaxonomiesForPlace(place, places);
 const breakfastMenu =
   place.slug in breakfastMenus
     ? breakfastMenus[place.slug as BreakfastMenuSlug]
@@ -166,6 +168,25 @@ const facts = [
               </div>
             ))}
           </div>
+        </section>
+      )
+    }
+
+    {
+      taxonomyLinks.length > 0 && (
+        <section class="taxonomy-links">
+          <h2>Explore more</h2>
+
+          <ul>
+            {taxonomyLinks.map((page) => (
+              <li>
+                <a href={page.href}>
+                  <span>{page.taxonomy.label}</span>
+                  <small>{page.places.length} places</small>
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       )
     }
@@ -388,6 +409,35 @@ const facts = [
   .detail-hours {
     display: grid;
     gap: 4px;
+  }
+
+  .taxonomy-links ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #111;
+  }
+
+  .taxonomy-links li {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .taxonomy-links a {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px 0;
+    text-decoration: none;
+  }
+
+  .taxonomy-links a:hover span {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .taxonomy-links small {
+    color: #666;
+    white-space: nowrap;
   }
 
   .sources ul {

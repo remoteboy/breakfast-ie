@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PlaceRow from '../../components/PlaceRow.astro';
+import places from '../../data/places';
+import {
+  cityDefinitions,
+  getPublishedTaxonomyPages,
+  getTaxonomyHref,
+  getTaxonomyPlaces,
+  taxonomyDefinitions,
+} from '../../lib/taxonomy';
+import {
+  buildTaxonomyStructuredData,
+  serializeStructuredData,
+} from '../../lib/structured-data';
+
+export function getStaticPaths() {
+  return getPublishedTaxonomyPages(places).map((page) => ({
+    params: {
+      city: page.city.slug,
+      taxonomy: page.taxonomy.slug,
+    },
+  }));
+}
+
+const city = cityDefinitions.find((candidate) => candidate.slug === Astro.params.city);
+const taxonomy = taxonomyDefinitions.find((candidate) => candidate.slug === Astro.params.taxonomy);
+
+if (!city || !taxonomy) {
+  throw new Error(`Unknown taxonomy route: ${Astro.params.city}/${Astro.params.taxonomy}`);
+}
+
+const matchingPlaces = getTaxonomyPlaces(places, city, taxonomy);
+const href = getTaxonomyHref(city, taxonomy);
+const cityTaxonomyPages = getPublishedTaxonomyPages(places).filter(
+  (candidate) => candidate.city.slug === city.slug && candidate.taxonomy.slug !== taxonomy.slug,
+);
+const structuredData = buildTaxonomyStructuredData({
+  cityName: city.name,
+  cityPath: `/${city.slug}/`,
+  pageName: taxonomy.heading(city),
+  path: href,
+  description: taxonomy.description(city),
+  places: matchingPlaces,
+});
+const structuredDataJson = serializeStructuredData(structuredData);
+---
+
+<BaseLayout
+  title={`${taxonomy.heading(city)} — breakfast.ie`}
+  description={taxonomy.description(city)}
+>
+  <script is:inline type="application/ld+json" set:html={structuredDataJson}></script>
+
+  <div class="taxonomy-page">
+    <a class="back" href={`/${city.slug}/`}>
+      ← Breakfast in {city.name}
+    </a>
+
+    <header class="taxonomy-header">
+      <p class="eyebrow">{city.countryName}</p>
+      <h1>{taxonomy.heading(city)}</h1>
+      <p class="intro">{taxonomy.intro(city)}</p>
+      <p class="dataset-note">
+        {matchingPlaces.length} {matchingPlaces.length === 1 ? 'place' : 'places'} in the current directory
+      </p>
+      <p class="directory-link">
+        <a href={`/${city.slug}/?filter=${taxonomy.filter}`}>Open this filter in the full {city.name} directory →</a>
+      </p>
+    </header>
+
+    <section class="criteria" aria-labelledby="criteria-heading">
+      <h2 id="criteria-heading">How this list works</h2>
+      <p>{taxonomy.criteria()}</p>
+    </section>
+
+    <section class="places" aria-label={taxonomy.heading(city)}>
+      {matchingPlaces.map((place) => <PlaceRow place={place} />)}
+    </section>
+
+    {
+      cityTaxonomyPages.length > 0 && (
+        <nav class="related" aria-labelledby="related-heading">
+          <h2 id="related-heading">More breakfast guides</h2>
+          <ul>
+            {cityTaxonomyPages.map((relatedPage) => (
+              <li>
+                <a href={relatedPage.href}>
+                  <span>{relatedPage.taxonomy.label}</span>
+                  <small>{relatedPage.places.length} places</small>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .taxonomy-page {
+    padding-top: 48px;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: 72px;
+  }
+
+  .taxonomy-header {
+    max-width: 960px;
+    padding-bottom: 72px;
+    border-bottom: 1px solid #111;
+  }
+
+  .eyebrow {
+    margin: 0 0 16px;
+    color: #555;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3.3rem, 8vw, 7.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin: 32px 0 0;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    line-height: 1.4;
+  }
+
+  .dataset-note,
+  .directory-link {
+    margin: 12px 0 0;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .directory-link {
+    margin-top: 18px;
+  }
+
+  .criteria {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    padding: 40px 0;
+    border-bottom: 1px solid #111;
+  }
+
+  .criteria h2,
+  .related h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .criteria p {
+    max-width: 760px;
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .places {
+    padding-bottom: 72px;
+  }
+
+  .related {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    padding: 48px 0 72px;
+    border-top: 1px solid #111;
+  }
+
+  .related ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #111;
+  }
+
+  .related li {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .related a {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px 0;
+    text-decoration: none;
+  }
+
+  .related a:hover span {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .related small {
+    color: #666;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 700px) {
+    .taxonomy-page {
+      padding-top: 32px;
+    }
+
+    .back {
+      margin-bottom: 48px;
+    }
+
+    .taxonomy-header {
+      padding-bottom: 48px;
+    }
+
+    .criteria,
+    .related {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .related a {
+      gap: 16px;
+    }
+  }
+</style>

@@ -793,6 +793,199 @@ export const venueEnrichment = {
       },
     ],
   },
+
+  'sophies-dublin': {
+    checkedAt: '2026-10-06',
+    breakfastHours: [
+      {
+        label: 'Breakfast',
+        days: weekdays,
+        daysLabel: 'Mon–Fri',
+        opens: '07:00',
+        closes: '11:00',
+        sourceUrl: 'https://sophies.ie/locations/dublin',
+      },
+      {
+        label: 'Breakfast',
+        days: weekend,
+        daysLabel: 'Sat–Sun',
+        opens: '08:00',
+        closes: '11:00',
+        sourceUrl: 'https://sophies.ie/locations/dublin',
+      },
+      {
+        label: 'Brunch',
+        days: weekend,
+        daysLabel: 'Sat–Sun',
+        opens: '12:00',
+        closes: '14:30',
+        sourceUrl: 'https://sophies.ie/locations/dublin',
+      },
+    ],
+  },
+
+  'mackenzies': {
+    checkedAt: '2026-10-06',
+    breakfastHours: [
+      {
+        label: 'Brunch',
+        days: ['Saturday'],
+        daysLabel: 'Sat',
+        opens: '10:00',
+        closes: '15:00',
+        sourceUrl: 'https://mackenziesdublin.ie/',
+      },
+      {
+        label: 'Brunch',
+        days: ['Sunday'],
+        daysLabel: 'Sun',
+        opens: '10:00',
+        closes: '17:30',
+        sourceUrl: 'https://mackenziesdublin.ie/',
+      },
+    ],
+  },
+
+  'angelinas-deli': {
+    checkedAt: '2026-10-06',
+    openingHours: [
+      {
+        label: 'Deli open',
+        days: weekdays,
+        daysLabel: 'Mon–Fri',
+        opens: '07:30',
+        closes: '17:00',
+        sourceUrl: 'https://www.angelinas.ie/deli',
+      },
+    ],
+    breakfastHours: [
+      {
+        label: 'Breakfast',
+        days: weekdays,
+        daysLabel: 'Mon–Fri',
+        opens: '07:30',
+        closes: null,
+        sourceUrl: 'https://www.angelinas.ie/deli',
+        note: 'The venue states breakfast is available from 07:30 but does not publish a finish time.',
+      },
+    ],
+  },
+
+  'avoca-suffolk-street': {
+    checkedAt: '2026-10-06',
+    openingHours: [
+      {
+        label: 'Cafe open',
+        days: everyDay,
+        daysLabel: 'Mon–Sun',
+        opens: '09:00',
+        closes: '17:00',
+        sourceUrl: 'https://avoca.com/pages/suffolk-street',
+      },
+    ],
+    breakfastHours: [
+      {
+        label: 'All-day brunch',
+        days: everyDay,
+        daysLabel: 'Mon–Sun',
+        opens: '09:00',
+        closes: '17:00',
+        sourceUrl: 'https://avoca.com/pages/suffolk-street',
+      },
+    ],
+  },
+
+  'cornucopia': {
+    checkedAt: '2026-10-06',
+    openingHours: [
+      {
+        label: 'Open',
+        days: ['Monday', 'Tuesday', 'Wednesday'],
+        daysLabel: 'Mon–Wed',
+        opens: '08:00',
+        closes: '19:30',
+        sourceUrl: 'https://cornucopia.ie/',
+      },
+      {
+        label: 'Open',
+        days: ['Thursday', 'Friday', 'Saturday'],
+        daysLabel: 'Thu–Sat',
+        opens: '08:00',
+        closes: '20:30',
+        sourceUrl: 'https://cornucopia.ie/',
+      },
+      {
+        label: 'Open',
+        days: ['Sunday'],
+        daysLabel: 'Sun',
+        opens: '09:00',
+        closes: '19:30',
+        sourceUrl: 'https://cornucopia.ie/',
+      },
+    ],
+    breakfastHours: [
+      {
+        label: 'Morning menu',
+        days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        daysLabel: 'Mon–Sat',
+        opens: '08:00',
+        closes: '12:00',
+        sourceUrl: 'https://cornucopia.ie/menu/',
+      },
+      {
+        label: 'Morning menu',
+        days: ['Sunday'],
+        daysLabel: 'Sun',
+        opens: '09:00',
+        closes: '12:00',
+        sourceUrl: 'https://cornucopia.ie/menu/',
+        note: 'The morning menu is listed from 08:00, but the venue opens at 09:00 on Sundays.',
+      },
+    ],
+  },
+
+
+  'gourmet-food-parlour-dun-laoghaire': {
+    checkedAt: '2026-10-06',
+    openingHours: [
+      {
+        label: 'Open',
+        days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+        daysLabel: 'Mon–Thu',
+        opens: '09:00',
+        closes: '16:00',
+        sourceUrl: 'https://www.gourmetfoodparlour.com/restaurants/dun-laoghaire',
+      },
+      {
+        label: 'Open',
+        days: ['Friday', 'Saturday'],
+        daysLabel: 'Fri–Sat',
+        opens: '09:00',
+        closes: null,
+        sourceUrl: 'https://www.gourmetfoodparlour.com/restaurants/dun-laoghaire',
+        note: "The venue publishes the closing time as 'Late' rather than an exact time.",
+      },
+      {
+        label: 'Open',
+        days: ['Sunday'],
+        daysLabel: 'Sun',
+        opens: '09:00',
+        closes: '16:00',
+        sourceUrl: 'https://www.gourmetfoodparlour.com/restaurants/dun-laoghaire',
+      },
+    ],
+    breakfastHours: [
+      {
+        label: 'Brunch',
+        days: everyDay,
+        daysLabel: 'Mon–Sun',
+        opens: '09:00',
+        closes: '16:45',
+        sourceUrl: 'https://www.gourmetfoodparlour.com/restaurants/dun-laoghaire',
+      },
+    ],
+  },
+
 } as const satisfies Record<string, VenueEnrichment>;
 
 export type EnrichedVenueSlug = keyof typeof venueEnrichment;

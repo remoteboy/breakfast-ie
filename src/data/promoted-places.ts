@@ -1,6 +1,7 @@
 import type { Place } from '../types/place';
 
 const checkedAt = '2026-10-04';
+const expansionCheckedAt = '2026-10-06';
 
 /**
  * Venue records for promoted breakfast menus that do not yet have a richer,
@@ -815,6 +816,379 @@ const promotedPlaces = [
           url: 'https://www.tang.ie/contact',
           label: 'Tang current Cumberland Place service hours',
           checkedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: "Sophie's Dublin",
+    slug: 'sophies-dublin',
+    location: {
+      area: 'Harcourt Street',
+      locality: 'Dublin 2',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: 'The Dean Dublin Centre, 33 Harcourt Street, Dublin 2',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '07:00',
+      servedUntil: '11:00',
+      allDay: false,
+      fullIrish: null,
+      vegetarian: null,
+      vegan: null,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Rooftop restaurant at The Dean serving weekday and weekend breakfast, with weekend brunch from midday.',
+    },
+    images: [],
+    links: {
+      website: 'https://sophies.ie/locations/dublin',
+      menu: 'https://sophies.ie/menus',
+    },
+    verification: {
+      checkedAt: expansionCheckedAt,
+      sources: [
+        {
+          url: 'https://sophies.ie/menus',
+          label: "Sophie's live menu hub",
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://sophies.ie/locations/dublin',
+          label: "Sophie's Dublin current breakfast and brunch hours",
+          checkedAt: expansionCheckedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: "Mackenzie's",
+    slug: 'mackenzies',
+    location: {
+      area: 'Grand Canal Dock',
+      locality: 'Dublin 2',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: 'Ground Floor Unit, Opus Building, 6 Hanover Quay, Grand Canal Dock, Dublin 2',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '10:00',
+      servedUntil: null,
+      allDay: false,
+      fullIrish: true,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        "Docklands weekend brunch with a Full Irish-style breakfast, vegan breakfast, eggs, pancakes, French toast and chicken and waffles.",
+    },
+    images: [],
+    links: {
+      website: 'https://mackenziesdublin.ie/',
+      menu: 'https://mackenziesdublin.ie/wp-content/uploads/2026/05/MACKENZIES_BrunchA4_May26.pdf',
+    },
+    verification: {
+      checkedAt: expansionCheckedAt,
+      sources: [
+        {
+          url: 'https://mackenziesdublin.ie/wp-content/uploads/2026/05/MACKENZIES_BrunchA4_May26.pdf',
+          label: "Mackenzie's current weekend brunch menu",
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://mackenziesdublin.ie/',
+          label: "Mackenzie's current weekend brunch hours",
+          checkedAt: expansionCheckedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: "Angelina's Deli",
+    slug: 'angelinas-deli',
+    location: {
+      area: 'Percy Place',
+      locality: 'Dublin 4',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '55 Percy Place, Dublin 4, D04 CX38',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '07:30',
+      servedUntil: null,
+      allDay: null,
+      fullIrish: null,
+      vegetarian: null,
+      vegan: null,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        "Weekday Grand Canal deli serving breakfast from 7:30, with overnight oats, bacon baps, smoked salmon bagels and scrambled-egg wraps.",
+    },
+    images: [],
+    links: {
+      website: 'https://www.angelinas.ie/deli',
+      menu: 'https://cdn.prod.website-files.com/6a046b844f1308012183430f/6a207724ee94dd8993b72c61_8a152b5dfe52623f4ebd3aa50b25bae9_Angelinas_Deli_Menu.pdf',
+    },
+    verification: {
+      checkedAt: expansionCheckedAt,
+      sources: [
+        {
+          url: 'https://www.angelinas.ie/deli',
+          label: "Angelina's Deli current breakfast page and hours",
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://cdn.prod.website-files.com/6a046b844f1308012183430f/6a207724ee94dd8993b72c61_8a152b5dfe52623f4ebd3aa50b25bae9_Angelinas_Deli_Menu.pdf',
+          label: "Angelina's Deli current menu",
+          checkedAt: expansionCheckedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Avoca Suffolk Street Cafe',
+    slug: 'avoca-suffolk-street',
+    location: {
+      area: 'Suffolk Street',
+      locality: 'Dublin 2',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '11–13 Suffolk Street, Dublin 2, D02 C653',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '09:00',
+      servedUntil: '17:00',
+      allDay: true,
+      fullIrish: true,
+      vegetarian: null,
+      vegan: null,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        "Top-floor Suffolk Street café serving an all-day brunch menu seven days a week, including The Full Mill, Turkish eggs, porridge and granola.",
+    },
+    images: [],
+    links: {
+      website: 'https://avoca.com/pages/suffolk-street',
+      menu: 'https://cdn.shopify.com/s/files/1/0984/1062/7407/files/Suffolk_St_Aug_2025_1.pdf?v=1771929230',
+    },
+    verification: {
+      checkedAt: expansionCheckedAt,
+      sources: [
+        {
+          url: 'https://avoca.com/pages/suffolk-street',
+          label: 'Avoca Suffolk Street current cafe page and service hours',
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://cdn.shopify.com/s/files/1/0984/1062/7407/files/Suffolk_St_Aug_2025_1.pdf?v=1771929230',
+          label: 'Avoca Suffolk Street current all-day brunch menu',
+          checkedAt: expansionCheckedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Farmer Browns Clonskeagh',
+    slug: 'farmer-browns-clonskeagh',
+    location: {
+      area: 'Clonskeagh',
+      locality: 'Dublin 6',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '68 Clonskeagh Road, Dublin 6, D06 EH93',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: null,
+      servedUntil: null,
+      allDay: null,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: null,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        "Clonskeagh gastropub with a weekend brunch menu spanning avocado toast, Eggs Benedict, a sausage-and-pudding breakfast and French toast.",
+    },
+    images: [],
+    links: {
+      website: 'https://www.farmerbrowns.ie/clonskeagh-pub',
+      menu: 'https://www.farmerbrowns.ie/_files/ugd/c11a1c_4c3e56b7337e4510aeec1a7ccb9c3156.pdf',
+    },
+    verification: {
+      checkedAt: expansionCheckedAt,
+      sources: [
+        {
+          url: 'https://www.farmerbrowns.ie/clonskeagh-pub',
+          label: 'Farmer Browns Clonskeagh current venue page',
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://www.farmerbrowns.ie/_files/ugd/c11a1c_4c3e56b7337e4510aeec1a7ccb9c3156.pdf',
+          label: 'Farmer Browns Clonskeagh current weekend brunch menu',
+          checkedAt: expansionCheckedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'As One',
+    slug: 'as-one',
+    location: {
+      area: 'City Quay',
+      locality: 'Dublin 2',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: 'Unit 3, 13–18 City Quay, Dublin 2',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: null,
+      servedUntil: null,
+      allDay: null,
+      fullIrish: null,
+      vegetarian: null,
+      vegan: null,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'City Quay café focused on seasonal food, speciality coffee and brunch, with separate weekday and weekend menus.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.asone.ie/',
+      menu: 'https://www.asone.ie/menu',
+    },
+    verification: {
+      checkedAt: expansionCheckedAt,
+      sources: [
+        {
+          url: 'https://www.asone.ie/menu',
+          label: 'As One current menu hub',
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://drive.google.com/file/d/13xJPjOBKxCoMamcYIpA8QmLpWMQ9Bf5Y/view?usp=sharing',
+          label: 'As One weekday menu linked from the official menu hub',
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://drive.google.com/file/d/1IWvQulKplYcv6OKdbBhJhyaExmypkKKF/view?usp=sharing',
+          label: 'As One weekend menu linked from the official menu hub',
+          checkedAt: expansionCheckedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Cornucopia',
+    slug: 'cornucopia',
+    location: {
+      area: 'Wicklow Street',
+      locality: 'Dublin 2',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: '19/20 Wicklow Street, Dublin 2',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '08:00',
+      servedUntil: '12:00',
+      allDay: false,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Long-running Wicklow Street vegan restaurant with a dedicated morning menu of tofu scramble, baked beans, breakfast tortilla, granola, overnight oats and açaí bowls.',
+    },
+    images: [],
+    links: {
+      website: 'https://cornucopia.ie/',
+      menu: 'https://cornucopia.ie/menu/',
+    },
+    verification: {
+      checkedAt: expansionCheckedAt,
+      sources: [
+        {
+          url: 'https://cornucopia.ie/menu/',
+          label: 'Cornucopia current morning menu',
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://cornucopia.ie/',
+          label: 'Cornucopia current opening hours and vegan menu information',
+          checkedAt: expansionCheckedAt,
+        },
+      ],
+    },
+  },
+  {
+    name: 'Gourmet Food Parlour Dún Laoghaire',
+    slug: 'gourmet-food-parlour-dun-laoghaire',
+    location: {
+      area: 'Dún Laoghaire',
+      locality: 'Dún Laoghaire',
+      city: 'Dublin',
+      county: 'Dublin',
+      address: 'Unit 3 Harbour Square, Crofton Road, Dún Laoghaire, Co. Dublin, A96 E9P7',
+      latitude: null,
+      longitude: null,
+    },
+    breakfast: {
+      servedFrom: '09:00',
+      servedUntil: '16:45',
+      allDay: false,
+      fullIrish: null,
+      vegetarian: true,
+      vegan: true,
+    },
+    priceLevel: null,
+    editorial: {
+      summary:
+        'Harbour-side Dún Laoghaire restaurant serving brunch every day, with breakfast plates, Benedicts, pancakes, French toast and an explicitly vegan avocado toast.',
+    },
+    images: [],
+    links: {
+      website: 'https://www.gourmetfoodparlour.com/restaurants/dun-laoghaire',
+      menu: 'https://www.gourmetfoodparlour.com/assets/files/2026/jan/u26-dl-brunch-menu.pdf',
+    },
+    verification: {
+      checkedAt: expansionCheckedAt,
+      sources: [
+        {
+          url: 'https://www.gourmetfoodparlour.com/assets/files/2026/jan/u26-dl-brunch-menu.pdf',
+          label: 'Gourmet Food Parlour Dún Laoghaire 2026 brunch menu',
+          checkedAt: expansionCheckedAt,
+        },
+        {
+          url: 'https://www.gourmetfoodparlour.com/restaurants/dun-laoghaire',
+          label: 'Gourmet Food Parlour Dún Laoghaire current venue page and brunch hours',
+          checkedAt: expansionCheckedAt,
         },
       ],
     },

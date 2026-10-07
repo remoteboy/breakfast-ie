@@ -1,6 +1,8 @@
 {
   "beanhive-dawson": {
-    "qualityStatuses": ["review-required"],
+    "qualityStatuses": [
+      "review-required"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "Current first-party Dawson Street menu explicitly separates All-Day Breakfast from generic ciabatta/wrap items. Promote accepted breakfast items only; rejected generic items remain excluded.",
@@ -9,7 +11,9 @@
     ]
   },
   "alma-portobello": {
-    "qualityStatuses": ["review-required"],
+    "qualityStatuses": [
+      "review-required"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "Current first-party menu has explicit BREAKFAST and BRUNCH sections with service times. Promote accepted items only.",
@@ -18,7 +22,9 @@
     ]
   },
   "eathos-baggot-street": {
-    "qualityStatuses": ["review-required"],
+    "qualityStatuses": [
+      "review-required"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "Current first-party menu exposes an itemised Brunch section with prices and 14:30 last orders. Promote accepted items only.",
@@ -27,7 +33,9 @@
     ]
   },
   "ivy-dawson-street": {
-    "qualityStatuses": ["review-required"],
+    "qualityStatuses": [
+      "review-required"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "Current first-party brunch page is itemised and priced. Seasonal and children's sections remain review/rejected; promote accepted core brunch items only.",
@@ -36,7 +44,9 @@
     ]
   },
   "woollen-mills": {
-    "qualityStatuses": ["review-required"],
+    "qualityStatuses": [
+      "review-required"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "Current first-party menus page explicitly lists breakfast and weekend brunch with prices. Promote accepted items only.",
@@ -45,7 +55,9 @@
     ]
   },
   "social-fabric": {
-    "qualityStatuses": ["source-stale"],
+    "qualityStatuses": [
+      "source-stale"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "The current first-party Menu page still links the same Week Menu PDF used by ingestion. Treat the linked PDF as current for this approval window.",
@@ -55,7 +67,9 @@
     ]
   },
   "one-society": {
-    "qualityStatuses": ["source-stale"],
+    "qualityStatuses": [
+      "source-stale"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "The current first-party venue page still links the exact Breakfast, Brunch & Lunch PDF used by ingestion and shows March 2026 menu imagery. Promote accepted brunch items only.",
@@ -65,7 +79,9 @@
     ]
   },
   "tang-abbey-street": {
-    "qualityStatuses": ["source-stale"],
+    "qualityStatuses": [
+      "source-stale"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "The official breakfast PDF remains live on tang.ie and the current contact page confirms Abbey Street breakfast and Saturday brunch service. Promote accepted items only.",
@@ -75,13 +91,81 @@
     ]
   },
   "tang-cumberland-place": {
-    "qualityStatuses": ["source-stale"],
+    "qualityStatuses": [
+      "source-stale"
+    ],
     "approvedAt": "2026-10-04",
     "expiresAt": "2027-01-04",
     "note": "The official breakfast PDF remains live on tang.ie and the current contact page confirms Cumberland Place breakfast and Saturday brunch service. Promote accepted items only.",
     "sourceUrls": [
       "https://www.tang.ie/s/Tang_Mid-Week-Breakfast-Menu_Abbey-Cumberland.pdf",
       "https://www.tang.ie/contact"
+    ]
+  },
+  "mackenzies": {
+    "qualityStatuses": [
+      "review-required",
+      "source-stale"
+    ],
+    "approvedAt": "2026-10-06",
+    "expiresAt": "2027-01-04",
+    "note": "The current first-party site links a 2026 weekend brunch menu and publishes Saturday/Sunday brunch hours. Promote accepted brunch items only.",
+    "sourceUrls": [
+      "https://mackenziesdublin.ie/wp-content/uploads/2026/05/MACKENZIES_BrunchA4_May26.pdf",
+      "https://mackenziesdublin.ie/"
+    ]
+  },
+  "angelinas-deli": {
+    "qualityStatuses": [
+      "review-required",
+      "source-stale"
+    ],
+    "approvedAt": "2026-10-06",
+    "expiresAt": "2027-01-04",
+    "note": "The current first-party Deli page links the menu and explicitly describes weekday breakfast from 07:30. Promote accepted breakfast items only.",
+    "sourceUrls": [
+      "https://cdn.prod.website-files.com/6a046b844f1308012183430f/6a207724ee94dd8993b72c61_8a152b5dfe52623f4ebd3aa50b25bae9_Angelinas_Deli_Menu.pdf",
+      "https://www.angelinas.ie/deli"
+    ]
+  },
+  "avoca-suffolk-street": {
+    "qualityStatuses": [
+      "review-required",
+      "source-stale"
+    ],
+    "approvedAt": "2026-10-06",
+    "expiresAt": "2027-01-04",
+    "note": "Avoca's current Suffolk Street page links this menu and states that the cafe serves the all-day brunch menu seven days a week from 09:00 to 17:00. Promote accepted brunch items only.",
+    "sourceUrls": [
+      "https://cdn.shopify.com/s/files/1/0984/1062/7407/files/Suffolk_St_Aug_2025_1.pdf?v=1771929230",
+      "https://avoca.com/pages/suffolk-street"
+    ]
+  },
+  "farmer-browns-clonskeagh": {
+    "qualityStatuses": [
+      "review-required",
+      "source-stale"
+    ],
+    "approvedAt": "2026-10-06",
+    "expiresAt": "2027-01-04",
+    "note": "The current first-party Clonskeagh venue page links the official weekend brunch PDF. Promote accepted brunch items only; generic mains and sides remain subject to the normal item gate.",
+    "sourceUrls": [
+      "https://www.farmerbrowns.ie/_files/ugd/c11a1c_4c3e56b7337e4510aeec1a7ccb9c3156.pdf",
+      "https://www.farmerbrowns.ie/clonskeagh-pub"
+    ]
+  },
+  "as-one": {
+    "qualityStatuses": [
+      "review-required",
+      "source-stale"
+    ],
+    "approvedAt": "2026-10-06",
+    "expiresAt": "2027-01-04",
+    "note": "The current first-party As One menu hub links the weekday and weekend PDF menus. Promote accepted breakfast/brunch items only.",
+    "sourceUrls": [
+      "https://www.asone.ie/menu",
+      "https://drive.google.com/file/d/13xJPjOBKxCoMamcYIpA8QmLpWMQ9Bf5Y/view?usp=sharing",
+      "https://drive.google.com/file/d/1IWvQulKplYcv6OKdbBhJhyaExmypkKKF/view?usp=sharing"
     ]
   }
 }
